@@ -2,8 +2,18 @@
     pageEncoding="UTF-8"%>
 
 <section class="content">
-	<div style="background-color: red; height: 500px;">
-		사진
+
+	<div class="main_content" style="background-color: red; ">
+		<div class="img_section" >
+			<img alt="bibaboo_main_image" src="/bibaboo/img/bibaboo.gif" >
+		</div>
+		<div class="phrase_section">
+			<h2>옷장속에 잠들어 있는 오래된 옷들!</h2>
+			<br>
+			<h2>사이즈가 맞지 않아 한번도 입지 않은 새 옷들!</h2>
+			<br>
+			<h2>모두 BIbidi Babidi BOO!</h2>
+		</div>
 	</div>
 	
 	<div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">

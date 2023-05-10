@@ -1,5 +1,26 @@
 @charset "UTF-8";
 
+.main_content{
+	background: linear-gradient(to top, #999ECB, #376B97, #020D42, #01011D); 
+	
+	display: flex;
+	align-items : center;
+	justify-content: space-between;
+}
+
+.img_section{
+	width:55%;
+}
+
+.phrase_section{
+	margin-right : 30px;
+	text-align: right;
+}
+
+.phrase_section h2{
+	color:white;
+}
+
 .content > nav > section{
 	display: flex;
 }
