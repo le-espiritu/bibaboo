@@ -15,21 +15,10 @@
 	
 		<div class="wrap">
 			
-			<header>
-				<h1>BI BA BOO!</h1>
-				
-				<nav>
-					<ul>
-						<li><a href="#">수선집 검색</a></li>
-						<li><a href="#">수선 신청</a></li>
-					</ul>
-
-					<ul>
-						<li><a href="#">로그인</a></li>
-					</ul>
-				</nav>
-			</header>
+			<!-- header -->
 			
+			
+			<!-- body -->
 			<section>
 				<section class="content">
 					<div style="background-color: red; height: 500px;">
@@ -50,44 +39,44 @@
 					<div style="margin-top: 15px; padding-botoom: 15px; background-color: #020D42">
 					
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 						
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 						
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 						
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 						
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 						
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 						
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 						
 						<div class="tob-box"> 
-							<a href="/webproject/shop/shop_top5.do?category=pants"><p>바지수선 TOP5</p> </a>
+							<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
 						</div>
 					</div>
 					
 				</section>
 			</section>
 			
-			<footer>
-				<span>bibaboo@bibaboo.com</span>
-			</footer>
+			
+			<!-- footer -->
+			
 			
 		</div>
 	

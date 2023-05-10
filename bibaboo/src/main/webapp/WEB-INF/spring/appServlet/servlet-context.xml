@@ -36,4 +36,14 @@
 	    <beans:property name="order" value="2"/> <!-- 타일즈뷰리졸버보다 우선순위가 뒤임 -->
 	</beans:bean>
 	
+	<!-- tiles프레임워크 기반으로 뷰를 만들 수 있도록 뷰리졸버 등록  -->
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+		<beans:property name="order" value="1"/> <!-- 인터널리소스뷰리졸버 보다 우선순위가 빠름 -->
+	</beans:bean>
+	<!-- TilesConfigurer를 빈으로 등록하고 tiles 설정파일을 읽음 -->
+	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions" value="/WEB-INF/spring/tiles.xml"/>
+	</beans:bean>
+	
 </beans:beans>
