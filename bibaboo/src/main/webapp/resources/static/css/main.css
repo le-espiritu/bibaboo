@@ -17,8 +17,36 @@
 	text-align: right;
 }
 
-.phrase_section h2{
+.phrase_section p{
 	color:white;
+	font-size: 1.4em;
+}
+
+.content > div:nth-child(2){
+	text-align: center;
+	margin: 20px 0;
+}
+
+.content > div:nth-child(3){
+	text-align: center;
+}
+
+.content > div:nth-child(3)>form>input:nth-child(1){
+	height: 40px;
+	width: 35%; 
+	text-align: center; 
+	color : gray;
+}
+
+.content > div:nth-child(3)>form>input:nth-child(2){
+	height: 40px;
+	width: 10%; 
+}
+
+
+.content > nav{
+	margin-top: 20px;
+	background-color: #020D42;
 }
 
 .content > nav > section{
