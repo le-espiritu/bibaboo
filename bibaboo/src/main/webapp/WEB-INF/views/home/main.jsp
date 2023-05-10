@@ -17,39 +17,42 @@
 		</form>
 	</div>
 	
-	<div style="margin-top: 15px; padding-botoom: 15px; background-color: #020D42">
-	
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
+	<nav style="margin-top: 15px; background-color: #020D42">
+		<section>
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+			
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+			
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+			
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+		</section>
 		
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
-		
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
-		
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
-		
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
-		
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
-		
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
-		
-		<div class="tob-box"> 
-			<a href="/webproject/shop/shop_top5.do?category=pants">바지수선 TOP5 </a>
-		</div>
-	</div>
+		<section>
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+			
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+			
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+			
+			<div class="tob-box"> 
+				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+			</div>
+		</section>
+	</nav>
 	
 </section>

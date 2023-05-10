@@ -1,14 +1,12 @@
 @charset "UTF-8";
 
-.tob-box a {
-    display: inline-block;
-  	margin-top: 70px;
-  	color: white;
-  	font-size: 40pt;
+.content > nav > section{
+	display: flex;
 }
 
 .tob-box{
 	height: 300px;
+	width: 25%;
 	/* background-color: #22507f; */
 	/* background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec); */
 	background: linear-gradient(90deg, #81ecec,#6c5ce7, #020D42, #020D42, #020D42);
@@ -16,15 +14,22 @@
 	background-size: 200%;
 	cursor:pointer;
 	transition: 0.4s;
-	margin-top : 20px;
 	text-align: center;
 	/* border: 7px solid yellow; */
-	border-radius: 2em; 
+	border-radius: 2em;
+	
+	display: flex; 
+	align-items : center;
+}
+
+.tob-box a {
+  	color: white;
+  	font-size: 35pt;
+  	margin: auto;
 }
 	
 .tob-box:hover {
-		 background-position: left;
-		 /* border: 10px solid #67930F; */
-		 width:100%;
+	 background-position: left;
+	 /* border: 10px solid #67930F; */
+	 
 }
-/* ======top5 박스들 css========= */
