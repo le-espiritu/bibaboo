@@ -10,5 +10,10 @@ public class UrlTextController {
 	public String list() {
 		return"alter/alter-list";
 	}
+	
+	@GetMapping("/alterDetail")
+	public String detail() {
+		return"alter/alter-detail";
+	}
 
 }
