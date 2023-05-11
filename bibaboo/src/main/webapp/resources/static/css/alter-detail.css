@@ -174,8 +174,45 @@
 	margin-top: 25px;
 }
 
-.review{
-	width: 100%;
-	display: flex;
-	padding:2% 0px;
+.review > table{
+	width:100%;
+	border-collapse : collapse ;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+.review > table >thead{
+	background-color: #eee;
+}
+
+
+.review > table >thead>tr>th{
+	padding : 1% 0px;
+}
+
+
+.review > table > tbody> tr{
+	border-top: 2px solid gray;
+}
+
+.review > table > tbody> tr >td{
+	padding : 2% 0;
+	text-align: center;
+}
+
+.review > table > tbody> tr >td:nth-child(1){
+	width:7%;
+}
+.review > table > tbody> tr >td:nth-child(2){
+	width:10%;
+}
+.review > table > tbody> tr >td:nth-child(3){
+	width:48%;
+	text-align: left;
+}
+.review > table > tbody> tr >td:nth-child(4){
+	width:20%;
+}
+.review > table > tbody> tr >td:nth-child(5){
+	width:15%;
 }

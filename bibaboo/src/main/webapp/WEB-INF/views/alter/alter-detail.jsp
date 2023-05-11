@@ -93,22 +93,30 @@
 				</div>
 			</div>
 			
-			<hr>
 			<div class ="review">
-				<div style="width:10%; text-align: center"> 점 </div>
-				<div style="width:55%">좋아요</div>
-				<%-- <div style="width:20%; text-align: right;">아이디 : <%=review.getId() %> </div> --%>
-				<div style="width:20%; text-align: right;">익명의 신데렐라 </div>
-				<div style="width:15%; text-align: right;">작성일 </div>
+				<table>
+					<thead>
+						<tr>
+							<th>no</th>
+							<th>별점</th>
+							<th>리뷰</th>
+							<th>작성자</th>
+							<th>작성일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>5점</td>
+							<td>좋아요</td>
+							<td>신데렐라</td>
+							<td>작성일</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-			<hr>
-			
 		</section>
-		
 		
 	</div>
 	
-	
-	
-
 </section>
