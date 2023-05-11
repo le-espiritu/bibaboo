@@ -18,17 +18,164 @@
 	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
 	
+}
+
+.card > .infor{
+	width:100%;
 	overflow:auto;
 }
 
-.alter_img , .alter_detail{
+.alter-img , .alter-detail{
 	border: 5px solid transparent;
     border-radius: 15px;
     background-image: linear-gradient(white, white), 
     linear-gradient(to right, #e66465, #9198e5);
     background-origin: border-box;
     background-clip: content-box, border-box;
-    height:370px;
+    height:320px;
     
     float: left;
+}
+
+.alter-img{
+	width:30%;
+}
+
+.alter-img > img{
+	height: 70%;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.alter-img > div {
+	height: 30%;
+	display: flex;
+	align-items: center;
+}
+
+.alter-img > div > p {
+	margin: auto;
+}
+
+.alter-detail{
+	width:68%;
+	margin-left:2%;
+	display: flex;
+	align-items: center;
+}
+
+.alter-detail>div{
+	width:100%;
+}
+
+.alter-detail>div>p{
+	text-align: center;
+}
+
+.alter-detail>div>div{
+	width:80%;
+	margin-left:auto; 
+	margin-right:auto;
+	margin-top: 50px;
+}
+
+.write-box{
+	border : 5px solid #D2D2D2; 
+	border-radius: 15px;  
+	width:100%;  
+	margin-top: 15px; 
+	padding: 50px 30px;
+}
+
+.write-box > form > div:first-of-type{
+	display: flex;
+	margin-top: 30px;
+}
+
+.write-box > form > div>select{
+	width:12%;
+	margin-right: 2%;
+}
+
+.write-box > form > div:last-of-type{
+	text-align: right;
+}
+
+.write-box > form > div:last-of-type > input{
+	width: 15%;
+	height: 35px;
+}
+
+
+/* ===별점 css=== */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: right;
+  width: 5em;
+}
+ 
+.star-rating input {
+  display: none;
+}
+ 
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+}
+
+
+.star-ratings {
+	  color: #aaa9a9; 
+	  position: relative;
+	  unicode-bidi: bidi-override;
+	  width: max-content;
+	  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+	  -webkit-text-stroke-width: 1.3px;
+	  -webkit-text-stroke-color: #2b2a29;
+	}
+	 
+.star-ratings-fill {
+  color: #fff58c;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-ratings-base {
+  z-index: 0;
+  padding: 0;
+}
+
+
+
+.review-list > div:first-of-type{
+	text-align: center;
+	margin-top: 25px;
+}
+
+.review{
+	width: 100%;
+	display: flex;
+	padding:2% 0px;
 }
