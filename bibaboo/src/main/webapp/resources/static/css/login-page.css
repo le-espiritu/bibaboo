@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.content{
+	overflow:auto; /* 자식의 margin이 부모의 margin에 영향을 끼치는 margin-collapse현상을 방지하기 위함 */ 
+	background: linear-gradient(120deg, #81ecec,#6c5ce7, #020D42);
+}
+
+.login-card{
+	width: 35%;
+	padding: 32px; 
+	margin: 100px auto;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+	overflow:auto;
+}
+
+.login-card > form {
+	text-align: center;
+}
+
+.login-card >form > div{
+	width:80%;
+	padding: 10px 10px;
+	margin: 0 auto;
+}
+
+.idForm{
+  border-bottom: 2px solid #adadad;
+  
+}
+
+.login-card > form input{
+	height:30px;
+	width:100%;
+	margin: 7px 0;
+	
+}
+
+
+.btn {
+  position:relative;
+  left:40%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:80%;
+  height:40px;
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+}
+
+.btn:hover {
+  background-position: right;
+  
+}
+.bottom-text {
+  text-align: center;
+}

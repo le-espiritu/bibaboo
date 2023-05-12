@@ -30,5 +30,10 @@ public class UrlTextController {
 	public String noResult() {
 		return"error/no-result";
 	}
+	
+	@GetMapping("/loginPage")
+	public String loginPage() {
+		return"user/login-page";
+	}
 
 }
