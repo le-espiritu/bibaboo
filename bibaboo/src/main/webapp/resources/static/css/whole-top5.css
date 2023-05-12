@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+.content{
+	overflow:auto; /* 자식의 margin이 부모의 margin에 영향을 끼치는 margin-collapse현상을 방지하기 위함 */ 
+	background: linear-gradient(120deg, #81ecec,#6c5ce7, #020D42);
+}
+
+.area-search{
+	margin-top: 50px;
+	text-align: center;
+}
+
+.area-search > div:nth-child(1)>p{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.area-search > div:nth-child(2){
+	margin-top: 10px;
+}
+
+.area-search > div:nth-child(2) > form > input:nth-child(2){
+	height: 40px;
+	width: 35%;
+	
+	text-align: center;
+	color: gray;
+}
+
+.area-search > div:nth-child(2) > form > input:nth-child(3){
+	height: 40px;
+	width: 7%;
+}
+
+
+.card{
+	width: 80%;
+	padding: 32px; 
+	margin: 50px auto;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+}
+
+.title{
+	
+	text-align: center;
+}
+
+.title > p{
+	font-size: 35px;
+}
+
+.tops{
+	height:250px;
+	width:100%;
+	
+	margin-top: 32px;
+	
+	border: 5px solid transparent;
+    border-radius: 15px;
+    background-image: linear-gradient(white, white), 
+    linear-gradient(to right, #e66465, #9198e5);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    
+    display: flex;
+}
+
+.tops > div:first-child {
+	width:30%;
+}
+
+.tops > div:first-child img{
+	height: 100%;
+	
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.tops > div:last-child{
+	width:70%;
+	
+	display: flex;
+	align-items: center;
+}
+
+.tops > div:last-child > div{
+	width:100%;
+	text-align: center;
+}

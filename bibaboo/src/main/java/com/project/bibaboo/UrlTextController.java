@@ -17,8 +17,13 @@ public class UrlTextController {
 	}
 	
 	@GetMapping("/areaTop5")
-	public String top5() {
+	public String areaTop5() {
 		return"alter/area-top5";
+	}
+	
+	@GetMapping("/top5")
+	public String top5() {
+		return"alter/whole-top5";
 	}
 
 }
