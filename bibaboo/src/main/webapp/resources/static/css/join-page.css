@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+.content{
+	overflow:auto; /* 자식의 margin이 부모의 margin에 영향을 끼치는 margin-collapse현상을 방지하기 위함 */ 
+	background: linear-gradient(120deg, #81ecec,#6c5ce7, #020D42);
+}
+
+.join-card{
+	width: 35%;
+	padding: 32px; 
+	margin: 100px auto;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+	overflow:auto;
+}
+
+.join-card >form >h4 {
+	text-align: center;
+	margin-bottom: 7%;
+}
+
+.join-card > form > div{
+	margin: 2% 0;
+}
+
+.join-card > form >div:not(:last-of-type){
+	display: flex;
+	justify-content: space-between;
+}
+
+.join-card > form > div:not(:last-of-type) > label{
+	width: 30%;
+}
+
+.join-card > form > div:not(:last-of-type) input{
+	width: 70%;
+}
+
+.join-card > form >div:last-of-type{
+	text-align: right;
+}
+
+.join-card > form > hr {
+	margin: 5% 0;
+}
+
+.btn {
+  position:relative;
+  left:50%;
+  transform: translateX(-50%);
+  width:100%;
+  height:40px;
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+}
+		
+.btn:hover {
+  background-position: right;
+  }

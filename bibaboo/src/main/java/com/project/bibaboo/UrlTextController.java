@@ -35,5 +35,10 @@ public class UrlTextController {
 	public String loginPage() {
 		return"user/login-page";
 	}
+	
+	@GetMapping("/joinPage")
+	public String joinPage() {
+		return"user/join-page";
+	}
 
 }
