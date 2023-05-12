@@ -36,6 +36,7 @@
 }
 
 .join-card > form > div:not(:last-of-type) > label{
+	height:30px;
 	width: 30%;
 }
 

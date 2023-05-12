@@ -33,12 +33,17 @@ public class UrlTextController {
 	
 	@GetMapping("/loginPage")
 	public String loginPage() {
-		return"user/login-page";
+		return"member/login-page";
 	}
 	
 	@GetMapping("/joinPage")
 	public String joinPage() {
-		return"user/join-page";
+		return"member/join-page";
+	}
+	
+	@GetMapping("/404")
+	public String notFound() {
+		return"error/404-custom";
 	}
 
 }
