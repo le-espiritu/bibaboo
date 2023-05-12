@@ -6,7 +6,7 @@
 	<div class="join-card">
 
 		<form action="/webproject/menu/join.do" method="POST" >
-			<h4>회원가입</h4> 
+			<h2>회원가입</h2> 
 			
 			<div> 
 				<label>이름</label> 

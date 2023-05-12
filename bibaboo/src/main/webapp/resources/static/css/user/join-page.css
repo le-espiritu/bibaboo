@@ -21,7 +21,7 @@
 	overflow:auto;
 }
 
-.join-card >form >h4 {
+.join-card >form >h2 {
 	text-align: center;
 	margin-bottom: 7%;
 }
@@ -40,6 +40,7 @@
 }
 
 .join-card > form > div:not(:last-of-type) input{
+	height:30px;
 	width: 70%;
 }
 
