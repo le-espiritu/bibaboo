@@ -25,5 +25,10 @@ public class UrlTextController {
 	public String top5() {
 		return"alter/whole-top5";
 	}
+	
+	@GetMapping("/noResult")
+	public String noResult() {
+		return"error/no-result";
+	}
 
 }
