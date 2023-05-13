@@ -20,20 +20,18 @@
 	
 }
 
-.title{
-	
-	text-align: center;
-}
-
-.title > p{
+.card:first-of-type > p{
 	font-size: 35px;
+	font-weight : bold;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .tops{
 	height:250px;
 	width:100%;
 	
-	margin-top: 32px;
+	margin: 20px 0;
 	
 	border: 5px solid transparent;
     border-radius: 15px;
@@ -46,7 +44,7 @@
 }
 
 .tops > div:first-child {
-	width:30%;
+	width:35%;
 }
 
 .tops > div:first-child img{
@@ -57,7 +55,7 @@
 }
 
 .tops > div:last-child{
-	width:70%;
+	width:65%;
 	
 	display: flex;
 	align-items: center;
@@ -66,4 +64,8 @@
 .tops > div:last-child > div{
 	width:100%;
 	text-align: center;
+}
+
+.tops > div:last-child > div > div:last-of-type{
+	margin-top: 30px;
 }

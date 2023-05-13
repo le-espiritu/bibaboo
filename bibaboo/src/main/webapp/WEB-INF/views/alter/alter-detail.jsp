@@ -15,7 +15,7 @@
 				
 			<div class="alter-detail">
 				<div>
-					<p>스토어 정보</p>
+					<p>수선집 정보</p>
 					<div>
 						<p>상호:</p>
 						<p>주소:</p>
@@ -27,6 +27,11 @@
 			</div>
 		</section>
 		
+		<section class="order">
+			<button class="btn">
+				<p>수선 신청 하기</p>
+			</button>
+		</section>
 		
 		<section class="write-box" >
 			<h3>소중한 이용후기를 남겨주세요:)</h3>

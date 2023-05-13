@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class UrlTextController {
+public class UrlTestController {
 	
 	@GetMapping("/alterList")
 	public String list() {
@@ -44,6 +44,16 @@ public class UrlTextController {
 	@GetMapping("/404")
 	public String notFound() {
 		return"error/404-custom";
+	}
+	
+	@GetMapping("/register")
+	public String register() {
+		return"alter/alter-register";
+	}
+	
+	@GetMapping("/order")
+	public String order() {
+		return"order/order-page";
 	}
 
 }
