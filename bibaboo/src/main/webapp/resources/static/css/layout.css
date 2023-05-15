@@ -51,10 +51,16 @@ header>nav{
 	justify-content: space-between;
 }
 
-header>nav>ul:first-child{
-	width:40%;
+header>nav>ul{
 	display:flex;
-	justify-content:space-between;
+}
+
+header>nav>ul:first-child >li{
+	margin-right: 15px;
+}
+
+header>nav>ul:last-child>li{
+	margin-left: 15px
 }
 
 footer{

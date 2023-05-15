@@ -10,6 +10,7 @@
 		<title> <tiles:insertAttribute name="title"/> </title>
 		
 		<link rel="stylesheet" href="/bibaboo/css/layout.css">
+		<link rel="stylesheet" href="/bibaboo/css/admin-aside.css">
 		<link rel="stylesheet" href="/bibaboo<tiles:getAsString name="body-css"/>" >
 		
 	</head>
@@ -20,7 +21,8 @@
 			<!-- header -->
 			<tiles:insertAttribute name="header"/>
 			
-			
+			<!-- aside -->
+			<tiles:insertAttribute name="aside"/>
 			
 			<!-- body -->
 			<section>

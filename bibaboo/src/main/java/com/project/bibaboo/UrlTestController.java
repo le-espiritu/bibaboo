@@ -55,5 +55,15 @@ public class UrlTestController {
 	public String order() {
 		return"order/order-page";
 	}
+	
+	@GetMapping("/adminPage")
+	public String adminPage() {
+		return"admin/admin-main";
+	}
+	
+	@GetMapping("/adminRegister")
+	public String adminRegister() {
+		return"admin/admin-register";
+	}
 
 }

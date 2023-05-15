@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.title-card > p{
+	font-size: 25px;
+	font-weight : bold;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.register-card, .title-card{
+	width: 98%;
+	padding: 30px 50px;
+	margin-left:2%;
+	
+	border: 2px solid #d1d1d1;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+	overflow:auto;
+}
+
+.register-card{
+	margin-top: 2%;
+}
+
+.register-card >form >h3 {
+	text-align: center;
+	margin-bottom: 7%;
+}
+
+.register-card > form >div{
+	margin: 2% 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.register-card > form > div > label{
+	height:30px;
+	width: 30%;
+}
+
+.register-card > form > div input{
+	height:30px;
+	width: 70%;
+}
+
+
+
+.btn {
+  position:relative;
+  left:50%;
+  transform: translateX(-50%);
+  width:100%;
+  height:40px;
+  background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+  background-position: left;
+  background-size: 200%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  
+  margin-top: 3%;
+}
+		
+.btn:hover {
+  background-position: right;
+  }
