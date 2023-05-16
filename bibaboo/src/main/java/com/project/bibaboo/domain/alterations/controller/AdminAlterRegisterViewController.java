@@ -1,4 +1,4 @@
-package com.project.bibaboo.domain.alterations;
+package com.project.bibaboo.domain.alterations.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -16,21 +16,25 @@
 		</div>
 	</div>
 	
-	<div>
-		<h2>지금 근처의 가장 솜씨 좋은 수선집을 한눈에 확인하세요!</h2>
-	</div>
 	
-	<div>
-		<form action="/webproject/map/area_list.do" method="post">
-			<input type="text"  name="area" placeholder="주소로 검색하세요" onfocus="this.value=''" >
-			<input type="submit" value="검색" >
-		</form>
-	</div>
+	<section>
+		<div>
+			<h2>지금 근처의 가장 솜씨 좋은 수선집을 한눈에 확인하세요!</h2>
+		</div>
+		
+		<div>
+			<form action="/webproject/map/area_list.do" method="post">
+				<input type="text"  name="area" placeholder="주소로 검색하세요" onfocus="this.value=''" >
+				<input type="submit" value="검색" >
+			</form>
+		</div>
+	</section>
+	
 	
 	<nav>
 		<section>
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/webproject/shop/shop_top5.do?category=pants">전국<br>바지수선<br>TOP5 </a>
 			</div>
 			
 			<div class="tob-box"> 

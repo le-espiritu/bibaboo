@@ -7,12 +7,12 @@
 
 <div class="register-card">
 	
-	<form action="/webproject/menu/join.do" method="POST" >
+	<form action="/bibaboo/alterations" method="POST" >
 		<h3>등록할 수선집 정보를 입력해주세요.</h3> 
 		
 		<div> 
 			<label>상호명</label> 
-			<input type="text" name="alterName" placeholder="수선집 상호명" required> 
+			<input type="text" name="name" placeholder="수선집 상호명" required> 
 		</div> 
 			
 		<div> 

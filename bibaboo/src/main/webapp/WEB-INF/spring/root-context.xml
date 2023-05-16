@@ -26,4 +26,36 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
+	<!--dataSource 빈 등록 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/bibaboodb"></property>
+		<property name="username" value="bibaboouser"></property>
+		<property name="password" value="bibaboo123!@#"></property>
+		
+		<property name="maxTotal" value="20"></property> <!-- maxTotal : 유지할 Connection Pool의 최대 크기 -->
+		<property name="maxIdle" value="10"></property> <!-- maxIdle : 유지할 Connection Pool 내부의 유휴 연결 개수 -->
+		<property name="maxWaitMillis" value="3000"></property> <!-- maxWaitMillis : Connection Pool의 모든 연결이 사용중일 때의 대기시간(ms) -->
+	</bean>
+	
+	<!-- transactionManager(트랜잭션 관리 객체) 빈 등록 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- @Transactional 어노테이션 처리 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- spring에서 MyBatis의 핵심클래스인 SqlSession사용할 수 있도록 하기 위해서 등록  
+	        SqlSession객체를 만들어서 리턴하는 Factory객체  -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
+	</bean>
+	
+	<!-- MyBatis에서 sql문을 처리하기 위한 핵심 클래스 (SqlSessionTemplate객체) 생성-->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+	
 </beans>

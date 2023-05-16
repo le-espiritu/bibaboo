@@ -22,23 +22,26 @@
 	font-size: 1.4em;
 }
 
-.content > div:nth-child(2){
-	text-align: center;
-	margin: 20px 0;
+.content > section{
+	margin: 50px 0;	
 }
 
-.content > div:nth-child(3){
+.content > section >div {
 	text-align: center;
 }
 
-.content > div:nth-child(3)>form>input:nth-child(1){
+.content > section >div:first-child {
+	margin-bottom: 20px;
+}
+
+.content >section> div:nth-child(2)>form>input:nth-child(1){
 	height: 40px;
 	width: 35%; 
 	text-align: center; 
 	color : gray;
 }
 
-.content > div:nth-child(3)>form>input:nth-child(2){
+.content > section> div:nth-child(2)>form>input:nth-child(2){
 	height: 40px;
 	width: 10%; 
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+
+	<settings>
+		<!-- 카멜표기법 설정 -->
+	    <setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<!-- dto 클래스에 alias를 붙여 키값처럼 사용하기 위해 명시 . -->
+	<typeAliases>
+		<typeAlias type="com.project.bibaboo.domain.alterations.dto.AlterationsDto" alias="alterationsDto"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="com/project/bibaboo/domain/alterations/mapper/alterationsMapper.xml"/>
+	</mappers>
+
+</configuration>
