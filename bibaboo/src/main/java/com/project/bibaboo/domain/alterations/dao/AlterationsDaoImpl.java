@@ -21,4 +21,10 @@ public class AlterationsDaoImpl implements AlterationsDao {
 
   }
 
+  @Override
+  public void photoNameInsert(String photoName) {
+    // TODO Auto-generated method stub
+    
+  }
+
 }
