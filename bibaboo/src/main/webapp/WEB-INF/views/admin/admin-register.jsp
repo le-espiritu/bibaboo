@@ -35,6 +35,11 @@
 			<input type="time" name="closeTime" required>
 		</div> 
 		
+		<div>
+			<label>대표 사진</label>
+			<input type="file" name="photo" required>
+		</div> 
+		
 		<button class="btn" type="submit">등록 하기</button>
 	</form>
 	

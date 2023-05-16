@@ -10,7 +10,7 @@
 		</ul>
 
 		<ul>
-			<li><a href="/bibaboo/adminPage">관리자 페이지</a></li>
+			<li><a href="/bibaboo/admin">관리자 페이지</a></li>
 			<li><a href="#">로그인</a></li>
 		</ul>
 	</nav>
