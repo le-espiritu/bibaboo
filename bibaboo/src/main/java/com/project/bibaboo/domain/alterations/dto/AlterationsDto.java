@@ -1,5 +1,7 @@
 package com.project.bibaboo.domain.alterations.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class AlterationsDto {
 
   private Integer id;
@@ -10,6 +12,15 @@ public class AlterationsDto {
   private String openTime;
   private String closeTime;
   private float avgScore;
+  private MultipartFile file;
+
+  public MultipartFile getFile() {
+    return file;
+  }
+
+  public void setFile(MultipartFile file) {
+    this.file = file;
+  }
 
   public Integer getId() {
     return id;
@@ -79,7 +90,7 @@ public class AlterationsDto {
   public String toString() {
     return "AlterationsDto [id=" + id + ", userId=" + userId + ", name=" + name + ", address="
         + address + ", telNumber=" + telNumber + ", openTime=" + openTime + ", closeTime="
-        + closeTime + ", avgScore=" + avgScore + "]";
+        + closeTime + ", avgScore=" + avgScore + ", file=" + file + "]";
   }
 
 }

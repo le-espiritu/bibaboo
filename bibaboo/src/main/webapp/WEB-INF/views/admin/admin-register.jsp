@@ -7,7 +7,8 @@
 
 <div class="register-card">
 	
-	<form action="/bibaboo/alterations" method="POST" >
+	<form action="/bibaboo/alterations" method="POST" enctype="multipart/form-data">
+	<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
 		<h3>등록할 수선집 정보를 입력해주세요.</h3> 
 		
 		<div> 
@@ -37,7 +38,7 @@
 		
 		<div>
 			<label>대표 사진</label>
-			<input type="file" name="photo" required>
+			<input type="file" name="file" required>
 		</div> 
 		
 		<button class="btn" type="submit">등록 하기</button>
