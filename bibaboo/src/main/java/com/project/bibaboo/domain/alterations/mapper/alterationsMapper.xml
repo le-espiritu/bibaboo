@@ -9,5 +9,10 @@
 		insert into alterations (user_id,name,address,tel_number,open_time,close_time) 
 		values(#{userId},#{name},#{address},#{telNumber},#{openTime},#{closeTime})
 	</insert>
+	
+	<insert id="fileNameInsert" parameterType="alterPhotoDto">
+		insert into alter_photo (alter_id,name)
+		values(last_insert_id(),#{name})
+	</insert>
 
 </mapper>

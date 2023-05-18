@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.project.bibaboo.domain.alterations.dao.AlterationsDao;
+import com.project.bibaboo.domain.alterations.dto.AlterPhotoDto;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDto;
 
 @Service
@@ -18,9 +19,9 @@ public class AlterationsServiceImpl implements AlterationsService {
 
   @Transactional
   @Override
-  public void insert(AlterationsDto alterationsDto, String photoName) {
+  public void insert(AlterationsDto alterationsDto, AlterPhotoDto alterPhotoDto) {
     alterationsDao.insert(alterationsDto);
-    alterationsDao.photoNameInsert(photoName);
+    alterationsDao.photoNameInsert(alterPhotoDto);
   }
 
 }

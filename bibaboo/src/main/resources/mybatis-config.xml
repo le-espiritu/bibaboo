@@ -13,6 +13,7 @@
 	<!-- dto 클래스에 alias를 붙여 키값처럼 사용하기 위해 명시 . -->
 	<typeAliases>
 		<typeAlias type="com.project.bibaboo.domain.alterations.dto.AlterationsDto" alias="alterationsDto"/>
+		<typeAlias type="com.project.bibaboo.domain.alterations.dto.AlterPhotoDto" alias="alterPhotoDto"/>
 	</typeAliases>
 	
 	<mappers>
