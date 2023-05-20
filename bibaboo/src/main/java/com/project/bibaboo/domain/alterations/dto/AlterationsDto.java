@@ -14,6 +14,16 @@ public class AlterationsDto {
   private float avgScore;
   private MultipartFile file;
 
+  public AlterationsDto(String name, String address, String telNumber,
+      String openTime, String closeTime) {
+    super();
+    this.name = name;
+    this.address = address;
+    this.telNumber = telNumber;
+    this.openTime = openTime;
+    this.closeTime = closeTime;
+  }
+
   public MultipartFile getFile() {
     return file;
   }

@@ -17,14 +17,14 @@ public class AlterationsDaoImpl implements AlterationsDao {
   }
 
   @Override
-  public void insert(AlterationsDto alterationsDto) {
-    sqlSession.insert("alterations.insert", alterationsDto);
+  public int insert(AlterationsDto alterationsDto) {
+    return sqlSession.insert("alterations.insert", alterationsDto);
 
   }
 
   @Override
-  public void photoNameInsert(AlterPhotoDto alterPhotoDto) {
-    sqlSession.insert("alterations.fileNameInsert", alterPhotoDto);
+  public int photoNameInsert(AlterPhotoDto alterPhotoDto) {
+    return sqlSession.insert("alterations.fileNameInsert", alterPhotoDto);
 
   }
 
