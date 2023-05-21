@@ -5,6 +5,10 @@
   
 <mapper namespace="alterations">
 
+	<select id="selectAll" resultType="alterationsDto">
+		select * from alterations
+	</select>
+
 	<insert id="insert" parameterType="alterationsDto">
 		insert into alterations (user_id,name,address,tel_number,open_time,close_time) 
 		values(#{userId},#{name},#{address},#{telNumber},#{openTime},#{closeTime})

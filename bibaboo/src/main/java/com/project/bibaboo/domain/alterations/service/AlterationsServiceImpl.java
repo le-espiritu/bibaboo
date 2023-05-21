@@ -1,5 +1,6 @@
 package com.project.bibaboo.domain.alterations.service;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,12 @@ public class AlterationsServiceImpl implements AlterationsService {
   public void insert(AlterationsDto alterationsDto, AlterPhotoDto alterPhotoDto) {
     alterationsDao.insert(alterationsDto);
     alterationsDao.photoNameInsert(alterPhotoDto);
+  }
+
+  @Transactional
+  @Override
+  public List<AlterationsDto> selectAll() {
+    return alterationsDao.selectAll();
   }
 
 }

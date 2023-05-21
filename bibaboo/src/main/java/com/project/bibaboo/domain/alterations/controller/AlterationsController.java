@@ -3,17 +3,17 @@ package com.project.bibaboo.domain.alterations.controller;
 import java.io.IOException;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDto;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDto;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 import com.project.bibaboo.domain.alterations.service.PhotoUploadLogicService;
 
-@RestController
+@Controller
 @RequestMapping("/alterations")
 public class AlterationsController {
 
