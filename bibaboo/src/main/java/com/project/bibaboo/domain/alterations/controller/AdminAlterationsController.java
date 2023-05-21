@@ -3,9 +3,12 @@ package com.project.bibaboo.domain.alterations.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDto;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 
@@ -21,15 +24,25 @@ public class AdminAlterationsController {
   }
 
   @GetMapping
-  @ResponseBody
-  public List<AlterationsDto> adminAlterationsList() {
+  public ModelAndView adminAlterationsList() {
     
-    return alterationsService.selectAll();
+    List<AlterationsDto> alterList = alterationsService.selectAll();
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("alterList", alterList);
+    mv.setViewName("admin/admin-alter-list");
+    return mv;
   }
   
   @GetMapping("/register")
   public String adminRegisterView() {
     return "admin/admin-register";
+  }
+  
+  @DeleteMapping("/{id}")
+  public String deleteAlterations(@PathVariable(name="id") int id) {
+    alterationsService.delete(id);
+    return "redirect:/admin/alterations";
   }
 
 }

@@ -9,5 +9,6 @@ public interface AlterationsDao {
   public List<AlterationsDto> selectAll();
   public int insert(AlterationsDto alterationsDto);
   public int photoNameInsert(AlterPhotoDto alterPhotoDto);
+  public int delete(Integer id);
 
 }

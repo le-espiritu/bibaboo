@@ -31,4 +31,10 @@ public class AlterationsServiceImpl implements AlterationsService {
     return alterationsDao.selectAll();
   }
 
+  @Transactional
+  @Override
+  public void delete(Integer id) {
+    alterationsDao.delete(id);
+  }
+
 }

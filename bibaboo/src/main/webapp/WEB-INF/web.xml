@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>bibaboo</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <!-- 설정의 분리  -->
-  <context-param>
-  	<param-name>contextConfigLocation</param-name>
-  	<param-value>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>bibaboo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 설정의 분리 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
   		/WEB-INF/spring/root-context.xml
   	</param-value>
-  </context-param>
-  
-  <listener>
-  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  
-  
-  <!-- 프론트 컨트롤러 DispatcherServlet 정의 -->
-  <servlet>
-  	<servlet-name>appServlet</servlet-name>
-  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  	<init-param>
-  		<param-name>contextConfigLocation</param-name> <!-- 컨텍스트 관련 설정 위치를 의미하고 이 이름은 정해져있음 -->
-  		<param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
+	<!-- 프론트 컨트롤러 DispatcherServlet 정의 -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name> <!-- 컨텍스트 관련 설정 위치를 의미하고 이 이름은 정해져있음 -->
+			<param-value>
   			/WEB-INF/spring/appServlet/servlet-context.xml
   		</param-value>
-  	</init-param>
-  	<load-on-startup>1</load-on-startup> <!-- 서비스가 시작되자마자 서블릿 컨테이너가 로딩할 수 있도록 하는 설정 -->
-  </servlet>
-  
-  <!-- 서블릿 매핑 (/매핑은 default servlet 동작)-->
-  <servlet-mapping>
-  	<servlet-name>appServlet</servlet-name>
-  	<url-pattern>/</url-pattern>
-  </servlet-mapping>
-  
-  <!-- 스프링 인코딩 필터 정의 -->
+		</init-param>
+		<load-on-startup>1</load-on-startup> <!-- 서비스가 시작되자마자 서블릿 컨테이너가 로딩할 수 있도록 하는 설정 -->
+	</servlet>
+
+	<!-- 서블릿 매핑 (/매핑은 default servlet 동작) -->
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- 스프링 인코딩 필터 정의 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -55,5 +58,15 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
+	<!-- HTTP Method Filter -->
+	<filter>
+		<filter-name>httpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>httpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app>

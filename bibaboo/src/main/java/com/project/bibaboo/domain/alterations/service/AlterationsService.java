@@ -8,5 +8,6 @@ public interface AlterationsService {
   
   public List<AlterationsDto> selectAll();
   public void insert(AlterationsDto alterationsDto, AlterPhotoDto alterPhotoDto);
+  public void delete(Integer id);
 
 }

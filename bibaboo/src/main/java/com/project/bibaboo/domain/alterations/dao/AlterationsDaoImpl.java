@@ -34,4 +34,9 @@ public class AlterationsDaoImpl implements AlterationsDao {
 
   }
 
+  @Override
+  public int delete(Integer id) {
+    return sqlSession.delete("alterations.delete", id);
+  }
+
 }

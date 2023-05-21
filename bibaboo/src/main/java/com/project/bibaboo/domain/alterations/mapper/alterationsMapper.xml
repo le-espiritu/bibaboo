@@ -18,5 +18,9 @@
 		insert into alter_photo (alter_id,name)
 		values(last_insert_id(),#{name})
 	</insert>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from alterations where id=#{id}
+	</delete>
 
 </mapper>

@@ -42,7 +42,7 @@ public class AlterationsController {
     // db저장
     alterationsService.insert(alterationsDto, alterPhotoDto);
 
-    return "redirect:/admin";
+    return "redirect:/";
   }
 
 }
