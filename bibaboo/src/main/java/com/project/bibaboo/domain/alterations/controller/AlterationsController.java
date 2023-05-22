@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-import com.project.bibaboo.domain.alterations.dto.AlterPhotoDto;
-import com.project.bibaboo.domain.alterations.dto.AlterationsDto;
+import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
+import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 import com.project.bibaboo.domain.alterations.service.PhotoUploadLogicService;
 
@@ -28,7 +28,7 @@ public class AlterationsController {
   }
 
   @PostMapping
-  public String register(@ModelAttribute AlterationsDto alterationsDto, HttpSession session)
+  public String register(@ModelAttribute AlterationsDTO alterationsDto, HttpSession session)
       throws IllegalStateException, IOException {
     
     System.out.println(alterationsDto);
@@ -37,7 +37,7 @@ public class AlterationsController {
     // System.out.println(path);
 
     // 파일(사진) 업로드
-    AlterPhotoDto alterPhotoDto = photoUploadLogicService.uploadPhoto(file, path);
+    AlterPhotoDTO alterPhotoDto = photoUploadLogicService.uploadPhoto(file, path);
 
     // db저장
     alterationsService.insert(alterationsDto, alterPhotoDto);

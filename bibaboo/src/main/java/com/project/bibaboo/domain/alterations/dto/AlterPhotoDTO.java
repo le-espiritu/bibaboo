@@ -1,6 +1,6 @@
 package com.project.bibaboo.domain.alterations.dto;
 
-public class AlterPhotoDto {
+public class AlterPhotoDTO {
 
   private Integer id;
   private Integer alterId;

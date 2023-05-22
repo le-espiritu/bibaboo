@@ -2,7 +2,7 @@ package com.project.bibaboo.domain.alterations.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class AlterationsDto {
+public class AlterationsDTO {
 
   private Integer id;
   private Integer userId;
@@ -14,7 +14,7 @@ public class AlterationsDto {
   private float avgScore;
   private MultipartFile file;
 
-  public AlterationsDto(String name, String address, String telNumber,
+  public AlterationsDTO(String name, String address, String telNumber,
       String openTime, String closeTime) {
     super();
     this.name = name;

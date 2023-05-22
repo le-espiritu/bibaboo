@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import com.project.bibaboo.domain.alterations.dto.AlterationsDto;
+import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,8 +42,8 @@ public class AlterationsDaoTest {
 
   @Test
   public void insertTest() throws Exception {
-    AlterationsDto alterationsDto =
-        new AlterationsDto("테스트 수선집", "테스트 주소", "02-1234-5678", "오전 10시", "오후 8시");
+    AlterationsDTO alterationsDto =
+        new AlterationsDTO("테스트 수선집", "테스트 주소", "02-1234-5678", "오전 10시", "오후 8시");
 
     int rs = alterationsDao.insert(alterationsDto);
     Assert.assertEquals(1, rs);
@@ -52,10 +52,11 @@ public class AlterationsDaoTest {
   @Test
   public void getListWithPagingTest() {
     Criteria criteria = new Criteria();
-    List<AlterationsDto> alterList = alterationsDao.getListWithPaging(criteria);
-    for(AlterationsDto dto : alterList) {
+    List<AlterationsDTO> alterList = alterationsDao.getListWithPaging(criteria);
+    for(AlterationsDTO dto : alterList) {
       logger.info(dto.toString());
     }
+    Assert.assertNotNull(alterList);
   }
 
 }

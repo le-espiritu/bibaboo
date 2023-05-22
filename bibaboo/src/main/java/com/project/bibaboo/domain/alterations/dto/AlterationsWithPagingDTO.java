@@ -4,13 +4,13 @@ import java.util.List;
 
 public class AlterationsWithPagingDTO {
 
-  private List<AlterationsDto> alterList;
+  private List<AlterationsDTO> alterList;
   private PageDTO pageDTO;
   
-  public List<AlterationsDto> getAlterList() {
+  public List<AlterationsDTO> getAlterList() {
     return alterList;
   }
-  public void setAlterList(List<AlterationsDto> alterList) {
+  public void setAlterList(List<AlterationsDTO> alterList) {
     this.alterList = alterList;
   }
   public PageDTO getPageDTO() {

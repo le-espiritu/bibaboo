@@ -4,8 +4,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.project.bibaboo.domain.alterations.dto.AlterPhotoDto;
-import com.project.bibaboo.domain.alterations.dto.AlterationsDto;
+import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
+import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.Criteria;
 
 @Repository
@@ -19,23 +19,23 @@ public class AlterationsDaoImpl implements AlterationsDao {
   }
 
   @Override
-  public List<AlterationsDto> selectAll() {
+  public List<AlterationsDTO> selectAll() {
     return sqlSession.selectList("alterations.selectAll");
   }
   
   @Override
-  public List<AlterationsDto> getListWithPaging(Criteria criteria) {
+  public List<AlterationsDTO> getListWithPaging(Criteria criteria) {
     return sqlSession.selectList("alterations.getListWithPaging", criteria);
   }
   
   @Override
-  public int insert(AlterationsDto alterationsDto) {
+  public int insert(AlterationsDTO alterationsDto) {
     return sqlSession.insert("alterations.insert", alterationsDto);
 
   }
 
   @Override
-  public int photoNameInsert(AlterPhotoDto alterPhotoDto) {
+  public int photoNameInsert(AlterPhotoDTO alterPhotoDto) {
     return sqlSession.insert("alterations.fileNameInsert", alterPhotoDto);
 
   }

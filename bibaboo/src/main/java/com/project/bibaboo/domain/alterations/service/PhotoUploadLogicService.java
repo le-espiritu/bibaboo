@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import com.project.bibaboo.domain.alterations.dto.AlterPhotoDto;
+import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 
 @Service
 public class PhotoUploadLogicService {
 
-  public AlterPhotoDto uploadPhoto(MultipartFile multipartFile, String path)
+  public AlterPhotoDTO uploadPhoto(MultipartFile multipartFile, String path)
       throws IllegalStateException, IOException {
     
-    AlterPhotoDto alterPhotoDto = new AlterPhotoDto();
+    AlterPhotoDTO alterPhotoDto = new AlterPhotoDTO();
 
     String originalFileName = multipartFile.getOriginalFilename();
     // 서버에서 식별할 수 있도록 파일명을 변경

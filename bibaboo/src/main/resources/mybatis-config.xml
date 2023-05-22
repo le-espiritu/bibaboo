@@ -12,12 +12,14 @@
 	
 	<!-- dto 클래스에 alias를 붙여 키값처럼 사용하기 위해 명시 . -->
 	<typeAliases>
-		<typeAlias type="com.project.bibaboo.domain.alterations.dto.AlterationsDto" alias="alterationsDto"/>
-		<typeAlias type="com.project.bibaboo.domain.alterations.dto.AlterPhotoDto" alias="alterPhotoDto"/>
+		<typeAlias type="com.project.bibaboo.domain.alterations.dto.AlterationsDTO" alias="alterationsDto"/>
+		<typeAlias type="com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO" alias="alterPhotoDto"/>
 	</typeAliases>
 	
+	<!-- 
 	<mappers>
 		<mapper resource="com/project/bibaboo/domain/alterations/mapper/alterationsMapper.xml"/>
 	</mappers>
+	 -->
 
 </configuration>

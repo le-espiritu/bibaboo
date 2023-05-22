@@ -1,5 +1,6 @@
 package com.project.bibaboo.domain.alterations.service;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,5 +25,6 @@ public class AlterationsServiceTest {
     Criteria criteria = new Criteria();
     AlterationsWithPagingDTO dto = alterationsService.getListWithPaging(criteria);
     logger.info(dto.toString());
+    Assert.assertNotNull(dto);
   }
 }

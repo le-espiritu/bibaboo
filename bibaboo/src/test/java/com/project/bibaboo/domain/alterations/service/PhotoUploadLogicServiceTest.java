@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
-import com.project.bibaboo.domain.alterations.dto.AlterPhotoDto;
+import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration // 실제 프로젝트의 web.xml이 아닌 가상의 web.xml을 사용하기 위한 설정이다.
@@ -33,7 +33,7 @@ public class PhotoUploadLogicServiceTest {
         "Hello, World!".getBytes());
     String path = "/tmp";
     //String path = context.getServletContext().getRealPath("/resources/static/img/upload");
-    AlterPhotoDto dto = photoUploadLogicService.uploadPhoto(file, path);
+    AlterPhotoDTO dto = photoUploadLogicService.uploadPhoto(file, path);
     
     logger.info("path : {}", path);
     logger.info("AlterPhotoDto : {}", dto);
