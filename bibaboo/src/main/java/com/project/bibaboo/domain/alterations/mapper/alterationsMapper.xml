@@ -8,6 +8,10 @@
 	<select id="selectAll" resultType="alterationsDto">
 		select * from alterations
 	</select>
+	
+	<select id="getListWithPaging" resultType="alterationsDto">
+		select * from alterations order by id desc limit #{startOffset},#{amount}
+	</select>
 
 	<insert id="insert" parameterType="alterationsDto">
 		insert into alterations (user_id,name,address,tel_number,open_time,close_time) 
@@ -22,5 +26,9 @@
 	<delete id="delete" parameterType="Integer">
 		delete from alterations where id=#{id}
 	</delete>
+	
+	<select id="getTotal" resultType="int">
+		select count(id) from alterations
+	</select>
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.project.bibaboo.domain.alterations.dao;
 
 import java.sql.Connection;
+import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Assert;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDto;
+import com.project.bibaboo.domain.alterations.dto.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
@@ -45,6 +47,15 @@ public class AlterationsDaoTest {
 
     int rs = alterationsDao.insert(alterationsDto);
     Assert.assertEquals(1, rs);
+  }
+  
+  @Test
+  public void getListWithPagingTest() {
+    Criteria criteria = new Criteria();
+    List<AlterationsDto> alterList = alterationsDao.getListWithPaging(criteria);
+    for(AlterationsDto dto : alterList) {
+      logger.info(dto.toString());
+    }
   }
 
 }
