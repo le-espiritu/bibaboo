@@ -95,9 +95,8 @@ public class PageDTO {
 
   @Override
   public String toString() {
-    return "PageMakeDTO [startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev
-        + ", next=" + next + ", total=" + total + ", blockLimit=" + blockLimit + ", criteria="
-        + criteria + "]";
+    return "PageDTO [startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev + ", next="
+        + next + ", total=" + total + ", blockLimit=" + blockLimit + ", criteria=" + criteria + "]";
   }
 
 }

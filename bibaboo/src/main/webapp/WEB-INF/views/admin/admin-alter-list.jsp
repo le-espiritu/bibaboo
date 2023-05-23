@@ -22,7 +22,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${alterList}" var="alterations">
+				<c:forEach items="${alterationsWithPagingDTO.alterList}" var="alterations">
 					<tr>
 						<td>${alterations.id}</td>
 						<td>${alterations.userId}</td>
@@ -42,4 +42,24 @@
 		</table>
 	</div>
 	
+	<div class="page-info">
+	
+		<form id="moveForm" method="get" >
+			<input type="hidden" name="pageNum">
+			<input type="hidden" name="amount" value="${alterationsWithPagingDTO.pageDTO.criteria.amount}">
+			<input type="submit" value="제출하기">
+		</form>
+	
+		<ul>
+		
+			<c:forEach var="num" begin="${alterationsWithPagingDTO.pageDTO.startPage}" end="${alterationsWithPagingDTO.pageDTO.endPage}">
+				<li><a href="${num}">${num}</a></li>
+			</c:forEach>
+		
+		</ul>
+	</div>
+	
 </div>
+
+<script src="/bibaboo/js/admin/admin-alter-list.js"></script>
+	

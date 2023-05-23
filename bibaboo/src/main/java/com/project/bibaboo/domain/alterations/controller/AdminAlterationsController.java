@@ -29,7 +29,7 @@ public class AdminAlterationsController {
         alterationsService.getListWithPaging(criteria);
 
     ModelAndView mv = new ModelAndView();
-    mv.addObject("alterList", alterationsWithPagingDTO);
+    mv.addObject("alterationsWithPagingDTO", alterationsWithPagingDTO);
     mv.setViewName("admin/admin-alter-list");
     return mv;
   }
