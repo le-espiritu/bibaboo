@@ -46,8 +46,8 @@ public class AlterationsDaoImpl implements AlterationsDao {
   }
 
   @Override
-  public int getTotal() {
-    return sqlSession.selectOne("alterations.getTotal");
+  public int getTotal(Criteria criteria) {
+    return sqlSession.selectOne("alterations.getTotal",criteria);
   }
 
 }

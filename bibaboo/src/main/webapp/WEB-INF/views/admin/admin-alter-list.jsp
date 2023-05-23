@@ -8,6 +8,22 @@
 
 <div class="card">
 	
+	<div class="search-section">
+		<div>
+			<select name="type">
+				<option value="" <c:out value="${alterationsWithPagingDTO.pageDTO.criteria.type == null? 'selected' : '' }"></c:out> >검색 조건</option>
+				<option value="O" <c:out value="${alterationsWithPagingDTO.pageDTO.criteria.type eq 'O'? 'selected' : '' }"></c:out> >사장님 식별 번호</option>
+				<option value="N" <c:out value="${alterationsWithPagingDTO.pageDTO.criteria.type eq 'N'? 'selected' : '' }"></c:out> >상호명</option>
+				<option value="A" <c:out value="${alterationsWithPagingDTO.pageDTO.criteria.type eq 'A'? 'selected' : '' }"></c:out> >주소</option>
+				<option value="ON" <c:out value="${alterationsWithPagingDTO.pageDTO.criteria.type eq 'ON'? 'selected' : '' }"></c:out> >사장님 + 상호명</option>
+				<option value="NA" <c:out value="${alterationsWithPagingDTO.pageDTO.criteria.type eq 'ON'? 'selected' : '' }"></c:out> >상호명 + 주소</option>
+				<option value="ONA" <c:out value="${alterationsWithPagingDTO.pageDTO.criteria.type eq 'ONA'? 'selected' : '' }"></c:out> >사장님 + 상호명 + 주소</option>
+			</select>
+			<input type="text" name="keyword" value="${alterationsWithPagingDTO.pageDTO.criteria.keyword}"/>
+			<button>Search</button>
+		</div>
+	</div>
+	
 	<div class="alter-list">
 		<table>
 			<thead>
@@ -47,6 +63,8 @@
 		<form id="moveForm" method="get" >
 			<input type="hidden" name="pageNum" value="${alterationsWithPagingDTO.pageDTO.criteria.pageNum}">
 			<input type="hidden" name="amount" value="${alterationsWithPagingDTO.pageDTO.criteria.amount}">
+			<%-- <input type="hidden" name="keyword" value="${alterationsWithPagingDTO.pageDTO.criteria.keyword}"> --%>
+			<%-- 자바스크립트에서 동적으로 input태그 생성하도록 해서 주석처리함  --%>
 		</form>
 	
 		<ul>
@@ -57,7 +75,7 @@
 			
 			<!-- 각 번호 페이지 버튼 -->
 			<c:forEach var="num" begin="${alterationsWithPagingDTO.pageDTO.startPage}" end="${alterationsWithPagingDTO.pageDTO.endPage}">
-				<li><a href="${num}">${num}</a></li>
+				<li class="${alterationsWithPagingDTO.pageDTO.criteria.pageNum == num? 'active':'' }"><a href="${num}">${num}</a></li>
 			</c:forEach>
 			
 			<!-- 다음 페이지 버튼 -->

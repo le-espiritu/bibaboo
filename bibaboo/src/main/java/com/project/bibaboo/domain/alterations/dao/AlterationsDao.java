@@ -12,6 +12,6 @@ public interface AlterationsDao {
   public int insert(AlterationsDTO alterationsDto);
   public int photoNameInsert(AlterPhotoDTO alterPhotoDto);
   public int delete(Integer id);
-  public int getTotal();
+  public int getTotal(Criteria criteria);
 
 }

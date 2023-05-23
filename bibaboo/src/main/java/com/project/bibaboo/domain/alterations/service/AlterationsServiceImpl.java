@@ -37,7 +37,7 @@ public class AlterationsServiceImpl implements AlterationsService {
   @Override
   public AlterationsWithPagingDTO getListWithPaging(Criteria criteria) {
 
-    int total = alterationsDao.getTotal();
+    int total = alterationsDao.getTotal(criteria);
     PageDTO pageDTO = new PageDTO(criteria, total);
 
     AlterationsWithPagingDTO alterationsWithPagingDTO = new AlterationsWithPagingDTO();

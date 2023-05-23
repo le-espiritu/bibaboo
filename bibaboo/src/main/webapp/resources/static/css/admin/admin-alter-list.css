@@ -29,6 +29,16 @@
 	margin-top: 2%;
 }
 
+.search-section{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 1.5%;
+}
+
+.search-section > div >select,input,button{
+	height: 30px;
+}
+
 .alter-list > table{
 	width:100%;
 	border-collapse: collapse;
@@ -63,4 +73,8 @@
 	float: left;
 	padding : 7px;
 	font-size: 20px;
+}
+
+.active{
+	background-color: #cdd5ec;
 }
