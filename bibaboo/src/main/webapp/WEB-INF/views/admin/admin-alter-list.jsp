@@ -45,18 +45,27 @@
 	<div class="page-info">
 	
 		<form id="moveForm" method="get" >
-			<input type="hidden" name="pageNum">
+			<input type="hidden" name="pageNum" value="${alterationsWithPagingDTO.pageDTO.criteria.pageNum}">
 			<input type="hidden" name="amount" value="${alterationsWithPagingDTO.pageDTO.criteria.amount}">
-			<input type="submit" value="제출하기">
 		</form>
 	
 		<ul>
-		
+			<!-- 이전 페이지 버튼 -->
+			<c:if test="${alterationsWithPagingDTO.pageDTO.prev}">
+				<li><a href="${alterationsWithPagingDTO.pageDTO.startPage-1}">Previous</a></li>
+			</c:if>
+			
+			<!-- 각 번호 페이지 버튼 -->
 			<c:forEach var="num" begin="${alterationsWithPagingDTO.pageDTO.startPage}" end="${alterationsWithPagingDTO.pageDTO.endPage}">
 				<li><a href="${num}">${num}</a></li>
 			</c:forEach>
-		
+			
+			<!-- 다음 페이지 버튼 -->
+			<c:if test="${alterationsWithPagingDTO.pageDTO.next}">
+				<li><a href="${alterationsWithPagingDTO.pageDTO.endPage+1}">Next</a></li>
+			</c:if>
 		</ul>
+		
 	</div>
 	
 </div>

@@ -48,3 +48,19 @@
 	padding : 2% 0;
 	text-align: center;
 }
+
+.page-info {
+	margin-top:20px;
+	text-align: center;
+}
+
+.page-info > ul{
+	list-style : none;
+	display: inline-block;
+}
+
+.page-info > ul >li {
+	float: left;
+	padding : 7px;
+	font-size: 20px;
+}
