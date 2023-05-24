@@ -8,6 +8,7 @@ import com.project.bibaboo.domain.alterations.dto.Criteria;
 public interface AlterationsDao {
   
   public List<AlterationsDTO> selectAll();
+  public AlterationsDTO selectById(AlterationsDTO alterationsDto);
   public List<AlterationsDTO> getListWithPaging(Criteria criteria);
   public int insert(AlterationsDTO alterationsDto);
   public int photoNameInsert(AlterPhotoDTO alterPhotoDto);

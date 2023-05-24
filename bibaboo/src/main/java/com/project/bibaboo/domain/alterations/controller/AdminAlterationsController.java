@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
 import com.project.bibaboo.domain.alterations.dto.Criteria;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
@@ -34,9 +35,23 @@ public class AdminAlterationsController {
     return mv;
   }
 
-  @GetMapping("/register")
+  @GetMapping("/register-view")
   public String adminRegisterView() {
     return "admin/admin-register";
+  }
+  
+  @GetMapping("/{id}/update-view")
+  public ModelAndView adminUpdateView(@PathVariable(name="id")int id) {
+    AlterationsDTO alterationsDto = new AlterationsDTO();
+    alterationsDto.setId(id);
+    
+    AlterationsDTO alterInfo = alterationsService.selectById(alterationsDto);
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("alterInfo", alterInfo);
+    mv.setViewName("admin/admin-alter-update");
+    
+    return mv;
   }
 
   @DeleteMapping("/{id}")

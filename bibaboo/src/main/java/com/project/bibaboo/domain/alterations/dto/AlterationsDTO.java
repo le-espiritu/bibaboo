@@ -14,6 +14,10 @@ public class AlterationsDTO {
   private float avgScore;
   private MultipartFile file;
 
+  public AlterationsDTO() {
+    
+  }
+  
   public AlterationsDTO(String name, String address, String telNumber,
       String openTime, String closeTime) {
     super();

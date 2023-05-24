@@ -45,7 +45,7 @@
 						<td>${alterations.name}</td>
 						<td>${alterations.address}</td>
 						<td>${alterations.telNumber}</td>
-						<td><button onclick="location.href='#'">수정</button></td>
+						<td><button onclick="location.href='/bibaboo/admin/alterations/${alterations.id}/update-view'">수정</button></td>
 						<td>
 							<form action="/bibaboo//admin/alterations/${alterations.id}" method="post">
 								<input type="hidden" name="_method" value ="delete"/>

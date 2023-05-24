@@ -24,6 +24,11 @@ public class AlterationsDaoImpl implements AlterationsDao {
   }
   
   @Override
+  public AlterationsDTO selectById(AlterationsDTO alterationsDto) {
+    return sqlSession.selectOne("alterations.selectById", alterationsDto);
+  }
+  
+  @Override
   public List<AlterationsDTO> getListWithPaging(Criteria criteria) {
     return sqlSession.selectList("alterations.getListWithPaging", criteria);
   }

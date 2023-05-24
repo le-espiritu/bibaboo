@@ -10,6 +10,6 @@
 		<br>
 		<p><a href="/bibaboo/admin/alterations">수선집 관리</a></p>
 		<br>
-		<p><a href="/bibaboo/admin/alterations/register">수선집 등록</a></p>
+		<p><a href="/bibaboo/admin/alterations/register-view">수선집 등록</a></p>
 	</div>
 </aside>

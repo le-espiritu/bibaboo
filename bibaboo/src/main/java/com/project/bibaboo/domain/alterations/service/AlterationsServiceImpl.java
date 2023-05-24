@@ -33,6 +33,11 @@ public class AlterationsServiceImpl implements AlterationsService {
     return alterationsDao.selectAll();
   }
 
+  @Override
+  public AlterationsDTO selectById(AlterationsDTO alterationsDto) {
+    return alterationsDao.selectById(alterationsDto);
+  }
+  
   @Transactional
   @Override
   public AlterationsWithPagingDTO getListWithPaging(Criteria criteria) {

@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,7 +32,7 @@ public class AlterationsController {
   @PostMapping
   public String register(@ModelAttribute AlterationsDTO alterationsDto, HttpSession session)
       throws IllegalStateException, IOException {
-    
+
     System.out.println(alterationsDto);
     MultipartFile file = alterationsDto.getFile();
     String path = session.getServletContext().getRealPath("/resources/static/img/upload");
@@ -41,6 +43,15 @@ public class AlterationsController {
 
     // db저장
     alterationsService.insert(alterationsDto, alterPhotoDto);
+
+    return "redirect:/";
+  }
+
+  @PatchMapping("/{id}")
+  public String update(@PathVariable(name = "id") int id,
+      @ModelAttribute AlterationsDTO alterationsDto) {
+    System.out.println(id);
+    System.out.println(alterationsDto);
 
     return "redirect:/";
   }
