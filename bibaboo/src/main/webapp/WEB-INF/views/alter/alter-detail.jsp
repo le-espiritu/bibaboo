@@ -7,9 +7,9 @@
 	
 		<section class="infor">
 			<div class="alter-img">
-				<img src="/bibaboo/img/bag.jpg" alt="alternations_image" >
+				<img src="/bibaboo/img/upload/${alterationsDto.photoName}" alt="alternations_image" >
 				<div>
-					<p>상호명</p>
+					<p>${alterationsDto.name}</p>
 				</div>
 			</div>
 				
@@ -17,11 +17,11 @@
 				<div>
 					<p>수선집 정보</p>
 					<div>
-						<p>상호:</p>
-						<p>주소:</p>
-						<p>전화번호:</p>
-						<p>영업 시간:</p>
-						<p>평균 별점: 점</p>
+						<p>상호 : ${alterationsDto.name }</p>
+						<p>주소 : ${alterationsDto.address}</p>
+						<p>전화번호 : ${alterationsDto.telNumber}</p>
+						<p>영업 시간 : ${alterationsDto.openTime} - ${alterationsDto.closeTime}</p>
+						<p>평균 별점: ${alterationsDto.avgScore} 점</p>
 					</div>
 				</div>
 			</div>

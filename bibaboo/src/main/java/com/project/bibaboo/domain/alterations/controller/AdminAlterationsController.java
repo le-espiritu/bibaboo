@@ -42,10 +42,8 @@ public class AdminAlterationsController {
   
   @GetMapping("/{id}/update-view")
   public ModelAndView adminUpdateView(@PathVariable(name="id")int id) {
-    AlterationsDTO alterationsDto = new AlterationsDTO();
-    alterationsDto.setId(id);
     
-    AlterationsDTO alterInfo = alterationsService.selectById(alterationsDto);
+    AlterationsDTO alterInfo = alterationsService.selectById(id);
     
     ModelAndView mv = new ModelAndView();
     mv.addObject("alterInfo", alterInfo);

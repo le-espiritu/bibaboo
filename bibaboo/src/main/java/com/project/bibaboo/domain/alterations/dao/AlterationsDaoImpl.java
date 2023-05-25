@@ -24,8 +24,8 @@ public class AlterationsDaoImpl implements AlterationsDao {
   }
   
   @Override
-  public AlterationsDTO selectById(AlterationsDTO alterationsDto) {
-    return sqlSession.selectOne("alterations.selectById", alterationsDto);
+  public AlterationsDTO selectById(int id) {
+    return sqlSession.selectOne("alterations.selectById", id);
   }
   
   @Override

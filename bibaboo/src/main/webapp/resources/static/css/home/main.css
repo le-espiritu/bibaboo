@@ -34,14 +34,14 @@
 	margin-bottom: 20px;
 }
 
-.content >section> div:nth-child(2)>form>input:nth-child(1){
+.content >section> div:nth-child(2)>form>input:nth-child(4){
 	height: 40px;
 	width: 35%; 
 	text-align: center; 
 	color : gray;
 }
 
-.content > section> div:nth-child(2)>form>input:nth-child(2){
+.content > section> div:nth-child(2)>form>input:nth-child(5){
 	height: 40px;
 	width: 10%; 
 }

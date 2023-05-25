@@ -34,8 +34,8 @@ public class AlterationsServiceImpl implements AlterationsService {
   }
 
   @Override
-  public AlterationsDTO selectById(AlterationsDTO alterationsDto) {
-    return alterationsDao.selectById(alterationsDto);
+  public AlterationsDTO selectById(int id) {
+    return alterationsDao.selectById(id);
   }
   
   @Transactional

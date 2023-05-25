@@ -9,7 +9,7 @@ import com.project.bibaboo.domain.alterations.dto.Criteria;
 public interface AlterationsService {
   
   public List<AlterationsDTO> selectAll();
-  public AlterationsDTO selectById(AlterationsDTO alterationsDto);
+  public AlterationsDTO selectById(int id);
   public AlterationsWithPagingDTO getListWithPaging(Criteria criteria);
   public void insert(AlterationsDTO alterationsDto, AlterPhotoDTO alterPhotoDto);
   public void update(AlterationsDTO alterationsDto);

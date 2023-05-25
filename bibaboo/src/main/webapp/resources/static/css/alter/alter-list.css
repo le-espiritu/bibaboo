@@ -54,6 +54,7 @@
 	margin: auto;
 	border: 1px solid #c0c2c2;
 	border-radius: 0.5em;
+	cursor:pointer;
 }
 
 .card img{

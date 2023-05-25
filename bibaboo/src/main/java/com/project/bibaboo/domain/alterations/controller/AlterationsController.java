@@ -4,14 +4,18 @@ import java.io.IOException;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
+import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
+import com.project.bibaboo.domain.alterations.dto.Criteria;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 import com.project.bibaboo.domain.alterations.service.PhotoUploadLogicService;
 
@@ -45,6 +49,17 @@ public class AlterationsController {
     alterationsService.insert(alterationsDto, alterPhotoDto);
 
     return "redirect:/";
+  }
+  
+  @GetMapping
+  public ModelAndView getListByArea(@ModelAttribute Criteria criteria) {
+    AlterationsWithPagingDTO alterationsWithPagingDto = alterationsService.getListWithPaging(criteria);
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("alterationsWithPagingDto", alterationsWithPagingDto);
+    mv.setViewName("alter/alter-list");
+    
+    return mv;
   }
 
   @PatchMapping("/{id}")

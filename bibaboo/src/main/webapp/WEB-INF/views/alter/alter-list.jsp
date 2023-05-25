@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <section class="content">
 			
@@ -12,35 +13,35 @@
 		</div> --%>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 		<div OnClick="location.href ='#'" >
-			<p>관양동<br>바지수선<br>TOP5</p>
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
 	</nav>
@@ -48,75 +49,21 @@
 	
 	<section class="list-section">
 		
-		<section>
-			<div class="card">
-				<a href="#">
-					<img src="/bibaboo/img/bag.jpg" alt="alternations_image" >
-				</a>
-				<div class="card-body">
-					<div>
-						<p>상호: </p>
-						<p>주소: </p>
+		<c:forEach items="${alterationsWithPagingDto.alterList}" var="alterationsDto">
+			<section>
+				<div class="card" OnClick="location.href='/bibaboo/alterations/${alterationsDto.id}'">
+				
+					<img src="/bibaboo/img/upload/${alterationsDto.photoName}" alt="alternations_image" >
+					
+					<div class="card-body">
+						<div>
+							<p>상호:${alterationsDto.name}</p>
+							<p>주소:${alterationsDto.address } </p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-		
-		<section>
-			<div class="card">
-				<a href="#">
-					<img src="/bibaboo/img/bag.jpg" alt="alternations_image" >
-				</a>
-				<div class="card-body">
-					<div>
-						<p>상호: </p>
-						<p>주소: </p>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<section>
-			<div class="card">
-				<a href="#">
-					<img src="/bibaboo/img/bag.jpg" alt="alternations_image" >
-				</a>
-				<div class="card-body">
-					<div>
-						<p>상호: </p>
-						<p>주소: </p>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<section>
-			<div class="card">
-				<a href="#">
-					<img src="/bibaboo/img/bag.jpg" alt="alternations_image" >
-				</a>
-				<div class="card-body">
-					<div>
-						<p>상호: </p>
-						<p>주소: </p>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<section>
-			<div class="card">
-				<a href="#">
-					<img src="/bibaboo/img/bag.jpg" alt="alternations_image" >
-				</a>
-				<div class="card-body">
-					<div>
-						<p>상호: </p>
-						<p>주소: </p>
-					</div>
-				</div>
-			</div>
-		</section>
+			</section>
+		</c:forEach>
 		
 	</section>
 

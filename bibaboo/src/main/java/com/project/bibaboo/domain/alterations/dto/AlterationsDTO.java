@@ -13,6 +13,7 @@ public class AlterationsDTO {
   private String closeTime;
   private float avgScore;
   private MultipartFile file;
+  private String photoName;
 
   public AlterationsDTO() {
     
@@ -100,11 +101,20 @@ public class AlterationsDTO {
     this.avgScore = avgScore;
   }
 
-  @Override
-  public String toString() {
-    return "AlterationsDto [id=" + id + ", userId=" + userId + ", name=" + name + ", address="
-        + address + ", telNumber=" + telNumber + ", openTime=" + openTime + ", closeTime="
-        + closeTime + ", avgScore=" + avgScore + ", file=" + file + "]";
+  public String getPhotoName() {
+    return photoName;
   }
 
+  public void setPhotoName(String photoName) {
+    this.photoName = photoName;
+  }
+
+  @Override
+  public String toString() {
+    return "AlterationsDTO [id=" + id + ", userId=" + userId + ", name=" + name + ", address="
+        + address + ", telNumber=" + telNumber + ", openTime=" + openTime + ", closeTime="
+        + closeTime + ", avgScore=" + avgScore + ", file=" + file + ", photoName=" + photoName
+        + "]";
+  }
+  
 }

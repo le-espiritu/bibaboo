@@ -58,5 +58,27 @@ public class AlterationsDaoTest {
     }
     Assert.assertNotNull(alterList);
   }
+  
+  @Test
+  public void getListByAreaTest() {
+    Criteria criteria = new Criteria();
+    criteria.setPageNum(1);
+    criteria.setAmount(8);
+    criteria.setType("A");
+    criteria.setKeyword("2");
+    List<AlterationsDTO> alterList = alterationsDao.getListWithPaging(criteria);
+    for(AlterationsDTO dto : alterList) {
+      logger.info(dto.toString());
+    }
+    Assert.assertNotNull(alterList);
+  }
+  
+  @Test
+  public void selectByIdTest() {
+    int id = 19;
+    AlterationsDTO alterationsDto = alterationsDao.selectById(id);
+    logger.info(alterationsDto.toString());
+    Assert.assertNotNull(alterationsDto);
+  }
 
 }

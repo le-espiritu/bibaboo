@@ -23,8 +23,11 @@
 		</div>
 		
 		<div>
-			<form action="/webproject/map/area_list.do" method="post">
-				<input type="text"  name="area" placeholder="주소로 검색하세요" onfocus="this.value=''" >
+			<form action="/bibaboo/alterations" method="GET">
+				<input type="hidden" name="pageNum" value=1>
+				<input type="hidden" name="amount" value=8>
+				<input type="hidden" name="type" value="A">
+				<input type="text"  name="keyword" placeholder="주소로 검색하세요" onfocus="this.value=''" >
 				<input type="submit" value="검색" >
 			</form>
 		</div>
