@@ -52,6 +52,9 @@ public class AlterationsController {
       @ModelAttribute AlterationsDTO alterationsDto) {
     System.out.println(id);
     System.out.println(alterationsDto);
+    
+    alterationsDto.setId(id);
+    alterationsService.update(alterationsDto);
 
     return "redirect:/";
   }

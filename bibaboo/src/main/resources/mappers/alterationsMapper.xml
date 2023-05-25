@@ -56,6 +56,12 @@
 		values(last_insert_id(),#{name})
 	</insert>
 	
+	<update id="update">
+		UPDATE alterations
+		SET name=#{name}, address=#{address}, tel_number=#{telNumber}, open_time=#{openTime}, close_time=#{closeTime}
+		WHERE id=#{id}
+	</update>
+	
 	<delete id="delete" parameterType="Integer">
 		delete from alterations where id=#{id}
 	</delete>

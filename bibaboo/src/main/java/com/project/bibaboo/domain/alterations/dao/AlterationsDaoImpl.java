@@ -42,9 +42,13 @@ public class AlterationsDaoImpl implements AlterationsDao {
   @Override
   public int photoNameInsert(AlterPhotoDTO alterPhotoDto) {
     return sqlSession.insert("alterations.fileNameInsert", alterPhotoDto);
-
   }
 
+  @Override
+  public int update(AlterationsDTO alterationsDto) {
+    return sqlSession.update("alterations.update", alterationsDto);
+  }
+  
   @Override
   public int delete(Integer id) {
     return sqlSession.delete("alterations.delete", id);

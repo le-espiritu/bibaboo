@@ -54,6 +54,11 @@ public class AlterationsServiceImpl implements AlterationsService {
   }
 
   @Override
+  public void update(AlterationsDTO alterationsDto) {
+    alterationsDao.update(alterationsDto);
+  }
+  
+  @Override
   public void delete(Integer id) {
     alterationsDao.delete(id);
   }

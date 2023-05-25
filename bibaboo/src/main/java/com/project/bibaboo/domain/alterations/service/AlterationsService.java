@@ -12,6 +12,7 @@ public interface AlterationsService {
   public AlterationsDTO selectById(AlterationsDTO alterationsDto);
   public AlterationsWithPagingDTO getListWithPaging(Criteria criteria);
   public void insert(AlterationsDTO alterationsDto, AlterPhotoDTO alterPhotoDto);
+  public void update(AlterationsDTO alterationsDto);
   public void delete(Integer id);
 
 }
