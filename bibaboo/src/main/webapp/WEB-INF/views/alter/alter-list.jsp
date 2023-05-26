@@ -66,5 +66,32 @@
 		</c:forEach>
 		
 	</section>
+	
+	<section class="page-info">
+		<form id="alterListMoveForm" method="GET">
+			<input type="hidden" name="pageNum" value="${alterationsWithPagingDto.pageDTO.criteria.pageNum}">
+			<input type="hidden" name="amount" value="${alterationsWithPagingDto.pageDTO.criteria.amount}">
+			<input type="hidden" name="type" value="${alterationsWithPagingDto.pageDTO.criteria.type}">
+			<input type="hidden" name="keyword" value="${alterationsWithPagingDto.pageDTO.criteria.keyword}">
+		</form>
+	
+		<ul>
+			<!-- 이전 페이지 버튼 -->
+			<c:if test="${alterationsWithPagingDto.pageDTO.prev}">
+				<li><a href="${alterationsWithPagingDto.pageDTO.startPage-1}">Previous</a></li>
+			</c:if>
+		
+			<c:forEach var="num" begin="${alterationsWithPagingDto.pageDTO.startPage}" end="${alterationsWithPagingDto.pageDTO.endPage}">
+				<li class="${alterationsWithPagingDto.pageDTO.criteria.pageNum == num? 'active':'' }"><a href="${num}">${num}</a></li>
+			</c:forEach>
+			
+			<!-- 다음 페이지 버튼 -->
+			<c:if test="${alterationsWithPagingDto.pageDTO.next}">
+				<li><a href="${alterationsWithPagingDto.pageDTO.endpage+1 }">next</a></li>
+			</c:if>
+		</ul>
+	</section>
 
 </section>
+
+<script src="/bibaboo/js/alter/alter-list.js"></script>

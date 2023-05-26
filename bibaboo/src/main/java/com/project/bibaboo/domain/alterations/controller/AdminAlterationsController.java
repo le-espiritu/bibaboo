@@ -51,6 +51,18 @@ public class AdminAlterationsController {
     
     return mv;
   }
+  
+  @GetMapping("/{id}/category-register-view")
+  public ModelAndView adminCategoryRegisterView(@PathVariable(name="id")int id) {
+    AlterationsDTO alterationsDTO = new AlterationsDTO();
+    alterationsDTO.setId(id);
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("alterationsDTO", alterationsDTO);
+    mv.setViewName("admin/admin-category-register");
+    
+    return mv;
+  }
 
   @DeleteMapping("/{id}")
   public String deleteAlterations(@PathVariable(name = "id") int id) {

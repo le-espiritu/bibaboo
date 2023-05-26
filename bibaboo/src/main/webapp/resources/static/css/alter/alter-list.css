@@ -73,3 +73,22 @@
 	margin: auto;
 }
 
+.page-info{
+	margin: 20px 0;
+	text-align: center;
+}
+
+.page-info > ul{
+	list-style: none;
+	display: inline-block;
+}
+
+.page-info > ul > li{
+	float: left;
+	padding: 7px;
+	font-size: 20px;
+}
+
+.active{
+	background-color: #cdd5ec;
+}

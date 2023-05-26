@@ -33,6 +33,7 @@
 					<th>상호</th>
 					<th>주소</th>
 					<th>전화번호</th>
+					<th>메뉴 등록</th>
 					<th>수정</th>
 					<th>삭제</th>
 				</tr>
@@ -45,6 +46,7 @@
 						<td>${alterations.name}</td>
 						<td>${alterations.address}</td>
 						<td>${alterations.telNumber}</td>
+						<td><button onclick="location.href='/bibaboo/admin/alterations/${alterations.id}/category-register-view'">메뉴 등록</button></td>
 						<td><button onclick="location.href='/bibaboo/admin/alterations/${alterations.id}/update-view'">수정</button></td>
 						<td>
 							<form action="/bibaboo//admin/alterations/${alterations.id}" method="post">
