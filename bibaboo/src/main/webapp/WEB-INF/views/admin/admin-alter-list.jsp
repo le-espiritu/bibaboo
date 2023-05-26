@@ -49,7 +49,7 @@
 						<td><button onclick="location.href='/bibaboo/admin/alterations/${alterations.id}/category-register-view'">메뉴 등록</button></td>
 						<td><button onclick="location.href='/bibaboo/admin/alterations/${alterations.id}/update-view'">수정</button></td>
 						<td>
-							<form action="/bibaboo//admin/alterations/${alterations.id}" method="post">
+							<form action="/bibaboo/alterations/${alterations.id}" method="post">
 								<input type="hidden" name="_method" value ="delete"/>
 								<button onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</button>
 							</form>

@@ -3,6 +3,7 @@ package com.project.bibaboo.domain.alterations.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.project.bibaboo.domain.alterations.dao.AlterationsCategoryDao;
+import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.Categories;
 
 @Service
@@ -16,5 +17,13 @@ public class AlterationsCategoryService {
   
   public void registerCategory(Categories categories) {
     alterationsCategoryDao.registerCategory(categories);
+  }
+  
+  public Categories getCategories(AlterationsDTO alterationsDTO) {
+    Categories categories = new Categories();
+    categories.setCategoryList(alterationsCategoryDao.getCategories(alterationsDTO));
+    System.out.println(categories.getCategoryList());
+    
+    return categories;
   }
 }

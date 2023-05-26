@@ -9,18 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
+import com.project.bibaboo.domain.alterations.dto.Categories;
 import com.project.bibaboo.domain.alterations.dto.Criteria;
+import com.project.bibaboo.domain.alterations.service.AlterationsCategoryService;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 
 @Controller
 @RequestMapping("/admin/alterations")
-public class AdminAlterationsController {
+public class AdminAlterationsViewController {
 
   AlterationsService alterationsService;
+  AlterationsCategoryService alterationsCategoryService;
 
   @Autowired
-  public AdminAlterationsController(AlterationsService alterationsService) {
+  public AdminAlterationsViewController(AlterationsService alterationsService,
+      AlterationsCategoryService alterationsCategoryService) {
+    
     this.alterationsService = alterationsService;
+    this.alterationsCategoryService = alterationsCategoryService;
   }
 
   @GetMapping
@@ -39,35 +45,32 @@ public class AdminAlterationsController {
   public String adminRegisterView() {
     return "admin/admin-register";
   }
-  
+
   @GetMapping("/{id}/update-view")
-  public ModelAndView adminUpdateView(@PathVariable(name="id")int id) {
-    
+  public ModelAndView adminUpdateView(@PathVariable(name = "id") int id) {
+
     AlterationsDTO alterInfo = alterationsService.selectById(id);
-    
+
     ModelAndView mv = new ModelAndView();
     mv.addObject("alterInfo", alterInfo);
     mv.setViewName("admin/admin-alter-update");
-    
-    return mv;
-  }
-  
-  @GetMapping("/{id}/category-register-view")
-  public ModelAndView adminCategoryRegisterView(@PathVariable(name="id")int id) {
-    AlterationsDTO alterationsDTO = new AlterationsDTO();
-    alterationsDTO.setId(id);
-    
-    ModelAndView mv = new ModelAndView();
-    mv.addObject("alterationsDTO", alterationsDTO);
-    mv.setViewName("admin/admin-category-register");
-    
+
     return mv;
   }
 
-  @DeleteMapping("/{id}")
-  public String deleteAlterations(@PathVariable(name = "id") int id) {
-    alterationsService.delete(id);
-    return "redirect:/admin/alterations";
+  @GetMapping("/{id}/category-register-view")
+  public ModelAndView adminCategoryRegisterView(@PathVariable(name = "id") int id) {
+    AlterationsDTO alterationsDTO = new AlterationsDTO();
+    alterationsDTO.setId(id);
+
+    Categories categories = alterationsCategoryService.getCategories(alterationsDTO);
+
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("alterationsDTO", alterationsDTO);
+    mv.addObject("categories", categories);
+    mv.setViewName("admin/admin-category-register");
+
+    return mv;
   }
 
 }

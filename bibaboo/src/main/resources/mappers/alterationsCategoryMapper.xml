@@ -8,11 +8,20 @@
 	<insert id="insert">
 		INSERT INTO category (name, alter_id, price)
 		VALUES
-			<foreach collection="categoryList" item="category" separator=",">
-				<if test="category.price != null">
-					(#{category.name},#{category.alterId},#{category.price})
-				</if>
-			</foreach>
+		<foreach collection="categoryList" item="category" separator=",">
+			<if test="category.price != null">
+				(#{category.name},#{category.alterId},#{category.price})
+			</if>
+		</foreach>
+		ON DUPLICATE KEY UPDATE name = VALUES(name), alter_id= VALUES(alter_id), price = VALUES(price)
+		<!-- on duplicate key update 는 없으면 insert하고 없으면 update를 하는 기능이다. -->
+		<!-- VALUES(컬럼명) 이란 지정된 컬럼명에 들어온 값을 의미한다.  -->
 	</insert>
+	
+	<select id="select" resultType="com.project.bibaboo.domain.alterations.dto.CategoryDTO">
+		SELECT *
+		FROM category
+		WHERE alter_id = #{id}
+	</select>
 
 </mapper>
