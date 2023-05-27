@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="cart">
+
+	<insert id="addCart">
+		INSERT INTO cart(user_id, category_id, count)
+		VALUES(#{userId},#{categoryId},#{count})
+	</insert>
+	
+	<delete id="deleteCart">
+		DELETE FROM cart
+		WHERE id = #{id}
+	</delete>
+	
+	<update id="modifyCount">
+		UPDATE cart
+		SET count=#{count}
+		WHERE id = #{id}
+	</update>
+	
+	<select id="getCart" resultType="com.project.bibaboo.domain.cart.dto.CartDTO">
+		SELECT ct.id, ct.user_id, ct.category_id, ct.count, c.name as categoryName, c.price as categoryPrice
+		FROM cart ct
+		LEFT OUTER JOIN category c
+		ON ct.id = c.id
+		WHERE user_id = #{userId}
+	</select>
+	
+	<select id="checkCart" resultType="com.project.bibaboo.domain.cart.dto.CartDTO">
+		SELECT *
+		FROM cart
+		WHERE user_id = #{userId} and category_id = #{categoryId}
+	</select>
+
+</mapper>

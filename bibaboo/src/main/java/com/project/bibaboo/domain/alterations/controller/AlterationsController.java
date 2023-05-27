@@ -1,6 +1,7 @@
 package com.project.bibaboo.domain.alterations.controller;
 
 import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,14 +66,16 @@ public class AlterationsController {
 
   @PatchMapping("/{id}")
   public String update(@PathVariable(name = "id") int id,
-      @ModelAttribute AlterationsDTO alterationsDto) {
+      @ModelAttribute AlterationsDTO alterationsDto, HttpServletRequest request) {
     System.out.println(id);
     System.out.println(alterationsDto);
     
     alterationsDto.setId(id);
     alterationsService.update(alterationsDto);
 
-    return "redirect:/";
+    String referer = request.getHeader("Referer");
+    
+    return "redirect:"+referer;
   }
   
   @DeleteMapping("/{id}")
