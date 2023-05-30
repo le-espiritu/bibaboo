@@ -17,7 +17,7 @@ public class CartDaoImpl implements CartDao {
   }
 
   @Override
-  public int addCart(CartDTO cartDTO) throws Exception {
+  public int addCart(CartDTO cartDTO){
     return sqlSession.insert("cart.addCart", cartDTO);
   }
 
