@@ -63,7 +63,7 @@ public class AdminAlterationsViewController {
     AlterationsDTO alterationsDTO = new AlterationsDTO();
     alterationsDTO.setId(id);
 
-    Categories categories = alterationsCategoryService.getCategories(alterationsDTO);
+    Categories categories = alterationsCategoryService.getCategories(id);
 
     ModelAndView mv = new ModelAndView();
     mv.addObject("alterationsDTO", alterationsDTO);

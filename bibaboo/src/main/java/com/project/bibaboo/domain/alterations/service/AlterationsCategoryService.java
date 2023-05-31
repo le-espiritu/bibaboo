@@ -19,10 +19,9 @@ public class AlterationsCategoryService {
     alterationsCategoryDao.registerCategory(categories);
   }
   
-  public Categories getCategories(AlterationsDTO alterationsDTO) {
+  public Categories getCategories(int id) {
     Categories categories = new Categories();
-    categories.setCategoryList(alterationsCategoryDao.getCategories(alterationsDTO));
-    System.out.println(categories.getCategoryList());
+    categories.setCategoryList(alterationsCategoryDao.getCategories(id));
     
     return categories;
   }

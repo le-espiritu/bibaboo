@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.project.bibaboo.domain.cart.dto.CartDTO;
 import com.project.bibaboo.domain.cart.service.CartService;
@@ -22,7 +22,10 @@ public class CartController {
   }
   
   @PostMapping
-  public ResponseEntity<Object> addCart(@ModelAttribute CartDTO cartDTO){
+  public ResponseEntity<Object> addCart(@RequestBody CartDTO cartDTO){
+    // @ModelAttribute 는 form 데이터를 받아서 자바 객체로 매핑할때 사용
+    // @RequestBody는 request body를 통해서 전달된 json 데이터를 자바 객체로 매핑할때 사용 
+    
     cartService.addCart(cartDTO);
     
     HttpHeaders headers = new HttpHeaders();

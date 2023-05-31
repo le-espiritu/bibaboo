@@ -26,7 +26,7 @@ public class AlterationsCategoryServiceTest {
     AlterationsDTO alterationsDTO = new AlterationsDTO();
     alterationsDTO.setId(19);
     
-    Categories categories = alterationsCategoryService.getCategories(alterationsDTO);
+    Categories categories = alterationsCategoryService.getCategories(19);
     
     for(CategoryDTO dto : categories.getCategoryList()) {
       logger.info(dto.toString());

@@ -19,8 +19,10 @@
 	</insert>
 	
 	<select id="select" resultType="com.project.bibaboo.domain.alterations.dto.CategoryDTO">
-		SELECT *
-		FROM category
+		SELECT ca.id, ca.name, ca.alter_id, ca.price, ca.sum_score, a.name as alterName
+		FROM category ca
+		JOIN alterations a
+		ON ca.alter_id = a.id
 		WHERE alter_id = #{id}
 	</select>
 

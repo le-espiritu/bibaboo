@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.content{
+	overflow:auto; /* 자식의 margin이 부모의 margin에 영향을 끼치는 margin-collapse현상을 방지하기 위함 */ 
+	background: linear-gradient(120deg, #81ecec,#6c5ce7, #020D42);
+}
+
+
+.card{
+	width: 80%;
+	padding: 32px; 
+	margin: 50px auto;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+	overflow: auto;
+}
+
+.card:first-of-type > p{
+	font-size: 35px;
+	font-weight : bold;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.card>section{
+	height:200px;
+	width:50%;
+	float:left;
+	
+}
+
+.category-card{
+	height:95%;
+	width:95%;
+	margin: auto;
+	
+	border: 6px solid transparent;
+    border-radius: 1em;
+    background-image: linear-gradient(white, white), 
+    linear-gradient(to right, #e66465, #9198e5);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    
+    cursor:pointer;
+    
+    display: flex;
+    align-items: center;
+}
+
+.category-card > div{
+	margin: auto;
+	text-align: center;
+}
+
+.category-card > div > p:first-child{
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.category-card > div > p:last-child{
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.category-card:hover {
+	 background-position: left;
+	 /* border: 10px solid #67930F; */
+	 
+}

@@ -22,7 +22,7 @@ public class AlterationsCategoryDao {
     return sqlSession.insert("alterationsCategory.insert", categories);
   }
   
-  public List<CategoryDTO> getCategories(AlterationsDTO alterationsDTO) {
-    return sqlSession.selectList("alterationsCategory.select", alterationsDTO);
+  public List<CategoryDTO> getCategories(int id) {
+    return sqlSession.selectList("alterationsCategory.select", id);
   }
 }

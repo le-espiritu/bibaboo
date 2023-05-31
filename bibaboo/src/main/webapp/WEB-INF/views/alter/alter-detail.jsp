@@ -28,7 +28,7 @@
 		</section>
 		
 		<section class="order">
-			<button class="btn">
+			<button onclick="location.href='/bibaboo/alterations/${alterationsDto.id}/category'" class="btn">
 				<p>수선 신청 하기</p>
 			</button>
 		</section>
