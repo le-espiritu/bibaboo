@@ -12,6 +12,10 @@ public class CartDTO {
   
   private int totalPrice;
 
+  public void initTotal() {
+    this.totalPrice=this.categoryPrice * this.count;
+  }
+  
   public int getId() {
     return id;
   }

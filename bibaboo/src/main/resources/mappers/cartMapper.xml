@@ -24,8 +24,8 @@
 	<select id="getCart" resultType="com.project.bibaboo.domain.cart.dto.CartDTO">
 		SELECT ct.id, ct.user_id, ct.category_id, ct.count, c.name as categoryName, c.price as categoryPrice
 		FROM cart ct
-		LEFT OUTER JOIN category c
-		ON ct.id = c.id
+		JOIN category c
+		ON ct.category_id = c.id
 		WHERE user_id = #{userId}
 	</select>
 	

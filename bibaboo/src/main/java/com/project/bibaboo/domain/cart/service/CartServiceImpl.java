@@ -12,12 +12,12 @@ import com.project.bibaboo.domain.cart.exception.CategoryAlreadyExistInCartExcep
 public class CartServiceImpl implements CartService {
 
   private CartDao cartDao;
-  
+
   @Autowired
   public CartServiceImpl(CartDao cartDao) {
-    this.cartDao=cartDao;
+    this.cartDao = cartDao;
   }
-  
+
   @Override
   public void addCart(CartDTO cartDTO) {
     try {
@@ -42,8 +42,14 @@ public class CartServiceImpl implements CartService {
 
   @Override
   public List<CartDTO> getCart(int userId) {
-    // TODO Auto-generated method stub
-    return null;
+
+    List<CartDTO> cartList = cartDao.getCart(userId);
+
+    for (CartDTO cartDTO : cartList) {
+      cartDTO.initTotal();
+    }
+
+    return cartList;
   }
 
   @Override

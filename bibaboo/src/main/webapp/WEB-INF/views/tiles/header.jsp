@@ -6,7 +6,7 @@
 	<nav>
 		<ul>
 			<li><a href="#">수선집 검색</a></li>
-			<li><a href="#">수선 신청</a></li>
+			<li><a href="/bibaboo/cart/1">장바구니</a></li>
 		</ul>
 
 		<ul>
