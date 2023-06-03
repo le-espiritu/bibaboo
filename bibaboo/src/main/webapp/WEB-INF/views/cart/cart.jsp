@@ -13,6 +13,7 @@
 		<table>
 			<thead>
 				<tr>
+					<th></th> <!-- tbody의 hidden값을 위한 fake  -->
 					<th>수선 품목명</th>
 					<th>가격</th>
 					<th>수량</th>
@@ -22,15 +23,26 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${cartInfo}" var="cartDto">
-					<tr>
-						<td>${cartDto.categoryName}</td>
-						<td>${cartDto.totalPrice}</td>
-						<td>${cartDto.count}</td>
+					<tr class="cart-info-tr">
 						<td>
-							<form action="/bibaboo/cart/${cartDto.userId}/${cartDto.id}" method="post">
+							<input type="hidden" class="cart-id" value="${cartDto.id}">
+							<input type="hidden" class="cart-user-id" value="${cartDto.userId}">
+						</td>
+						<td>${cartDto.categoryName}</td>
+						<td class="total-price-td" >${cartDto.totalPrice}</td>
+						<td class="count-td" >
+							<button class="minus-btn">-</button>
+							<input type="text" class="count-input" size="2" value="${cartDto.count}">
+							<button class="plus-btn" >+</button>
+							<button class="modify-btn">수정</button>
+						</td>
+						<td>
+							<button class="delete-btn">삭제</button>
+						
+							<%-- <form action="/bibaboo/cart/${cartDto.userId}/${cartDto.id}" method="post">
 								<input type="hidden" name="_method" value ="delete"/>
 								<button onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</button>
-							</form>
+							</form> --%>
 						</td>
 						<td>체크박스</td>
 					</tr>
@@ -38,6 +50,20 @@
 			</tbody>
 		</table>
 		
+		<section class="total-info-section">
+			<div>
+				<span>총 수량 : </span>
+				<span class="sum-count-span"></span>
+				<span> EA </span>
+				<span> / </span>
+				<span>총 가격 : </span>
+				<span class="sum-price-span"></span>
+				<span> 원 </span>
+			</div>
+		</section>
+		
 	</div>
 
 </section>
+
+<script src="/bibaboo/js/cart/cart.js"></script>

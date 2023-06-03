@@ -30,14 +30,13 @@ public class CartServiceImpl implements CartService {
 
   @Override
   public void deleteCart(int id) {
-    // TODO Auto-generated method stub
+    cartDao.deleteCart(id);
 
   }
 
   @Override
   public void modifyCount(CartDTO cartDTO) {
-    // TODO Auto-generated method stub
-
+    cartDao.modifyCount(cartDTO);
   }
 
   @Override
