@@ -24,9 +24,11 @@
 			<tbody>
 				<c:forEach items="${cartInfo}" var="cartDto">
 					<tr class="cart-info-tr">
-						<td>
+						<td class="cart-info-td">
 							<input type="hidden" class="cart-id" value="${cartDto.id}">
 							<input type="hidden" class="cart-user-id" value="${cartDto.userId}">
+							<input type="hidden" class="cart-category-id" value="${cartDto.categoryId}">
+							<input type="hidden" class="cart-count-by-category" value="${cartDto.count}">
 						</td>
 						<td>${cartDto.categoryName}</td>
 						<td class="total-price-td" >${cartDto.totalPrice}</td>
@@ -38,11 +40,6 @@
 						</td>
 						<td>
 							<button class="delete-btn">삭제</button>
-						
-							<%-- <form action="/bibaboo/cart/${cartDto.userId}/${cartDto.id}" method="post">
-								<input type="hidden" name="_method" value ="delete"/>
-								<button onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</button>
-							</form> --%>
 						</td>
 						<td>체크박스</td>
 					</tr>
@@ -60,6 +57,10 @@
 				<span class="sum-price-span"></span>
 				<span> 원 </span>
 			</div>
+		</section>
+		
+		<section class="order-btn-section">
+			<button class="order-btn">수선 신청 하기</button>
 		</section>
 		
 	</div>

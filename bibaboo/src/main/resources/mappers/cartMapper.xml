@@ -34,5 +34,13 @@
 		FROM cart
 		WHERE user_id = #{userId} and category_id = #{categoryId}
 	</select>
+	
+	<delete id="deleteCartAfterOrder">
+		DELETE FROM cart
+		WHERE
+			<foreach collection="cartList" item="cart" separator="OR">
+				(user_id=#{cart.userId} and category_id=#{cart.categoryId})
+			</foreach>
+	</delete>
 
 </mapper>

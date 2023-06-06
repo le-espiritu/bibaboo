@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="order">
+
+	<select id="getGoosInfoForOrder" resultType="com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO">
+		SELECT c.id as categoryId, c.name as categoryName, a.name as alterName, c.price as categoryPrice
+		FROM category c
+		JOIN alterations a
+		ON c.alter_id = a.id
+		WHERE c.id = #{categoryId}
+	</select>
+	
+	<select id="getOrderInfo" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
+		SELECT id AS categoryId, price AS categoryPrice
+		FROM category
+		WHERE id IN 
+			<foreach collection="orders" item="order" open="(" separator="," close=")">
+				#{order.categoryId}
+			</foreach>
+	</select>
+
+	<insert id="enrollOrder">
+		INSERT INTO alter_order(user_id, alter_id, total_price, state)
+		VALUES(#{userId}, #{alterId}, #{totalPrice}, #{state})
+	</insert>
+	
+	<insert id="enrollOrderCategory">
+		<!-- alter_order 테이블의 마지막 id값 가져오기 -->
+		<selectKey resultType="int" keyProperty="lastOrderId" order="BEFORE">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		
+		INSERT INTO alter_order_category(order_id, category_id, count, state)
+		VALUES
+			<foreach collection="orders" item="order" separator=",">
+				(#{lastOrderId},#{order.categoryId},#{order.count},#{order.state})
+			</foreach>
+	</insert>
+	
+</mapper>

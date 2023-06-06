@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded",function(){
 	doButtons();
 	countModify();
 	deleteCart();
+	doOrder();
 });
 
 function totalInfo(){
@@ -99,5 +100,43 @@ function deleteCart(){
 			}
 			
 		});
+	});
+}
+
+function doOrder(){
+	let orderButton = document.querySelector(".order-btn");
+	orderButton.addEventListener("click",function(){
+		
+		let userId = document.querySelector(".cart-user-id").value;
+		
+		let form = document.createElement("form");
+		let orderNumber =0;
+		
+		form.setAttribute('method','get');
+		form.setAttribute('action','/bibaboo/order/'+userId);
+		
+		let cartInfoTds = document.querySelectorAll(".cart-info-td");
+		cartInfoTds.forEach((element)=>{
+			let categoryId= element.querySelector(".cart-category-id").value;
+			let count = element.querySelector(".cart-count-by-category").value;
+			
+			let categoryIdInput = document.createElement("input");
+			categoryIdInput.setAttribute('type','hidden');
+			categoryIdInput.setAttribute('name','orders['+orderNumber+'].categoryId');
+			categoryIdInput.setAttribute('value',categoryId);
+			
+			let countInput = document.createElement("input");
+			countInput.setAttribute('type','hidden');
+			countInput.setAttribute('name','orders['+orderNumber+'].count');
+			countInput.setAttribute('value',count);
+			
+			form.appendChild(categoryIdInput);
+			form.appendChild(countInput);
+			
+			orderNumber +=1;
+		});
+		
+		document.body.appendChild(form); // 이 코드 꼭 있어야 submit이 작동함
+		form.submit();
 	});
 }
