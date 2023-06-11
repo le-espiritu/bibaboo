@@ -39,8 +39,16 @@ public class OrderController {
   }
   
   @PostMapping
-  public void makeOrder(OrderDTO orderDTO) {
-    System.out.println("orderDTO===============================================");
-    System.out.println(orderDTO);
+  public String makeOrder(OrderDTO orderDTO) {
+    
+    // 유저 id 또는 주문자 정보 세팅 => 추후 프론트에서 값을 넘겨주는 것으로 변경 
+    orderDTO.setUserId(1);
+    orderDTO.setUserEmail("bibaboo@bibaboo.com");
+    orderDTO.setUserName("홍길동");
+    orderDTO.setUserPhoneNumber("010-1234-1234");
+    
+    orderService.order(orderDTO);
+    
+    return "redirect:/";
   }
 }

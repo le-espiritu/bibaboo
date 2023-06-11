@@ -1,6 +1,7 @@
 package com.project.bibaboo.domain.cart.dao;
 
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -39,6 +40,11 @@ public class CartDaoImpl implements CartDao {
   @Override
   public CartDTO checkCart(CartDTO cartDTO) {
     return sqlSession.selectOne("cart.checkCart", cartDTO);
+  }
+
+  @Override
+  public int deleteCartAfterOrder(Map<String, List<CartDTO>> cartListMap) {
+    return sqlSession.delete("cart.deleteCartAfterOrder", cartListMap);
   }
 
 }

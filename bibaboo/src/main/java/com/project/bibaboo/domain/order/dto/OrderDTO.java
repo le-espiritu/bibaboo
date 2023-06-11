@@ -6,8 +6,7 @@ public class OrderDTO {
 
   private int id;
   private int userId;
-  private int alterId;
-  private int totalPrice;
+  private int payPrice;
   private String createDate;
   private String state;
   
@@ -50,20 +49,12 @@ public class OrderDTO {
     this.userId = userId;
   }
 
-  public int getAlterId() {
-    return alterId;
+  public int getPayPrice() {
+    return payPrice;
   }
 
-  public void setAlterId(int alterId) {
-    this.alterId = alterId;
-  }
-
-  public int getTotalPrice() {
-    return totalPrice;
-  }
-
-  public void setTotalPrice(int totalPrice) {
-    this.totalPrice = totalPrice;
+  public void setPayPrice(int payPrice) {
+    this.payPrice = payPrice;
   }
 
   public String getCreateDate() {
@@ -100,10 +91,9 @@ public class OrderDTO {
 
   @Override
   public String toString() {
-    return "OrderDTO [id=" + id + ", userId=" + userId + ", alterId=" + alterId + ", totalPrice="
-        + totalPrice + ", createDate=" + createDate + ", state=" + state + ", orders=" + orders
-        + ", userEmail=" + userEmail + ", userName=" + userName + ", userPhoneNumber="
-        + userPhoneNumber + "]";
+    return "OrderDTO [id=" + id + ", userId=" + userId + ", payPrice=" + payPrice + ", createDate="
+        + createDate + ", state=" + state + ", orders=" + orders + ", userEmail=" + userEmail
+        + ", userName=" + userName + ", userPhoneNumber=" + userPhoneNumber + "]";
   }
-
+  
 }

@@ -3,7 +3,7 @@ package com.project.bibaboo.domain.alterations.dao;
 import java.util.List;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
-import com.project.bibaboo.domain.alterations.dto.Criteria;
+import com.project.bibaboo.global.common.dto.Criteria;
 
 public interface AlterationsDao {
   

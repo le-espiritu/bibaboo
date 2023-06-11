@@ -1,6 +1,7 @@
 package com.project.bibaboo.domain.alterations.dto;
 
 import java.util.List;
+import com.project.bibaboo.global.common.dto.PageDTO;
 
 public class AlterationsWithPagingDTO {
 

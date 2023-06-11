@@ -8,8 +8,8 @@ import com.project.bibaboo.domain.alterations.dao.AlterationsDao;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
-import com.project.bibaboo.domain.alterations.dto.Criteria;
-import com.project.bibaboo.domain.alterations.dto.PageDTO;
+import com.project.bibaboo.global.common.dto.Criteria;
+import com.project.bibaboo.global.common.dto.PageDTO;
 
 @Service
 public class AlterationsServiceImpl implements AlterationsService {

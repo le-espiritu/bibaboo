@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
-import com.project.bibaboo.domain.alterations.dto.Criteria;
+import com.project.bibaboo.global.common.dto.Criteria;
 
 @Repository
 public class AlterationsDaoImpl implements AlterationsDao {

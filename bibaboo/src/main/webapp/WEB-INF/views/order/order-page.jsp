@@ -54,6 +54,7 @@
 							<input type="hidden" class="count-input" value="${order.count}">
 							<input type="hidden" class="price-input" value="${order.totalPrice}">
 							<input type="hidden" class="category-id-input" value="${order.categoryId}">
+							<input type="hidden" class="alter-id-input" value="${order.alterId}">
 						</td>
 						<td>${order.alterName}</td>
 						<td>${order.categoryName}</td>
@@ -72,6 +73,7 @@
 				<span> / </span>
 				<span>총 결제 가격 : </span>
 				<span class="sum-price-span"></span>
+				<input type="hidden" class="sum-price-input">
 				<span> 원 </span>
 			</div>
 		</section>

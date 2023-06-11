@@ -1,4 +1,4 @@
-package com.project.bibaboo.domain.alterations.dto;
+package com.project.bibaboo.global.common.dto;
 
 import java.util.Arrays;
 

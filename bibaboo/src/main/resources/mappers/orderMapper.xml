@@ -6,7 +6,7 @@
 <mapper namespace="order">
 
 	<select id="getGoosInfoForOrder" resultType="com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO">
-		SELECT c.id as categoryId, c.name as categoryName, a.name as alterName, c.price as categoryPrice
+		SELECT c.id as categoryId, c.alter_id, c.name as categoryName, a.name as alterName, c.price as categoryPrice
 		FROM category c
 		JOIN alterations a
 		ON c.alter_id = a.id
@@ -23,20 +23,21 @@
 	</select>
 
 	<insert id="enrollOrder">
-		INSERT INTO alter_order(user_id, alter_id, total_price, state)
-		VALUES(#{userId}, #{alterId}, #{totalPrice}, #{state})
+		INSERT INTO alter_order(user_id, user_email, user_name, user_phone_number, pay_price, state)
+		VALUES(#{userId}, #{userEmail}, #{userName}, #{userPhoneNumber},#{payPrice}, '주문접수')
 	</insert>
 	
 	<insert id="enrollOrderCategory">
 		<!-- alter_order 테이블의 마지막 id값 가져오기 -->
-		<selectKey resultType="int" keyProperty="lastOrderId" order="BEFORE">
+		<!-- keyProperty의 값은 parameterType(DTO) 의 멤버(setter)명과 동일해야 한다.  -->
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 		
-		INSERT INTO alter_order_category(order_id, category_id, count, state)
+		INSERT INTO alter_order_category(order_id, alter_id, category_id, count, total_price, state)
 		VALUES
 			<foreach collection="orders" item="order" separator=",">
-				(#{lastOrderId},#{order.categoryId},#{order.count},#{order.state})
+				(#{id},#{order.alterId},#{order.categoryId},#{order.count},#{order.totalPrice},'주문접수')
 			</foreach>
 	</insert>
 	

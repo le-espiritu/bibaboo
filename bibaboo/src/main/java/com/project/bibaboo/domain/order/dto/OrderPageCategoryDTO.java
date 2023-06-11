@@ -7,12 +7,22 @@ public class OrderPageCategoryDTO {
   private int count;
   
   //db로부터 꺼내올 값
+  private int alterId;
   private String alterName;
   private String categoryName;
   private int categoryPrice;
   
   //만들어 낼 값
   private int totalPrice;
+
+  
+  public int getAlterId() {
+    return alterId;
+  }
+
+  public void setAlterId(int alterId) {
+    this.alterId = alterId;
+  }
 
   public String getAlterName() {
     return alterName;
@@ -68,9 +78,9 @@ public class OrderPageCategoryDTO {
 
   @Override
   public String toString() {
-    return "OrderPageCategoryDTO [categoryId=" + categoryId + ", count=" + count + ", alterName="
-        + alterName + ", categoryName=" + categoryName + ", categoryPrice=" + categoryPrice
-        + ", totalPrice=" + totalPrice + "]";
+    return "OrderPageCategoryDTO [categoryId=" + categoryId + ", count=" + count + ", alterId="
+        + alterId + ", alterName=" + alterName + ", categoryName=" + categoryName
+        + ", categoryPrice=" + categoryPrice + ", totalPrice=" + totalPrice + "]";
   }
 
 }

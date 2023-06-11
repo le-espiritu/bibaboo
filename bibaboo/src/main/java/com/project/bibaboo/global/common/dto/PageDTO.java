@@ -1,4 +1,4 @@
-package com.project.bibaboo.domain.alterations.dto;
+package com.project.bibaboo.global.common.dto;
 
 // 페이지 이동 인터페이스 구현을 위한 데이터를 담는 DTO 클래스
 public class PageDTO {

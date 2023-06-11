@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
-import com.project.bibaboo.domain.alterations.dto.Criteria;
+import com.project.bibaboo.global.common.dto.Criteria;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 import com.project.bibaboo.domain.alterations.service.PhotoUploadLogicService;
 

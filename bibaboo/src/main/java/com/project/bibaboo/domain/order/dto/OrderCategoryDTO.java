@@ -6,6 +6,8 @@ public class OrderCategoryDTO {
   private int orderCategoryId;
   // 주문 번호
   private int orderId;
+  
+  private int alterId;
 
   private int categoryId;
 
@@ -16,6 +18,14 @@ public class OrderCategoryDTO {
   private int categoryPrice;
 
   private int totalPrice;
+
+  public int getAlterId() {
+    return alterId;
+  }
+
+  public void setAlterId(int alterId) {
+    this.alterId = alterId;
+  }
 
   public int getOrderId() {
     return orderId;
@@ -75,9 +85,9 @@ public class OrderCategoryDTO {
 
   @Override
   public String toString() {
-    return "OrderCategoryDTO [orderId=" + orderId + ", orderCategoryId=" + orderCategoryId
-        + ", categoryId=" + categoryId + ", count=" + count + ", state=" + state
-        + ", categoryPrice=" + categoryPrice + ", totalPrice=" + totalPrice + "]";
+    return "OrderCategoryDTO [orderCategoryId=" + orderCategoryId + ", orderId=" + orderId
+        + ", alterId=" + alterId + ", categoryId=" + categoryId + ", count=" + count + ", state="
+        + state + ", categoryPrice=" + categoryPrice + ", totalPrice=" + totalPrice + "]";
   }
 
 }

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
 import com.project.bibaboo.domain.alterations.dto.Categories;
-import com.project.bibaboo.domain.alterations.dto.Criteria;
+import com.project.bibaboo.global.common.dto.Criteria;
 import com.project.bibaboo.domain.alterations.service.AlterationsCategoryService;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 
