@@ -10,10 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.bibaboo.domain.cart.dao.CartDao;
 import com.project.bibaboo.domain.cart.dto.CartDTO;
 import com.project.bibaboo.domain.order.dao.OrderDao;
+import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
+import com.project.bibaboo.domain.order.dto.OrderListAndPageDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageDTO;
+import com.project.bibaboo.global.common.dto.Criteria;
+import com.project.bibaboo.global.common.dto.PageDTO;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -65,6 +69,28 @@ public class OrderServiceImpl implements OrderService {
     cartListMap.put("cartList", cartList);
     cartDao.deleteCartAfterOrder(cartListMap);
     
+  }
+
+  @Override
+  @Transactional
+  public OrderListAndPageDTO getOrderList(Criteria criteria) {
+    
+    List<OrderDTO> list = orderDao.getOrderList(criteria);
+    int total = orderDao.getOrderTotal(criteria);
+    PageDTO pageDTO = new PageDTO(criteria, total);
+    
+    OrderListAndPageDTO orderListAndPageDTO = new OrderListAndPageDTO();
+    orderListAndPageDTO.setOrderDTOList(list);
+    orderListAndPageDTO.setPageDTO(pageDTO);
+    
+    return orderListAndPageDTO;
+  }
+
+  @Override
+  @Transactional
+  public void orderCancle(OrderCancleDTO orderCancleDTO) {
+    orderDao.orderCancle(orderCancleDTO);
+    orderDao.orderCategoryCancle(orderCancleDTO);
   }
 
 }

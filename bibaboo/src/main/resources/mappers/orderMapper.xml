@@ -13,6 +13,21 @@
 		WHERE c.id = #{categoryId}
 	</select>
 	
+	<select id="getOrderList" resultType="com.project.bibaboo.domain.order.dto.OrderDTO">
+		SELECT id, user_id, pay_price, create_date, state
+		FROM alter_order
+		WHERE user_id = cast(#{keyword} as unsigned)
+		order by create_date desc
+		limit #{startOffset}, #{amount}
+	</select>
+	
+	<select id="getOrderTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM alter_order
+		WHERE user_id = cast(#{keyword} as unsigned)
+	</select>
+	
+	<!-- 아래 코드 안쓰고 있음  -->
 	<select id="getOrderInfo" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
 		SELECT id AS categoryId, price AS categoryPrice
 		FROM category
@@ -40,5 +55,17 @@
 				(#{id},#{order.alterId},#{order.categoryId},#{order.count},#{order.totalPrice},'주문접수')
 			</foreach>
 	</insert>
+	
+	<update id="orderCancle">
+		UPDATE alter_order
+		SET state = '주문취소'
+		WHERE id = #{orderId}
+	</update>
+	
+	<update id="orderCategoryCancle">
+		UPDATE alter_order_category
+		SET state = '주문취소'
+		WHERE order_id = #{orderId}
+	</update>
 	
 </mapper>

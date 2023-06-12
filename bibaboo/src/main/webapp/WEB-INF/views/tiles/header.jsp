@@ -11,6 +11,7 @@
 
 		<ul>
 			<li><a href="/bibaboo/admin">관리자 페이지</a></li>
+			<li><a href="/bibaboo/users/1/mypage">마이 페이지</a></li> <!-- 임시 -->
 			<li><a href="#">로그인</a></li>
 		</ul>
 	</nav>
