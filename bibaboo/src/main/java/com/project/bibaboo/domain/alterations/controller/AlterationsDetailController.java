@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
+import com.project.bibaboo.domain.alterations.dto.AlterationsAndReviewsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 
@@ -20,10 +21,10 @@ public class AlterationsDetailController {
 
   @GetMapping("/alterations/{id}")
   public ModelAndView getAlterDetail(@PathVariable(name="id") int id) {
-    AlterationsDTO alterationsDto =  alterationsService.selectById(id);
+    AlterationsAndReviewsDTO alterationsAndReviewsDTO =  alterationsService.selectById(id);
     
     ModelAndView mv = new ModelAndView();
-    mv.addObject("alterationsDto", alterationsDto);
+    mv.addObject("alterationsAndReviewsDTO", alterationsAndReviewsDTO);
     mv.setViewName("alter/alter-detail");
     return mv;
   }

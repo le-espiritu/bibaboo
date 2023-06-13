@@ -1,5 +1,6 @@
 package com.project.bibaboo.domain.alterations.dto;
 
+import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class AlterationsDTO {
@@ -14,6 +15,8 @@ public class AlterationsDTO {
   private float avgScore;
   private MultipartFile file;
   private String photoName;
+  
+  private List<CategoryDTO> categoryList;
 
   public AlterationsDTO() {
     
@@ -27,6 +30,14 @@ public class AlterationsDTO {
     this.telNumber = telNumber;
     this.openTime = openTime;
     this.closeTime = closeTime;
+  }
+
+  public List<CategoryDTO> getCategoryList() {
+    return categoryList;
+  }
+
+  public void setCategoryList(List<CategoryDTO> categoryList) {
+    this.categoryList = categoryList;
   }
 
   public MultipartFile getFile() {
@@ -114,7 +125,7 @@ public class AlterationsDTO {
     return "AlterationsDTO [id=" + id + ", userId=" + userId + ", name=" + name + ", address="
         + address + ", telNumber=" + telNumber + ", openTime=" + openTime + ", closeTime="
         + closeTime + ", avgScore=" + avgScore + ", file=" + file + ", photoName=" + photoName
-        + "]";
+        + ", categoryList=" + categoryList + "]";
   }
-  
+
 }

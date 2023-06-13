@@ -24,7 +24,7 @@
 		FROM category ca
 		JOIN alterations a
 		ON ca.alter_id = a.id
-		WHERE alter_id = #{id}
+		WHERE alter_id = #{alterId}
 	</select>
 
 </mapper>

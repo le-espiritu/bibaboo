@@ -19,9 +19,9 @@ public class AlterationsCategoryService {
     alterationsCategoryDao.registerCategory(categories);
   }
   
-  public Categories getCategories(int id) {
+  public Categories getCategories(int alterId) {
     Categories categories = new Categories();
-    categories.setCategoryList(alterationsCategoryDao.getCategories(id));
+    categories.setCategoryList(alterationsCategoryDao.getCategories(alterId));
     
     return categories;
   }

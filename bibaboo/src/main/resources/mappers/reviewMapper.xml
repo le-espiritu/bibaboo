@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="review">
+	<insert id="enrollReview">
+		INSERT INTO review(user_id, order_category_id, alter_id, category_id, content, score)
+		VALUES(#{userId}, #{orderCategoryId}, #{alterId}, #{categoryId}, #{content}, #{score})
+	</insert>
+	
+	<update id="updateAvgScore">
+		UPDATE alterations
+		SET avg_score = (SELECT AVG(score)
+		                FROM review
+		                WHERE alter_id = #{alterId})
+		WHERE id = #{alterId};
+	</update>
+	
+	<update id="plusCategoryScore">
+		UPDATE category
+		SET sum_score = (sum_score+#{score})
+		WHERE id = #{categoryId};
+	</update>
+	
+	<select id="getReview" resultType="com.project.bibaboo.domain.review.dto.ReviewDTO">
+		SELECT r.id, r.user_id, r.order_category_id, r.alter_id, c.name as categoryName, r.content, r.score, r.create_date 
+		from review r
+		join category c
+		on r.category_id = c.id
+		WHERE r.alter_id = #{alterId}
+		AND r.enable =1
+		ORDER BY r.create_date DESC
+	</select>
+	
+</mapper>
