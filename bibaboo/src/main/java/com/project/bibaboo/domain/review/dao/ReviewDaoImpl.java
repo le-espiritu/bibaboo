@@ -1,9 +1,12 @@
 package com.project.bibaboo.domain.review.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
+import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
 
 @Repository
 public class ReviewDaoImpl implements ReviewDao{
@@ -32,6 +35,13 @@ public class ReviewDaoImpl implements ReviewDao{
   @Override
   public List<ReviewDTO> getReviewList(int alaterId) {
     return sqlSession.selectList("review.getReview", alaterId);
+  }
+
+  @Override
+  public int insertPhotoNameList(List<ReviewPhotoDTO> reviewPhotoDTOList) {
+    Map<String, List<ReviewPhotoDTO>> photoMap = new HashMap<>();
+    photoMap.put("reviewPhotoDTOList", reviewPhotoDTOList);
+    return sqlSession.insert("review.insertPhotoNameList", photoMap);
   }
 
 }

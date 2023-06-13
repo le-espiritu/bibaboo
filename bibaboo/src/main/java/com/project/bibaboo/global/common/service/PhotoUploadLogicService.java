@@ -1,4 +1,4 @@
-package com.project.bibaboo.domain.alterations.service;
+package com.project.bibaboo.global.common.service;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,20 +10,15 @@ import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 @Service
 public class PhotoUploadLogicService {
 
-  public AlterPhotoDTO uploadPhoto(MultipartFile multipartFile, String path)
+  public String uploadPhoto(MultipartFile multipartFile, String path)
       throws IllegalStateException, IOException {
-    
-    AlterPhotoDTO alterPhotoDto = new AlterPhotoDTO();
 
     String originalFileName = multipartFile.getOriginalFilename();
     // 서버에서 식별할 수 있도록 파일명을 변경
     String newFileName = createNewFileName(originalFileName);
-
     multipartFile.transferTo(new File(path + File.separator + newFileName));
 
-    alterPhotoDto.setName(newFileName);
-
-    return alterPhotoDto;
+    return newFileName;
   }
 
   private String createNewFileName(String originalFileName) {

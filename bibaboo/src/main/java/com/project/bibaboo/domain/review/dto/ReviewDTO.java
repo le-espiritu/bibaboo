@@ -1,6 +1,8 @@
 package com.project.bibaboo.domain.review.dto;
 
-import java.util.Date;
+import java.sql.Date;
+import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
 public class ReviewDTO {
   private int id;
@@ -13,8 +15,15 @@ public class ReviewDTO {
   private int enable;
   private Date createDate;
   
+  private List<MultipartFile> files;
   private String categoryName;
   
+  public List<MultipartFile> getFiles() {
+    return files;
+  }
+  public void setFiles(List<MultipartFile> files) {
+    this.files = files;
+  }
   public String getCategoryName() {
     return categoryName;
   }
@@ -80,8 +89,8 @@ public class ReviewDTO {
   public String toString() {
     return "ReviewDTO [id=" + id + ", userId=" + userId + ", orderCategoryId=" + orderCategoryId
         + ", alterId=" + alterId + ", categoryId=" + categoryId + ", content=" + content
-        + ", score=" + score + ", enable=" + enable + ", createDate=" + createDate
-        + ", categoryName=" + categoryName + "]";
+        + ", score=" + score + ", enable=" + enable + ", createDate=" + createDate + ", files="
+        + files + ", categoryName=" + categoryName + "]";
   }
   
 }

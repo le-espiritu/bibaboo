@@ -10,7 +10,7 @@
 			<div class="alter-img">
 				<img src="/bibaboo/img/upload/${alterationsAndReviewsDTO.alterationsDTO.photoName}" alt="alternations_image" >
 				<div>
-					<p>${alterationsDto.name}</p>
+					<p>${alterationsAndReviewsDTO.alterationsDTO.name}</p>
 				</div>
 			</div>
 				
@@ -37,7 +37,8 @@
 		<section class="write-box" >
 			<h3>소중한 이용후기를 남겨주세요:)</h3>
 			
-			<form action="/bibaboo/review" method="post">
+			<form action="/bibaboo/review" method="post" enctype="multipart/form-data">
+			<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
 				<input type="hidden" name="userId" value="1"/> <!-- 이후 수정!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
 				<input type="hidden" name="alterId" value="${alterationsAndReviewsDTO.alterationsDTO.id}"/>
 				
@@ -75,6 +76,11 @@
 				</div>
 				
 				<textarea rows="5" style="width:100%;" name="content"></textarea>
+				
+				<div>
+					<!-- <label>사진 등록 : </label> -->
+					<input type="file" name="files" multiple>
+				</div> 
 				
 				<div>
 					<input type="submit" value="등록">

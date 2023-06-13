@@ -33,4 +33,15 @@
 		ORDER BY r.create_date DESC
 	</select>
 	
+	<insert id="insertPhotoNameList">
+		<selectKey resultType="int" keyProperty="reviewId" order="BEFORE">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO review_photo(review_id, name)
+		VALUES
+			<foreach collection="reviewPhotoDTOList" item="reviewPhotoDTO" separator=",">
+				(#{reviewId},#{reviewPhotoDTO.name})
+			</foreach>
+	</insert>
+	
 </mapper>

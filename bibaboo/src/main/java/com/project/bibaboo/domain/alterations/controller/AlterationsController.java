@@ -19,7 +19,7 @@ import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
 import com.project.bibaboo.global.common.dto.Criteria;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
-import com.project.bibaboo.domain.alterations.service.PhotoUploadLogicService;
+import com.project.bibaboo.global.common.service.PhotoUploadLogicService;
 
 @Controller
 @RequestMapping("/alterations")
@@ -39,13 +39,13 @@ public class AlterationsController {
   public String register(@ModelAttribute AlterationsDTO alterationsDto, HttpSession session)
       throws IllegalStateException, IOException {
 
-    System.out.println(alterationsDto);
     MultipartFile file = alterationsDto.getFile();
     String path = session.getServletContext().getRealPath("/resources/static/img/upload");
-    // System.out.println(path);
 
     // 파일(사진) 업로드
-    AlterPhotoDTO alterPhotoDto = photoUploadLogicService.uploadPhoto(file, path);
+    String newFileName = photoUploadLogicService.uploadPhoto(file, path);
+    AlterPhotoDTO alterPhotoDto = new AlterPhotoDTO();
+    alterPhotoDto.setName(newFileName);
 
     // db저장
     alterationsService.insert(alterationsDto, alterPhotoDto);
