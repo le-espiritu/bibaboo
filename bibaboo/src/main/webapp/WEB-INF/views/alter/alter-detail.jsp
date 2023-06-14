@@ -45,15 +45,9 @@
 				<div>
 					<select name="categoryId">
 						<!-- 
-						<option value="바지">바지</option>
 						<option value="pants">바지</option>
 						<option value="shirts">셔츠</option>
-						<option value="suit">정장</option>
-						<option value="outer">아우터</option>
-						<option value="jeans">청바지</option>
-						<option value="skirt">치마</option>
-						<option value="dress">원피스</option>
-						<option value="reform">리폼</option> -->
+						 -->
 						
 						<option value="">수선 품목</option>
 						<c:forEach items="${alterationsAndReviewsDTO.alterationsDTO.categoryList}" var="categoryDTO">
@@ -119,7 +113,19 @@
 							<tr>
 								<td>${reviewDTO.score} 점</td>
 								<td>${reviewDTO.categoryName}</td>
-								<td>${reviewDTO.content}</td>
+								<td>
+									<c:if test="${not empty reviewDTO.reviewPhotos}">
+										<div class="review-photo-div">
+											<c:forEach items="${reviewDTO.reviewPhotos}" var="reviewPhotoDTO">
+												<img alt="reviewPhotoImage" src="/bibaboo/img/upload/${reviewPhotoDTO.name}">
+											</c:forEach>
+										</div>		
+									</c:if>
+									
+									<div>
+										${reviewDTO.content}
+									</div>
+								</td>
 								<td>${reviewDTO.userId}</td>
 								<td>${reviewDTO.createDate}</td>
 								

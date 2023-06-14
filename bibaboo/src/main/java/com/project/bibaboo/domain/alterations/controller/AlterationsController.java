@@ -67,8 +67,6 @@ public class AlterationsController {
   @PatchMapping("/{id}")
   public String update(@PathVariable(name = "id") int id,
       @ModelAttribute AlterationsDTO alterationsDto, HttpServletRequest request) {
-    System.out.println(id);
-    System.out.println(alterationsDto);
     
     alterationsDto.setId(id);
     alterationsService.update(alterationsDto);

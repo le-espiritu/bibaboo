@@ -9,5 +9,6 @@ public interface ReviewDao {
   public int updateAvgScore(ReviewDTO reviewDTO);
   public int plusCategoryScore(ReviewDTO reviewDTO);
   public List<ReviewDTO> getReviewList(int alaterId);
-  public int insertPhotoNameList(List<ReviewPhotoDTO> reviewPhotoDTOList);
+  public int insertPhotoNameList(ReviewDTO reviewDTO);
+  public List<ReviewPhotoDTO> getReviewPhoto(int reviewId);
 }

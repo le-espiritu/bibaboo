@@ -20,13 +20,13 @@ public class ReviewServiceImpl implements ReviewService {
 
   @Override
   @Transactional
-  public void enrollReview(ReviewDTO reviewDTO, List<ReviewPhotoDTO> reviewPhotoDTOList) {
+  public void enrollReview(ReviewDTO reviewDTO) {
     //후기 등록
     reviewDao.enrollReview(reviewDTO);
     
     //사진 업로드
-    if(reviewPhotoDTOList.size()>0) {
-      reviewDao.insertPhotoNameList(reviewPhotoDTOList);
+    if(reviewDTO.getReviewPhotos().size()>0) {
+      reviewDao.insertPhotoNameList(reviewDTO);
     }
     
     //수선집의 avg_score 값 업데이트

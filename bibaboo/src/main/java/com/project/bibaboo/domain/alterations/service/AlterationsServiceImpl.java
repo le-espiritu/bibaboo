@@ -12,6 +12,7 @@ import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
 import com.project.bibaboo.domain.review.dao.ReviewDao;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
+import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
 import com.project.bibaboo.global.common.dto.Criteria;
 import com.project.bibaboo.global.common.dto.PageDTO;
 
@@ -43,12 +44,17 @@ public class AlterationsServiceImpl implements AlterationsService {
   }
 
   @Override
+  @Transactional
   public AlterationsAndReviewsDTO selectById(int id) {
 
     AlterationsDTO alterationsDTO = alterationsDao.selectById(id);
     alterationsDTO.setCategoryList(alterationsCategoryDao.getCategories(id));
     
     List<ReviewDTO>reviewList = reviewDao.getReviewList(id);
+    for(ReviewDTO review : reviewList) {
+      List<ReviewPhotoDTO> reviewPhotos = reviewDao.getReviewPhoto(review.getId());
+      review.setReviewPhotos(reviewPhotos);
+    }
     
     AlterationsAndReviewsDTO alterAndReviews = new AlterationsAndReviewsDTO();
     alterAndReviews.setAlterationsDTO(alterationsDTO);

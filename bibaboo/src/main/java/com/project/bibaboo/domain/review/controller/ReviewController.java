@@ -52,7 +52,8 @@ public class ReviewController {
     }
     
     //db 저장 
-    reviewService.enrollReview(reviewDTO, reviewPhotoDTOList);
+    reviewDTO.setReviewPhotos(reviewPhotoDTOList);
+    reviewService.enrollReview(reviewDTO);
     
     return"redirect:/alterations/"+reviewDTO.getAlterId();
   }

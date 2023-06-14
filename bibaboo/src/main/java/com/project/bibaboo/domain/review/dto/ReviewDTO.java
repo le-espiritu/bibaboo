@@ -17,7 +17,14 @@ public class ReviewDTO {
   
   private List<MultipartFile> files;
   private String categoryName;
+  private List<ReviewPhotoDTO> reviewPhotos;
   
+  public List<ReviewPhotoDTO> getReviewPhotos() {
+    return reviewPhotos;
+  }
+  public void setReviewPhotos(List<ReviewPhotoDTO> reviewPhotos) {
+    this.reviewPhotos = reviewPhotos;
+  }
   public List<MultipartFile> getFiles() {
     return files;
   }
@@ -90,7 +97,7 @@ public class ReviewDTO {
     return "ReviewDTO [id=" + id + ", userId=" + userId + ", orderCategoryId=" + orderCategoryId
         + ", alterId=" + alterId + ", categoryId=" + categoryId + ", content=" + content
         + ", score=" + score + ", enable=" + enable + ", createDate=" + createDate + ", files="
-        + files + ", categoryName=" + categoryName + "]";
+        + files + ", categoryName=" + categoryName + ", reviewPhotos=" + reviewPhotos + "]";
   }
   
 }

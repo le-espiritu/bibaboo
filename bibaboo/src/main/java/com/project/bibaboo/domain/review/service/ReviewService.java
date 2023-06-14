@@ -6,5 +6,5 @@ import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
 
 public interface ReviewService {
   
-  public void enrollReview(ReviewDTO reviewDTO, List<ReviewPhotoDTO> reviewPhotoDTOList);
+  public void enrollReview(ReviewDTO reviewDTO);
 }

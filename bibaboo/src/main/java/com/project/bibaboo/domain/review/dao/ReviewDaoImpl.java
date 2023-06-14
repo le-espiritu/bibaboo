@@ -38,10 +38,13 @@ public class ReviewDaoImpl implements ReviewDao{
   }
 
   @Override
-  public int insertPhotoNameList(List<ReviewPhotoDTO> reviewPhotoDTOList) {
-    Map<String, List<ReviewPhotoDTO>> photoMap = new HashMap<>();
-    photoMap.put("reviewPhotoDTOList", reviewPhotoDTOList);
-    return sqlSession.insert("review.insertPhotoNameList", photoMap);
+  public int insertPhotoNameList(ReviewDTO reviewDTO) {
+    return sqlSession.insert("review.insertPhotoNameList", reviewDTO);
+  }
+
+  @Override
+  public List<ReviewPhotoDTO> getReviewPhoto(int reviewId) {
+    return sqlSession.selectList("review.getReviewPhoto", reviewId);
   }
 
 }

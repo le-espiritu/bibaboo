@@ -251,3 +251,7 @@
 .review > table > tbody> tr >td:nth-child(5){
 	width:15%;
 }
+
+.review-photo-div > img{
+	width: 40%;
+}
