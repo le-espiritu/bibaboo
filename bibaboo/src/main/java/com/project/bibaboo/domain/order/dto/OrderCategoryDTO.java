@@ -6,18 +6,31 @@ public class OrderCategoryDTO {
   private int orderCategoryId;
   // 주문 번호
   private int orderId;
-  
   private int alterId;
-
   private int categoryId;
-
   private int count;
-
-  private int state;
-
+  private String state;
   private int categoryPrice;
-
   private int totalPrice;
+  
+  private String alterName;
+  private String categoryName;
+  
+  public String getAlterName() {
+    return alterName;
+  }
+
+  public void setAlterName(String alterName) {
+    this.alterName = alterName;
+  }
+
+  public String getCategoryName() {
+    return categoryName;
+  }
+
+  public void setCategoryName(String categoryName) {
+    this.categoryName = categoryName;
+  }
 
   public int getAlterId() {
     return alterId;
@@ -59,11 +72,11 @@ public class OrderCategoryDTO {
     this.count = count;
   }
 
-  public int getState() {
+  public String getState() {
     return state;
   }
 
-  public void setState(int state) {
+  public void setState(String state) {
     this.state = state;
   }
 
@@ -87,7 +100,8 @@ public class OrderCategoryDTO {
   public String toString() {
     return "OrderCategoryDTO [orderCategoryId=" + orderCategoryId + ", orderId=" + orderId
         + ", alterId=" + alterId + ", categoryId=" + categoryId + ", count=" + count + ", state="
-        + state + ", categoryPrice=" + categoryPrice + ", totalPrice=" + totalPrice + "]";
+        + state + ", categoryPrice=" + categoryPrice + ", totalPrice=" + totalPrice + ", alterName="
+        + alterName + ", categoryName=" + categoryName + "]";
   }
 
 }

@@ -27,6 +27,17 @@
 		WHERE user_id = cast(#{keyword} as unsigned)
 	</select>
 	
+	<!-- 3중 조인 사용 -->
+	<select id="getOrderCategories" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
+		SELECT oc.id as orderCategoryId, oc.order_id, oc.alter_id, al.name as alterName, oc.category_id  , ca.name as categoryName, oc.count, oc.total_price, oc.state
+		FROM alter_order_category as oc
+		join alterations as al
+		on oc.alter_id = al.id
+		join category as ca
+		on oc.category_id = ca.id
+		WHERE oc.order_id = #{orderId}
+	</select>
+	
 	<!-- 아래 코드 안쓰고 있음  -->
 	<select id="getOrderInfo" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
 		SELECT id AS categoryId, price AS categoryPrice
@@ -67,5 +78,7 @@
 		SET state = '주문취소'
 		WHERE order_id = #{orderId}
 	</update>
+	
+	
 	
 </mapper>

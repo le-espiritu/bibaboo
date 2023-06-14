@@ -34,13 +34,14 @@
 	</select>
 	
 	<insert id="insertPhotoNameList">
-		<selectKey resultType="int" keyProperty="reviewId" order="BEFORE">
+		<!-- keyProperty의 값은 parameterType(DTO) 의 멤버(setter)명과 동일해야 한다.  -->
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 		INSERT INTO review_photo(review_id, name)
 		VALUES
 			<foreach collection="reviewPhotos" item="reviewPhotoDTO" separator=",">
-				(#{reviewId},#{reviewPhotoDTO.name})
+				(#{id},#{reviewPhotoDTO.name})
 			</foreach>
 	</insert>
 	

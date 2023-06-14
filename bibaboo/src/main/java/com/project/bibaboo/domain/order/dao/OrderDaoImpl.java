@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
+import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
 import com.project.bibaboo.global.common.dto.Criteria;
@@ -52,6 +53,11 @@ public class OrderDaoImpl implements OrderDao {
   @Override
   public int orderCategoryCancle(OrderCancleDTO orderCancleDTO) {
     return sqlSession.update("order.orderCategoryCancle",orderCancleDTO);
+  }
+
+  @Override
+  public List<OrderCategoryDTO> getOrderCategories(int orderId) {
+    return sqlSession.selectList("order.getOrderCategories", orderId);
   }
 
 }

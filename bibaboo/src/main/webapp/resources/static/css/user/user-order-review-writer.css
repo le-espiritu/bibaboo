@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+.title-card > p{
+	font-size: 25px;
+	font-weight : bold;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.card, .title-card{
+	width: 98%;
+	padding: 30px 50px;
+	margin-left:2%;
+	
+	border: 2px solid #d1d1d1;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+	overflow:auto;
+}
+
+.card{
+	margin-top: 2%;
+}
+
+
+/* ===별점 css=== */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: right;
+  width: 5em;
+}
+ 
+.star-rating input {
+  display: none;
+}
+ 
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+}
+
+
+.star-ratings {
+	  color: #aaa9a9; 
+	  position: relative;
+	  unicode-bidi: bidi-override;
+	  width: max-content;
+	  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+	  -webkit-text-stroke-width: 1.3px;
+	  -webkit-text-stroke-color: #2b2a29;
+	}
+	 
+.star-ratings-fill {
+  color: #fff58c;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-ratings-base {
+  z-index: 0;
+  padding: 0;
+}
+
+
+.write-box{
+	border : 5px solid #D2D2D2; 
+	border-radius: 15px;  
+	width:100%;  
+	margin: 15px 0; 
+	padding: 50px 30px;
+}
+
+.write-box > div:first-of-type{
+	margin: 20px 0px ;
+}
+
+.write-box > form > div:last-of-type{
+	text-align: right;
+}
+
+.write-box > form > div:last-of-type > input{
+	width: 15%;
+	height: 35px;
+}
