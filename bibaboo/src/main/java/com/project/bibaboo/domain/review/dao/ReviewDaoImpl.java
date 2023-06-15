@@ -1,8 +1,6 @@
 package com.project.bibaboo.domain.review.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
@@ -45,6 +43,11 @@ public class ReviewDaoImpl implements ReviewDao{
   @Override
   public List<ReviewPhotoDTO> getReviewPhoto(int reviewId) {
     return sqlSession.selectList("review.getReviewPhoto", reviewId);
+  }
+
+  @Override
+  public boolean reviewExistsCheck(ReviewDTO reviewDTO) {
+    return sqlSession.selectOne("review.reviewExistsCheck", reviewDTO);
   }
 
 }

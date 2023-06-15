@@ -1,12 +1,11 @@
 package com.project.bibaboo.domain.review.service;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.project.bibaboo.domain.review.dao.ReviewDao;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
-import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
+import com.project.bibaboo.domain.review.exception.ReviewDuplicatedException;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -33,6 +32,14 @@ public class ReviewServiceImpl implements ReviewService {
     reviewDao.updateAvgScore(reviewDTO);
     //카테고리 score값 더해주기 
     reviewDao.plusCategoryScore(reviewDTO);
+  }
+
+  @Override
+  public void reviewExistsCheck(ReviewDTO reviewDTO) {
+    boolean isReviewExist = reviewDao.reviewExistsCheck(reviewDTO);
+    if(isReviewExist) {
+      throw new ReviewDuplicatedException("리뷰를 이미 작성하였습니다.");
+    }
   }
 
 }

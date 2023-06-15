@@ -11,4 +11,5 @@ public interface ReviewDao {
   public List<ReviewDTO> getReviewList(int alaterId);
   public int insertPhotoNameList(ReviewDTO reviewDTO);
   public List<ReviewPhotoDTO> getReviewPhoto(int reviewId);
+  public boolean reviewExistsCheck(ReviewDTO reviewDTO);
 }
