@@ -124,6 +124,18 @@
 									
 									<div>
 										${reviewDTO.content}
+										<!-- 추후 if문으로 처리 -->
+										<div>
+											<input type="hidden" class="user-id" value="1"/><!-- !!!!!!!추후 유저 id 수정!!!!!!!!!! -->
+											<input type="hidden" class="review-id" value="${reviewDTO.id}"/>
+											<button class="update-view-btn">
+												수정
+											</button>
+											<button>
+												삭제
+											</button>
+										</div>
+										
 									</div>
 								</td>
 								<td>${reviewDTO.userId}</td>
@@ -139,3 +151,5 @@
 	</div>
 	
 </section>
+
+<script src="/bibaboo/js/alter/alter-detail.js"></script>

@@ -56,4 +56,18 @@
 		(SELECT * FROM review WHERE user_id = #{userId} AND order_category_id = #{orderCategoryId})
 	</select>
 	
+	<update id="updateReview">
+		UPDATE review
+		SET content = #{content}, score = #{score}
+		WHERE id = #{id}
+	</update>
+	
+	<select id="getReviewForUpdate" resultType="com.project.bibaboo.domain.review.dto.ReviewDTO">
+		SELECT r.id, r.user_id, r.order_category_id, r.alter_id, r.category_id, c.name as categoryName, r.content, r.score, r.create_date
+		FROM review r
+		JOIN category c
+		ON r.category_id = c.id
+		WHERE r.id = #{id}
+	</select>
+	
 </mapper>

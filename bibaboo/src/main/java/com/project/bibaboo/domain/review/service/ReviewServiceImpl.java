@@ -38,13 +38,21 @@ public class ReviewServiceImpl implements ReviewService {
   public void reviewExistsCheck(ReviewDTO reviewDTO) {
     boolean isReviewExist = reviewDao.reviewExistsCheck(reviewDTO);
     if(isReviewExist == true) {
-      System.out.println("====================================ReviewDuplicatedException 실행=========================");
       throw new ReviewDuplicatedException("리뷰를 이미 작성하였습니다.");
     }
-    
-    else {
-      System.out.println("==================================예외 처리 안=========================");
-    }
+  }
+
+  @Override
+  @Transactional
+  public void updateReview(ReviewDTO reviewDTO) {
+    reviewDao.updateReview(reviewDTO);
+    //수선집의 avg_score 값 업데이트
+    reviewDao.updateAvgScore(reviewDTO);
+  }
+
+  @Override
+  public ReviewDTO getReviewForUpdate(int reviewId) {
+    return reviewDao.getReviewForUpdate(reviewId);
   }
 
 }

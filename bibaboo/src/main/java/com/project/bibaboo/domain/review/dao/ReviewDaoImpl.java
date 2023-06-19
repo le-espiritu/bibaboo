@@ -50,4 +50,14 @@ public class ReviewDaoImpl implements ReviewDao{
     return sqlSession.selectOne("review.reviewExistsCheck", reviewDTO);
   }
 
+  @Override
+  public int updateReview(ReviewDTO reviewDTO) {
+    return sqlSession.update("review.updateReview", reviewDTO);
+  }
+
+  @Override
+  public ReviewDTO getReviewForUpdate(int id) {
+    return sqlSession.selectOne("review.getReviewForUpdate", id);
+  }
+
 }

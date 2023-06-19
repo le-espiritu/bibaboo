@@ -6,4 +6,6 @@ public interface ReviewService {
   
   public void enrollReview(ReviewDTO reviewDTO);
   public void reviewExistsCheck(ReviewDTO reviewDTO);
+  public void updateReview(ReviewDTO reviewDTO);
+  public ReviewDTO getReviewForUpdate(int reviewId);
 }

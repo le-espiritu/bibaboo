@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
 import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
 import com.project.bibaboo.domain.review.service.ReviewService;
@@ -72,4 +75,26 @@ public class ReviewController {
     return ResponseEntity.ok().build();
     
   }
+  
+  @GetMapping("/update-page")
+  public ModelAndView getReviewUpdateView(ReviewDTO reviewDTO) {
+    
+    ReviewDTO reviewInfo = reviewService.getReviewForUpdate(reviewDTO.getId());
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("reviewInfo", reviewInfo);
+    mv.addObject("userId", reviewDTO.getUserId());
+    mv.setViewName("review-update-popup-view");
+    
+    return mv;
+  }
+  
+  @PatchMapping
+  public String upadateReview(@ModelAttribute ReviewDTO reviewDTO) {
+
+    reviewService.updateReview(reviewDTO);
+    
+    return"redirect:/alterations/"+reviewDTO.getAlterId();
+  }
+
 }
