@@ -91,5 +91,4 @@
 	
 </div>
 
-<script src="/bibaboo/js/user/user-order-list.js"></script>
 	

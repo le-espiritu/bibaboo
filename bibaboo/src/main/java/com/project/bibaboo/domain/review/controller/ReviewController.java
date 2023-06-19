@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
@@ -61,8 +62,11 @@ public class ReviewController {
   }
   
   @PostMapping("/check")
-  public ResponseEntity<Object> reviewExistsCheck(@ModelAttribute ReviewDTO reviewDTO){
+  public ResponseEntity<Object> reviewExistsCheck(@RequestBody ReviewDTO reviewDTO){
+    // @ModelAttribute 는 form 데이터를 받아서 자바 객체로 매핑할때 사용
+    // @RequestBody는 request body를 통해서 전달된 json 데이터를 자바 객체로 매핑할때 사용
     
+    System.out.println(reviewDTO);
     reviewService.reviewExistsCheck(reviewDTO);
     
     return ResponseEntity.ok().build();

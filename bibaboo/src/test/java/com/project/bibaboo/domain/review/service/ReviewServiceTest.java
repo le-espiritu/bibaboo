@@ -22,7 +22,7 @@ public class ReviewServiceTest {
   public void reviewExistsCheckTest() {
     ReviewDTO reviewDTO = new ReviewDTO();
     reviewDTO.setUserId(1);
-    reviewDTO.setOrderCategoryId(2);
+    reviewDTO.setOrderCategoryId(1);
     
     reviewService.reviewExistsCheck(reviewDTO);
   }

@@ -37,8 +37,13 @@ public class ReviewServiceImpl implements ReviewService {
   @Override
   public void reviewExistsCheck(ReviewDTO reviewDTO) {
     boolean isReviewExist = reviewDao.reviewExistsCheck(reviewDTO);
-    if(isReviewExist) {
+    if(isReviewExist == true) {
+      System.out.println("====================================ReviewDuplicatedException 실행=========================");
       throw new ReviewDuplicatedException("리뷰를 이미 작성하였습니다.");
+    }
+    
+    else {
+      System.out.println("==================================예외 처리 안=========================");
     }
   }
 

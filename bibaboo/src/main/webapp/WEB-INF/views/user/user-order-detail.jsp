@@ -45,13 +45,14 @@
 							</form>
 						</td>
 						<td>
-							<form action="/bibaboo/users/${userId}/mypage/review-writer-page" method="get">
-								<input type="hidden" name="orderCategoryId" value="${orderCategory.orderCategoryId}"/>
+							<form class="write-review-form" action="/bibaboo/users/${userId}/mypage/review-writer-page" method="get">
+								<input type="hidden" class="user-id" name="userId" value="${userId}"/>
+								<input type="hidden" class="order-category-id" name="orderCategoryId" value="${orderCategory.orderCategoryId}"/>
 								<input type="hidden" name="alterId" value="${orderCategory.alterId}"/>
 								<input type="hidden" name="categoryId" value="${orderCategory.categoryId}"/>
 								<input type="hidden" name="alterName" value="${orderCategory.alterName}"/>
 								<input type="hidden" name="categoryName" value="${orderCategory.categoryName}"/>
-								<button> 리뷰 작성 </button>
+								<button class="write-review-btn"> 리뷰 작성 </button>
 							</form>
 						</td>
 					</tr>
@@ -62,5 +63,7 @@
 	
 	
 </div>
+
+<script src="/bibaboo/js/user/user-order-detail.js"></script>
 
 	
