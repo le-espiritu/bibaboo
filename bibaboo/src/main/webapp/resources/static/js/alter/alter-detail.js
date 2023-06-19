@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded",function(){
 	gerReviewUpdateView();
+	deleteReview();
 });
 
 function gerReviewUpdateView(){
@@ -23,3 +24,37 @@ function gerReviewUpdateView(){
 		});
 	});
 };
+
+function deleteReview(){
+	let deleteButtons = document.querySelectorAll(".delete-review-btn");
+	
+	deleteButtons.forEach((element)=>{
+		element.addEventListener("click",function(event){
+			event.preventDefault();
+			
+			confirm("정말로 삭제하시겠습니까?");
+			
+			let reviewId = element.parentElement.querySelector(".review-id").value;
+			let userId = element.parentElement.querySelector(".user-id").value;
+			let alterId = element.parentElement.querySelector(".alter-id").value;
+			
+			let form ={
+				userId : userId,
+				id : reviewId,
+				alterId : alterId
+			}
+			
+			let xhr = new XMLHttpRequest();
+			xhr.addEventListener("load",function(){
+				if(xhr.status == 200){
+					alert("성공적으로 삭제되었습니다.");
+					location.href="/bibaboo/alterations/"+alterId;
+				}
+			});
+			
+			xhr.open("delete", "/bibaboo/review", true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send(JSON.stringify(form));
+		});
+	});
+}

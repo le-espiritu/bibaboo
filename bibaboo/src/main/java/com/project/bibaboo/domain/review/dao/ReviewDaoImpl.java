@@ -60,4 +60,9 @@ public class ReviewDaoImpl implements ReviewDao{
     return sqlSession.selectOne("review.getReviewForUpdate", id);
   }
 
+  @Override
+  public int deleteReview(int reviewId) {
+    return sqlSession.update("review.deleteReview", reviewId);
+  }
+
 }

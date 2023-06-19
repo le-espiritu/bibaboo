@@ -8,4 +8,5 @@ public interface ReviewService {
   public void reviewExistsCheck(ReviewDTO reviewDTO);
   public void updateReview(ReviewDTO reviewDTO);
   public ReviewDTO getReviewForUpdate(int reviewId);
+  public void deleteReview(ReviewDTO reviewDTO);
 }

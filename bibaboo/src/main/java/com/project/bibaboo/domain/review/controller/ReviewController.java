@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -69,7 +70,6 @@ public class ReviewController {
     // @ModelAttribute 는 form 데이터를 받아서 자바 객체로 매핑할때 사용
     // @RequestBody는 request body를 통해서 전달된 json 데이터를 자바 객체로 매핑할때 사용
     
-    System.out.println(reviewDTO);
     reviewService.reviewExistsCheck(reviewDTO);
     
     return ResponseEntity.ok().build();
@@ -95,6 +95,14 @@ public class ReviewController {
     reviewService.updateReview(reviewDTO);
     
     return"redirect:/alterations/"+reviewDTO.getAlterId();
+  }
+  
+  @DeleteMapping
+  public ResponseEntity<Object> deleteReview(@RequestBody ReviewDTO reviewDTO){
+    
+    reviewService.deleteReview(reviewDTO);
+    
+    return ResponseEntity.ok().build();
   }
 
 }

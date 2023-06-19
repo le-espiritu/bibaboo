@@ -14,4 +14,5 @@ public interface ReviewDao {
   public boolean reviewExistsCheck(ReviewDTO reviewDTO);
   public int updateReview(ReviewDTO reviewDTO);
   public ReviewDTO getReviewForUpdate(int id);
+  public int deleteReview(int reviewId);
 }

@@ -55,4 +55,13 @@ public class ReviewServiceImpl implements ReviewService {
     return reviewDao.getReviewForUpdate(reviewId);
   }
 
+  @Override
+  public void deleteReview(ReviewDTO reviewDTO) {
+    
+    reviewDao.deleteReview(reviewDTO.getId());
+    //수선집의 avg_score 값 업데이트
+    reviewDao.updateAvgScore(reviewDTO);
+    
+  }
+
 }
