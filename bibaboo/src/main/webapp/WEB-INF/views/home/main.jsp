@@ -37,37 +37,37 @@
 	<nav>
 		<section>
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">전국<br>바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=pants">전국<br>바지수선<br>TOP5 </a>
 			</div>
 			
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=shirts">전국<br>셔츠수선<br>TOP5 </a>
 			</div>
 			
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=suit">전국<br>정장수선<br>TOP5 </a>
 			</div>
 			
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=outer">전국<br>아우터수선<br>TOP5 </a>
 			</div>
 		</section>
 		
 		<section>
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=jeans">전국<br>청바지수선<br>TOP5 </a>
 			</div>
 			
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=skirt">전국<br>치마수선<br>TOP5 </a>
 			</div>
 			
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=dress">전국<br>원피스수선<br>TOP5 </a>
 			</div>
 			
 			<div class="tob-box"> 
-				<a href="/webproject/shop/shop_top5.do?category=pants">바지수선<br>TOP5 </a>
+				<a href="/bibaboo/alterations/whole-top5?categoryName=reform">전국<br>리폼<br>TOP5 </a>
 			</div>
 		</section>
 	</nav>

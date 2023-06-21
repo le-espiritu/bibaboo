@@ -12,36 +12,36 @@
 			</div>
 		</div> --%>
 		
-		<div OnClick="location.href ='#'" >
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=pants&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
 			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
 		</div>
 		
-		<div OnClick="location.href ='#'" >
-			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=shirts&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>셔츠수선<br>TOP5</p>
 		</div>
 		
-		<div OnClick="location.href ='#'" >
-			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=suit&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>정장수선<br>TOP5</p>
 		</div>
 		
-		<div OnClick="location.href ='#'" >
-			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=outer&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>아우터수선<br>TOP5</p>
 		</div>
 		
-		<div OnClick="location.href ='#'" >
-			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=jeans&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>청바지수선<br>TOP5</p>
 		</div>
 		
-		<div OnClick="location.href ='#'" >
-			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=skirt&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>치마수선<br>TOP5</p>
 		</div>
 		
-		<div OnClick="location.href ='#'" >
-			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=dress&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>원피스수선<br>TOP5</p>
 		</div>
 		
-		<div OnClick="location.href ='#'" >
-			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>바지수선<br>TOP5</p>
+		<div OnClick="location.href ='/bibaboo/alterations/area-top5?categoryName=reform&areaKeyword=${alterationsWithPagingDto.pageDTO.criteria.keyword}'" >
+			<p>${alterationsWithPagingDto.pageDTO.criteria.keyword }<br>리폼<br>TOP5</p>
 		</div>
 		
 	</nav>

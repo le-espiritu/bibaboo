@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
+import com.project.bibaboo.domain.alterations.dto.AlterTop5DTO;
 import com.project.bibaboo.global.common.dto.Criteria;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 import com.project.bibaboo.global.common.service.PhotoUploadLogicService;
@@ -82,4 +83,27 @@ public class AlterationsController {
     return "redirect:/admin/alterations";
   }
 
+  @GetMapping("/whole-top5")
+  public ModelAndView getWholeTopFive(@ModelAttribute AlterTop5DTO alterTop5DTO) {
+    
+    AlterTop5DTO top5Response = alterationsService.getTopFive(alterTop5DTO);
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("top5Response", top5Response);
+    mv.setViewName("alter/whole-top5");
+    
+    return mv;
+  }
+  
+  @GetMapping("/area-top5")
+  public ModelAndView getAreaTopFive(@ModelAttribute AlterTop5DTO alterTop5DTO) {
+    
+    AlterTop5DTO top5Response = alterationsService.getTopFive(alterTop5DTO);
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("top5Response", top5Response);
+    mv.setViewName("alter/area-top5");
+    
+    return mv;
+  }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
+import com.project.bibaboo.domain.alterations.dto.AlterTop5DTO;
 import com.project.bibaboo.global.common.dto.Criteria;
 
 @Repository
@@ -57,6 +58,11 @@ public class AlterationsDaoImpl implements AlterationsDao {
   @Override
   public int getTotal(Criteria criteria) {
     return sqlSession.selectOne("alterations.getTotal",criteria);
+  }
+
+  @Override
+  public List<AlterationsDTO> getTopFive(AlterTop5DTO alterTop5DTO) {
+    return sqlSession.selectList("alterations.getTopFive", alterTop5DTO);
   }
 
 }

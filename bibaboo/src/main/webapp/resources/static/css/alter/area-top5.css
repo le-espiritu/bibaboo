@@ -43,11 +43,11 @@
     display: flex;
 }
 
-.tops > div:first-child {
+.tops > div:first-of-type {
 	width:35%;
 }
 
-.tops > div:first-child img{
+.tops > div:first-of-type img{
 	height: 100%;
 	
 	border-top-left-radius: 15px;

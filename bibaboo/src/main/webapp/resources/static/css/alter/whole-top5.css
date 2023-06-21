@@ -59,7 +59,7 @@
 	height:250px;
 	width:100%;
 	
-	margin-top: 20px 0;
+	margin: 20px 0;
 	
 	border: 5px solid transparent;
     border-radius: 15px;
@@ -71,11 +71,11 @@
     display: flex;
 }
 
-.tops > div:first-child {
+.tops > div:first-of-type {
 	width:35%;
 }
 
-.tops > div:first-child img{
+.tops > div:first-of-type img{
 	height: 100%;
 	
 	border-top-left-radius: 15px;

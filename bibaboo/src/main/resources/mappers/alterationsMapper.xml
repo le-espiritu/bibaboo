@@ -78,5 +78,19 @@
 			<include refid="criteria"></include>
 		</if>
 	</select>
+	
+	<select id="getTopFive" resultType="com.project.bibaboo.domain.alterations.dto.AlterationsDTO">
+		SELECT a.id, a.name, a.address, a.tel_number, a.open_time, a.close_time, a.avg_score, c.name, ap.name as photoName
+		FROM alterations a
+		JOIN category c
+		ON a.id = c.alter_id
+		JOIN alter_photo ap
+		ON a.id = ap.alter_id
+		WHERE c.name = #{categoryName}
+			<if test="areaKeyword != null">
+				AND a.address like concat('%',#{areaKeyword},'%')
+			</if>
+		ORDER BY c.sum_score DESC LIMIT 5
+	</select>
 
 </mapper>

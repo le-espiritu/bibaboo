@@ -10,6 +10,7 @@ import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsAndReviewsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
+import com.project.bibaboo.domain.alterations.dto.AlterTop5DTO;
 import com.project.bibaboo.domain.review.dao.ReviewDao;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
 import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
@@ -86,6 +87,14 @@ public class AlterationsServiceImpl implements AlterationsService {
   @Override
   public void delete(Integer id) {
     alterationsDao.delete(id);
+  }
+
+  @Override
+  public AlterTop5DTO getTopFive(AlterTop5DTO alterTop5DTO) {
+    List<AlterationsDTO> alterTop5List = alterationsDao.getTopFive(alterTop5DTO);
+    alterTop5DTO.setAlterTop5List(alterTop5List);
+    
+    return alterTop5DTO;
   }
 
 }
