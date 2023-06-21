@@ -18,7 +18,14 @@ public class ReviewDTO {
   private List<MultipartFile> files;
   private String categoryName;
   private List<ReviewPhotoDTO> reviewPhotos;
+  private int previousScore;
   
+  public int getPreviousScore() {
+    return previousScore;
+  }
+  public void setPreviousScore(int previousScore) {
+    this.previousScore = previousScore;
+  }
   public List<ReviewPhotoDTO> getReviewPhotos() {
     return reviewPhotos;
   }
@@ -97,7 +104,8 @@ public class ReviewDTO {
     return "ReviewDTO [id=" + id + ", userId=" + userId + ", orderCategoryId=" + orderCategoryId
         + ", alterId=" + alterId + ", categoryId=" + categoryId + ", content=" + content
         + ", score=" + score + ", enable=" + enable + ", createDate=" + createDate + ", files="
-        + files + ", categoryName=" + categoryName + ", reviewPhotos=" + reviewPhotos + "]";
+        + files + ", categoryName=" + categoryName + ", reviewPhotos=" + reviewPhotos
+        + ", previousScore=" + previousScore + "]";
   }
   
 }

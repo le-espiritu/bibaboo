@@ -37,11 +37,15 @@ function deleteReview(){
 			let reviewId = element.parentElement.querySelector(".review-id").value;
 			let userId = element.parentElement.querySelector(".user-id").value;
 			let alterId = element.parentElement.querySelector(".alter-id").value;
+			let categoryId = element.parentElement.querySelector(".category-id").value;
+			let previousScore = elelement.parentElement.querySelector(".score-input").value;
 			
 			let form ={
 				userId : userId,
 				id : reviewId,
-				alterId : alterId
+				alterId : alterId,
+				categoryId : categoryId,
+				previousScore : previousScore
 			}
 			
 			let xhr = new XMLHttpRequest();

@@ -90,7 +90,7 @@
 			<if test="areaKeyword != null">
 				AND a.address like concat('%',#{areaKeyword},'%')
 			</if>
-		ORDER BY c.sum_score DESC LIMIT 5
+		ORDER BY c.avg_score DESC LIMIT 5
 	</select>
 
 </mapper>

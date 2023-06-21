@@ -129,6 +129,8 @@
 											<input type="hidden" class="user-id" value="1"/><!-- !!!!!!!추후 유저 id 수정!!!!!!!!!! -->
 											<input type="hidden" class="review-id" value="${reviewDTO.id}"/>
 											<input type="hidden" class="alter-id" value="${reviewDTO.alterId}"/>
+											<input type="hidden" class="category-id" value="${reviewDTO.categoryId }"/>
+											<input type="hidden" class="score-input" value="${reviewDTO.score }"/>
 											<button class="update-view-btn">
 												수정
 											</button>

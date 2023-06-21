@@ -15,12 +15,12 @@
 		</foreach>
 		ON DUPLICATE KEY UPDATE name = VALUES(name), alter_id= VALUES(alter_id), price = VALUES(price)
 		<!-- batch 프로세싱 적용 -->
-		<!-- on duplicate key update 는 없으면 insert하고 없으면 update를 하는 기능이다. -->
+		<!-- on duplicate key update 는 없으면 insert하고 있으면 update를 하는 기능이다. -->
 		<!-- VALUES(컬럼명) 이란 지정된 컬럼명에 들어온 값을 의미한다.  -->
 	</insert>
 	
 	<select id="select" resultType="com.project.bibaboo.domain.alterations.dto.CategoryDTO">
-		SELECT ca.id, ca.name, ca.alter_id, ca.price, ca.sum_score, a.name as alterName
+		SELECT ca.id, ca.name, ca.alter_id, ca.price, ca.avg_score, a.name as alterName
 		FROM category ca
 		JOIN alterations a
 		ON ca.alter_id = a.id

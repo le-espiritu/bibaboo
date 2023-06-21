@@ -26,8 +26,8 @@ public class ReviewDaoImpl implements ReviewDao{
   }
 
   @Override
-  public int plusCategoryScore(ReviewDTO reviewDTO) {
-    return sqlSession.update("review.plusCategoryScore", reviewDTO);
+  public int updateCategoryAvgScore(ReviewDTO reviewDTO) {
+    return sqlSession.update("review.updateCategoryAvgScore", reviewDTO);
   }
 
   @Override

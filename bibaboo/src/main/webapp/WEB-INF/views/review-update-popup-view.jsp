@@ -26,6 +26,8 @@
 			<input type="hidden" name="userId" value="${userId}"/> <!-- 이후 수정!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
 			<input type="hidden" name="id" value="${reviewInfo.id}"/>
 			<input type="hidden" name="alterId" value="${reviewInfo.alterId}"/>
+			<input type="hidden" name="categoryId" value="${reviewInfo.categoryId }"/>
+			<input type="hidden" name="previousScore" value="${reviewInfo.score}"/>
 			
 			<div>
 				

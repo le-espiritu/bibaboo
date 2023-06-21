@@ -30,8 +30,8 @@ public class ReviewServiceImpl implements ReviewService {
     
     //수선집의 avg_score 값 업데이트
     reviewDao.updateAvgScore(reviewDTO);
-    //카테고리 score값 더해주기 
-    reviewDao.plusCategoryScore(reviewDTO);
+    //카테고리 score값 업데이트
+    reviewDao.updateCategoryAvgScore(reviewDTO);
   }
 
   @Override
@@ -46,8 +46,13 @@ public class ReviewServiceImpl implements ReviewService {
   @Transactional
   public void updateReview(ReviewDTO reviewDTO) {
     reviewDao.updateReview(reviewDTO);
-    //수선집의 avg_score 값 업데이트
-    reviewDao.updateAvgScore(reviewDTO);
+    
+    if(reviewDTO.getPreviousScore()!=reviewDTO.getScore()) {
+      //수선집의 avg_score 값 업데이트
+      reviewDao.updateAvgScore(reviewDTO);
+      //카테고리 별점 합점 업데이트 
+      reviewDao.updateCategoryAvgScore(reviewDTO);
+    }
   }
 
   @Override
@@ -61,7 +66,8 @@ public class ReviewServiceImpl implements ReviewService {
     reviewDao.deleteReview(reviewDTO.getId());
     //수선집의 avg_score 값 업데이트
     reviewDao.updateAvgScore(reviewDTO);
-    
+    //카테고리 별점  업데이트
+    reviewDao.updateCategoryAvgScore(reviewDTO);
   }
 
 }
