@@ -1,6 +1,5 @@
 package com.project.bibaboo.domain.review.dto;
 
-import java.sql.Date;
 import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,7 +12,7 @@ public class ReviewDTO {
   private String content;
   private int score;
   private int enable;
-  private Date createDate;
+  private String createDate;
   
   private List<MultipartFile> files;
   private String categoryName;
@@ -92,10 +91,10 @@ public class ReviewDTO {
   public void setEnable(int enable) {
     this.enable = enable;
   }
-  public Date getCreateDate() {
+  public String getCreateDate() {
     return createDate;
   }
-  public void setCreateDate(Date createDate) {
+  public void setCreateDate(String createDate) {
     this.createDate = createDate;
   }
   

@@ -11,6 +11,8 @@ public class Criteria {
   private String keyword; // 검색 키워드
   private String type; // 검색 타입(카테고리)
   private String[] typeArr; // 검색 타입 배열 변환
+  
+  private Integer alterId; // 댓글 조회할때 필요함
 
   public Criteria() {
     // 기본값 설정
@@ -19,6 +21,14 @@ public class Criteria {
     this.startOffset = 0; // (pageNum-1)*amount
   }
 
+  
+  public Integer getAlterId() {
+    return alterId;
+  }
+
+  public void setAlterId(Integer alterId) {
+    this.alterId = alterId;
+  }
 
   public String getType() {
     return type;
@@ -74,7 +84,8 @@ public class Criteria {
   @Override
   public String toString() {
     return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", startOffset=" + startOffset
-        + ", keyword=" + keyword + ", type=" + type + ", typeArr=" + Arrays.toString(typeArr) + "]";
+        + ", keyword=" + keyword + ", type=" + type + ", typeArr=" + Arrays.toString(typeArr)
+        + ", alterId=" + alterId + "]";
   }
-
+  
 }

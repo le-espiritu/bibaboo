@@ -35,6 +35,14 @@
 		WHERE r.alter_id = #{alterId}
 		AND r.enable =1
 		ORDER BY r.create_date DESC
+		LIMIT #{startOffset},#{amount}
+	</select>
+	
+	<select id="getReviewTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM review
+		WHERE alter_id = #{alterId}
+		AND enable =1
 	</select>
 	
 	<insert id="insertPhotoNameList">

@@ -43,15 +43,26 @@ public class AlterationsServiceImpl implements AlterationsService {
   public List<AlterationsDTO> selectAll() {
     return alterationsDao.selectAll();
   }
+  
+  @Override
+  @Transactional
+  public AlterationsDTO selectById(int id) {
+    
+    AlterationsDTO alterationsDTO = alterationsDao.selectById(id);
+    alterationsDTO.setCategoryList(alterationsCategoryDao.getCategories(id));
+    
+    return alterationsDTO;
+  }
 
   @Override
   @Transactional
-  public AlterationsAndReviewsDTO selectById(int id) {
+  public AlterationsAndReviewsDTO getAlterDetailAndReviews(int id, Criteria criteria) {
 
     AlterationsDTO alterationsDTO = alterationsDao.selectById(id);
     alterationsDTO.setCategoryList(alterationsCategoryDao.getCategories(id));
     
-    List<ReviewDTO>reviewList = reviewDao.getReviewList(id);
+    criteria.setAlterId(id);
+    List<ReviewDTO>reviewList = reviewDao.getReviewList(criteria);
     for(ReviewDTO review : reviewList) {
       List<ReviewPhotoDTO> reviewPhotos = reviewDao.getReviewPhoto(review.getId());
       review.setReviewPhotos(reviewPhotos);
@@ -60,6 +71,9 @@ public class AlterationsServiceImpl implements AlterationsService {
     AlterationsAndReviewsDTO alterAndReviews = new AlterationsAndReviewsDTO();
     alterAndReviews.setAlterationsDTO(alterationsDTO);
     alterAndReviews.setReviewList(reviewList);
+    
+    PageDTO pageDTO = new PageDTO(criteria,reviewDao.getReviewTotal(criteria.getAlterId()));
+    alterAndReviews.setPageDTO(pageDTO);
 
     return alterAndReviews;
   }

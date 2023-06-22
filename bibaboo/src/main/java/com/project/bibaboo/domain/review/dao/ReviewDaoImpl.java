@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
 import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
+import com.project.bibaboo.global.common.dto.Criteria;
 
 @Repository
 public class ReviewDaoImpl implements ReviewDao{
@@ -31,8 +32,8 @@ public class ReviewDaoImpl implements ReviewDao{
   }
 
   @Override
-  public List<ReviewDTO> getReviewList(int alaterId) {
-    return sqlSession.selectList("review.getReview", alaterId);
+  public List<ReviewDTO> getReviewList(Criteria criteria) {
+    return sqlSession.selectList("review.getReview", criteria);
   }
 
   @Override
@@ -63,6 +64,11 @@ public class ReviewDaoImpl implements ReviewDao{
   @Override
   public int deleteReview(int reviewId) {
     return sqlSession.update("review.deleteReview", reviewId);
+  }
+
+  @Override
+  public int getReviewTotal(int alterId) {
+    return sqlSession.selectOne("review.getReviewTotal", alterId);
   }
 
 }

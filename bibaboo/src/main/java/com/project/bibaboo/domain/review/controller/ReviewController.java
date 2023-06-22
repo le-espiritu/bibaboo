@@ -5,21 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
+import com.project.bibaboo.domain.review.dto.ReviewPageDTO;
 import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
 import com.project.bibaboo.domain.review.service.ReviewService;
+import com.project.bibaboo.global.common.dto.Criteria;
 import com.project.bibaboo.global.common.service.PhotoUploadLogicService;
 
 @Controller
@@ -74,6 +77,15 @@ public class ReviewController {
     
     return ResponseEntity.ok().build();
     
+  }
+  
+  @GetMapping("/{alterId}")
+  @ResponseBody
+  public ReviewPageDTO getReviews(@PathVariable(name="alterId") int alterId, Criteria criteria) {
+    
+    criteria.setAlterId(alterId);
+    
+    return reviewService.getReviewsAndPage(criteria);
   }
   
   @GetMapping("/update-page")

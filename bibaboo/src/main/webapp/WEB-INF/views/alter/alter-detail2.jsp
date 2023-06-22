@@ -8,9 +8,9 @@
 	
 		<section class="infor">
 			<div class="alter-img">
-				<img src="/bibaboo/img/upload/${alterationsDTO.photoName}" alt="alternations_image" >
+				<img src="/bibaboo/img/upload/${alterationsAndReviewsDTO.alterationsDTO.photoName}" alt="alternations_image" >
 				<div>
-					<p>${alterationsDTO.name}</p>
+					<p>${alterationsAndReviewsDTO.alterationsDTO.name}</p>
 				</div>
 			</div>
 				
@@ -18,19 +18,18 @@
 				<div>
 					<p>수선집 정보</p>
 					<div>
-						<input type="hidden" class="alter-id-input" value="${alterationsDTO.id}"/>
-						<p>상호 : ${alterationsDTO.name }</p>
-						<p>주소 : ${alterationsDTO.address}</p>
-						<p>전화번호 : ${alterationsDTO.telNumber}</p>
-						<p>영업 시간 : ${alterationsDTO.openTime} - ${alterationsDTO.closeTime}</p>
-						<p>평균 별점: ${alterationsDTO.avgScore} 점</p>
+						<p>상호 : ${alterationsAndReviewsDTO.alterationsDTO.name }</p>
+						<p>주소 : ${alterationsAndReviewsDTO.alterationsDTO.address}</p>
+						<p>전화번호 : ${alterationsAndReviewsDTO.alterationsDTO.telNumber}</p>
+						<p>영업 시간 : ${alterationsAndReviewsDTO.alterationsDTO.openTime} - ${alterationsAndReviewsDTO.alterationsDTO.closeTime}</p>
+						<p>평균 별점: ${alterationsAndReviewsDTO.alterationsDTO.avgScore} 점</p>
 					</div>
 				</div>
 			</div>
 		</section>
 		
 		<section class="order">
-			<button onclick="location.href='/bibaboo/alterations/${alterationsDTO.id}/category'" class="btn">
+			<button onclick="location.href='/bibaboo/alterations/${alterationsAndReviewsDTO.alterationsDTO.id}/category'" class="btn">
 				<p>수선 신청 하기</p>
 			</button>
 		</section>
@@ -41,7 +40,7 @@
 			<form action="/bibaboo/review" method="post" enctype="multipart/form-data">
 			<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
 				<input type="hidden" name="userId" value="1"/> <!-- 이후 수정!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
-				<input type="hidden" name="alterId" value="${alterationsDTO.id}"/>
+				<input type="hidden" name="alterId" value="${alterationsAndReviewsDTO.alterationsDTO.id}"/>
 				
 				<div>
 					<select name="categoryId">
@@ -51,7 +50,7 @@
 						 -->
 						
 						<option value="">수선 품목</option>
-						<c:forEach items="${alterationsDTO.categoryList}" var="categoryDTO">
+						<c:forEach items="${alterationsAndReviewsDTO.alterationsDTO.categoryList}" var="categoryDTO">
 							<option value="${categoryDTO.id}">${categoryDTO.name}</option>
 						</c:forEach>
 					</select>
@@ -83,9 +82,6 @@
 			</form>
 		</section>
 		
-		<section class="review-not-section">
-			
-		</section>
 		
 		<section class="review-list">
 			<div> 
@@ -112,77 +108,51 @@
 							<th>작성일</th>
 						</tr>
 					</thead>
-					<tbody class="review-tbody">
-						<tr>
-							<td>{score} 점</td>
-							<td>{categoryName}</td>
-							<td>
-								<div class="review-photo-div">
-								</div>		
-								
-								<div>
-									{content}
-									<!-- 추후 if문으로 처리 -->
+					<tbody>
+						<c:forEach items="${alterationsAndReviewsDTO.reviewList}" var="reviewDTO">
+							<tr>
+								<td>${reviewDTO.score} 점</td>
+								<td>${reviewDTO.categoryName}</td>
+								<td>
+									<c:if test="${not empty reviewDTO.reviewPhotos}">
+										<div class="review-photo-div">
+											<c:forEach items="${reviewDTO.reviewPhotos}" var="reviewPhotoDTO">
+												<img alt="reviewPhotoImage" src="/bibaboo/img/upload/${reviewPhotoDTO.name}">
+											</c:forEach>
+										</div>		
+									</c:if>
+									
 									<div>
-										<button class="update-view-btn">
-											수정
-										</button>
-										<button class="delete-review-btn">
-											삭제
-										</button>
+										${reviewDTO.content}
+										<!-- 추후 if문으로 처리 -->
+										<div>
+											<input type="hidden" class="user-id" value="1"/><!-- !!!!!!!추후 유저 id 수정!!!!!!!!!! -->
+											<input type="hidden" class="review-id" value="${reviewDTO.id}"/>
+											<input type="hidden" class="alter-id" value="${reviewDTO.alterId}"/>
+											<input type="hidden" class="category-id" value="${reviewDTO.categoryId }"/>
+											<input type="hidden" class="score-input" value="${reviewDTO.score }"/>
+											<button class="update-view-btn">
+												수정
+											</button>
+											<button class="delete-review-btn">
+												삭제
+											</button>
+										</div>
+										
 									</div>
-								</div>
-							</td>
-							<td>{userId}</td>
-							<td>{createDate}</td>
-						</tr>
+								</td>
+								<td>${reviewDTO.userId}</td>
+								<td>${reviewDTO.createDate}</td>
+								
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
-			
-		</section>
-		
-		<section class="review-page-section">
-			
 		</section>
 		
 	</div>
 	
 </section>
-
-<!-- Templating -->
-<script id = "template-review-tbody-tr" type="text/template">
-	<tr class="review-tr">
-		<td>{score} 점</td>
-		<td>{categoryName}</td>
-		<td>
-			<div class="review-photo-div">
-
-			</div>		
-								
-			<div>
-				{content}
-				<!-- 추후 if문으로 처리 -->
-				<div>
-
-					<input type="hidden" class="user-id" value="{hiddenUserId}"/><!-- !!!!!!!추후 유저 id 수정!!!!!!!!!! -->
-					<input type="hidden" class="review-id" value="{reviewId}"/>
-					<input type="hidden" class="alter-id" value="{alterId}"/>
-					<input type="hidden" class="category-id" value="{categoryId}"/>
-					<input type="hidden" class="score-input" value="{hiddenScore}"/>
-
-					<button class="update-view-btn">
-						수정
-					</button>
-					<button class="delete-review-btn">
-						삭제
-					</button>
-				</div>
-			</div>
-		</td>
-		<td>{userId}</td>
-		<td>{createDate}</td>
-	</tr>
-</script>
 
 <script src="/bibaboo/js/alter/alter-detail.js"></script>

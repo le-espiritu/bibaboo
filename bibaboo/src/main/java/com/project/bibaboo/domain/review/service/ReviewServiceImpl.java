@@ -1,11 +1,16 @@
 package com.project.bibaboo.domain.review.service;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.project.bibaboo.domain.review.dao.ReviewDao;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
+import com.project.bibaboo.domain.review.dto.ReviewPageDTO;
+import com.project.bibaboo.domain.review.dto.ReviewPhotoDTO;
 import com.project.bibaboo.domain.review.exception.ReviewDuplicatedException;
+import com.project.bibaboo.global.common.dto.Criteria;
+import com.project.bibaboo.global.common.dto.PageDTO;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -68,6 +73,25 @@ public class ReviewServiceImpl implements ReviewService {
     reviewDao.updateAvgScore(reviewDTO);
     //카테고리 별점  업데이트
     reviewDao.updateCategoryAvgScore(reviewDTO);
+  }
+
+  @Override
+  @Transactional
+  public ReviewPageDTO getReviewsAndPage(Criteria criteria) {
+    
+    List<ReviewDTO>reviewList = reviewDao.getReviewList(criteria);
+    for(ReviewDTO review : reviewList) {
+      List<ReviewPhotoDTO> reviewPhotos = reviewDao.getReviewPhoto(review.getId());
+      review.setReviewPhotos(reviewPhotos);
+    }
+    
+    ReviewPageDTO reviewPageDTO = new ReviewPageDTO();
+    reviewPageDTO.setReviewList(reviewList);
+    
+    PageDTO pageDTO = new PageDTO(criteria,reviewDao.getReviewTotal(criteria.getAlterId()));
+    reviewPageDTO.setPageDTO(pageDTO);
+    
+    return reviewPageDTO;
   }
 
 }

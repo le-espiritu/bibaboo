@@ -49,10 +49,10 @@ public class AdminAlterationsViewController {
   @GetMapping("/{id}/update-view")
   public ModelAndView adminUpdateView(@PathVariable(name = "id") int id) {
 
-    AlterationsAndReviewsDTO alterationsAndReviewsDTO = alterationsService.selectById(id);
+    AlterationsDTO alterationsDTO = alterationsService.selectById(id);
 
     ModelAndView mv = new ModelAndView();
-    mv.addObject("alterInfo", alterationsAndReviewsDTO.getAlterationsDTO());
+    mv.addObject("alterInfo", alterationsDTO);
     mv.setViewName("admin/admin-alter-update");
 
     return mv;

@@ -11,7 +11,8 @@ import com.project.bibaboo.global.common.dto.Criteria;
 public interface AlterationsService {
   
   public List<AlterationsDTO> selectAll();
-  public AlterationsAndReviewsDTO selectById(int id);
+  public AlterationsDTO selectById(int id);
+  public AlterationsAndReviewsDTO getAlterDetailAndReviews(int id, Criteria criteria);
   public AlterationsWithPagingDTO getListWithPaging(Criteria criteria);
   public void insert(AlterationsDTO alterationsDto, AlterPhotoDTO alterPhotoDto);
   public void update(AlterationsDTO alterationsDto);
