@@ -20,6 +20,7 @@ public class AlterationsDetailController {
     this.alterationsService = alterationsService;
   }
 
+  //댓글을 동적으로 가져오는 뷰 
   @GetMapping("/alterations/{id}")
   public ModelAndView getAlterDetail(@PathVariable(name="id") int id) {
     AlterationsDTO alterationsDTO =  alterationsService.selectById(id);
@@ -30,7 +31,8 @@ public class AlterationsDetailController {
     return mv;
   }
   
-  @GetMapping("/alterations2/{id}")
+  //jsp뷰 
+  @GetMapping("/alterations/jsp-view/{id}")
   public ModelAndView getAlterDetail2(@PathVariable(name="id") int id, Criteria criteria) {
     AlterationsAndReviewsDTO alterationsAndReviewsDTO =  alterationsService.getAlterDetailAndReviews(id, criteria);
     
