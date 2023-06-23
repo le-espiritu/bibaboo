@@ -3,7 +3,10 @@
  */
 
 document.addEventListener("DOMContentLoaded",function(){
-	getReviews();
+	const criPageNum =1;
+	const criAmount = 10;
+	getReviews(criPageNum, criAmount);
+	changePage()
 	getUpdateViewForDynamicTag(); //동적 태그를 위한 함수
 	deleteReviewForDynamicTag(); //동적 태그를 위한 함수 
 	
@@ -11,48 +14,91 @@ document.addEventListener("DOMContentLoaded",function(){
 	deleteReview();
 });
 
-function getReviews(){
+
+function makeReviewContent(reviewPageDTO){
+	if(reviewPageDTO.reviewList.length ===0){
+		document.querySelector(".review-list").innerHTML="";
+		document.querySelector(".review-not-section").innerHTML="<span>리뷰가 없습니다.</span>";
+		document.querySelector(".review-page-section").innerHTML="";
+	}else{
+		document.querySelector(".review-not-section").innerHTML="";
+		
+		const pageInfo = reviewPageDTO.pageDTO;
+		
+		let reviewHtml = document.querySelector("#template-review-tbody-tr").innerHTML;
+		let resultHtml = "";
+		for(let i =0; i<reviewPageDTO.reviewList.length; i++){
+			resultHtml += reviewHtml.replace("{score}",reviewPageDTO.reviewList[i].score)
+									.replace("{categoryName}",reviewPageDTO.reviewList[i].categoryName)
+									.replace("{content}",reviewPageDTO.reviewList[i].content)
+									.replace("{hiddenUserId}",reviewPageDTO.reviewList[i].userId)
+									.replace("{hiddenScore}",reviewPageDTO.reviewList[i].score)
+									.replace("{userId}",reviewPageDTO.reviewList[i].userId)
+									.replace("{createDate}",reviewPageDTO.reviewList[i].createDate)
+									.replace("{reviewId}",reviewPageDTO.reviewList[i].id)
+									.replace("{alterId}",reviewPageDTO.reviewList[i].alterId)
+									.replace("{categoryId}",reviewPageDTO.reviewList[i].categoryId);
+		}
+		document.querySelector(".review-tbody").innerHTML=resultHtml;
+		
+		let reviewTrs = document.querySelectorAll(".review-tr");
+		reviewTrs.forEach((element,index)=>{
+			if(reviewPageDTO.reviewList[index].reviewPhotos.length>0){
+				let reviewPhotoDiv = element.querySelector(".review-photo-div");
+				let imgHtml = "";
+				for(let i =0; i<reviewPageDTO.reviewList[index].reviewPhotos.length; i++ ){
+					imgHtml +="<img alt='reviewPhotoImage' src='/bibaboo/img/upload/"+reviewPageDTO.reviewList[index].reviewPhotos[i].name+"'>";
+				}
+				reviewPhotoDiv.innerHTML = imgHtml;
+			}
+		});
+		
+		//페이지 버튼 동적 구현
+		let pageHtml = "";
+		
+		pageHtml+="<ul>";
+		
+		if(pageInfo.prev){
+			let prevNum = pageInfo.startPage-1;
+			pageHtml += "<li class='page-btn page-prev'>";
+			pageHtml += "<a href='"+prevNum+"'>이전</a>";
+			pageHtml += "</li>";
+		}
+		
+		for(let i= pageInfo.startPage; i<pageInfo.endPage+1; i++){
+			pageHtml += "<li class='page-btn";
+			if(pageInfo.criteria.pageNum === i){
+				pageHtml += " active";
+			}
+			pageHtml += "'>";
+			pageHtml += "<a href='"+i+"'>"+i+"</a>";
+			pageHtml += "</li>";
+		}
+		
+		if(pageInfo.next){
+			let nextNum = pageInfo.endPage+1;
+			pageHtml += "<li class='page-btn page-next'>";
+			pageHtml += "<a href='"+nextNum+"'>다음</a>";
+			pageHtml += "</li>";
+		}
+		
+		pageHtml+="</ul>";
+		
+		document.querySelector(".review-page-section").innerHTML=pageHtml;
+		
+	}
+}
+
+function getReviews(criPageNum, criAmount){
 	let alterId = document.querySelector(".alter-id-input").value;
 	let xhr = new XMLHttpRequest();	
 	xhr.addEventListener("load",function(){
 		if(xhr.status==200){
 			let reviewPageDTO = JSON.parse(this.responseText);
-			if(reviewPageDTO.reviewList.length ===0){
-				document.querySelector(".review-list").innerHTML="";
-				document.querySelector(".review-not-section").innerHTML="<span>리뷰가 없습니다.</span>";
-				document.querySelector(".review-page-section").innerHTML="";
-			}else{
-				let reviewHtml = document.querySelector("#template-review-tbody-tr").innerHTML;
-				let resultHtml = "";
-				for(let i =0; i<reviewPageDTO.reviewList.length; i++){
-					resultHtml += reviewHtml.replace("{score}",reviewPageDTO.reviewList[i].score)
-											.replace("{categoryName}",reviewPageDTO.reviewList[i].categoryName)
-											.replace("{content}",reviewPageDTO.reviewList[i].content)
-											.replace("{hiddenUserId}",reviewPageDTO.reviewList[i].userId)
-											.replace("{hiddenScore}",reviewPageDTO.reviewList[i].score)
-											.replace("{userId}",reviewPageDTO.reviewList[i].userId)
-											.replace("{createDate}",reviewPageDTO.reviewList[i].createDate)
-											.replace("{reviewId}",reviewPageDTO.reviewList[i].id)
-											.replace("{alterId}",reviewPageDTO.reviewList[i].alterId)
-											.replace("{categoryId}",reviewPageDTO.reviewList[i].categoryId);
-				}
-				document.querySelector(".review-tbody").innerHTML=resultHtml;
-				
-				let reviewTrs = document.querySelectorAll(".review-tr");
-				reviewTrs.forEach((element,index)=>{
-					if(reviewPageDTO.reviewList[index].reviewPhotos.length>0){
-						let reviewPhotoDiv = element.querySelector(".review-photo-div");
-						let imgHtml = "";
-						for(let i =0; i<reviewPageDTO.reviewList[index].reviewPhotos.length; i++ ){
-							imgHtml +="<img alt='reviewPhotoImage' src='/bibaboo/img/upload/"+reviewPageDTO.reviewList[index].reviewPhotos[i].name+"'>";
-						}
-						reviewPhotoDiv.innerHTML = imgHtml;
-					}
-				})
-			}
+			makeReviewContent(reviewPageDTO);
 		}
 	});
-	xhr.open("GET", "/bibaboo/review/"+alterId, true);
+	xhr.open("GET", "/bibaboo/review/"+alterId+"?pageNum="+criPageNum+"&amount="+criAmount, true);
 	xhr.send();
 };
 
@@ -112,6 +158,22 @@ function deleteReviewForDynamicTag(){
 		}
 	});
 };
+
+
+function changePage(){
+	document.addEventListener("click",function(e){
+		e.preventDefault();
+		if(e.target.parentElement.className=="page-btn"){
+			let pageNumValue = e.target.getAttribute("href");
+			
+			getReviews(pageNumValue, 10);
+		}
+	});
+}
+
+
+
+
 
 
 

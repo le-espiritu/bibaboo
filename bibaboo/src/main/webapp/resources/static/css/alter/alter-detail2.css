@@ -255,23 +255,3 @@
 .review-photo-div > img{
 	width: 40%;
 }
-
-.review-page-section{
-	margin: 20px 0;
-	text-align: center;
-}
-
-.review-page-section > ul{
-	list-style: none;
-	display: inline-block;
-}
-
-.review-page-section > ul > li{
-	float: left;
-	padding: 7px;
-	font-size: 20px;
-}
-
-.active{
-	background-color: #cdd5ec;
-}

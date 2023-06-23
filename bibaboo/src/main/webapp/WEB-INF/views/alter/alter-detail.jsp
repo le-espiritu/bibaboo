@@ -113,29 +113,9 @@
 						</tr>
 					</thead>
 					<tbody class="review-tbody">
-						<tr>
-							<td>{score} 점</td>
-							<td>{categoryName}</td>
-							<td>
-								<div class="review-photo-div">
-								</div>		
-								
-								<div>
-									{content}
-									<!-- 추후 if문으로 처리 -->
-									<div>
-										<button class="update-view-btn">
-											수정
-										</button>
-										<button class="delete-review-btn">
-											삭제
-										</button>
-									</div>
-								</div>
-							</td>
-							<td>{userId}</td>
-							<td>{createDate}</td>
-						</tr>
+					
+						<!-- Templating 활용-->
+							
 					</tbody>
 				</table>
 			</div>
