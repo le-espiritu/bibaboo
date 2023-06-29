@@ -39,12 +39,14 @@
 		<csrf disabled="true"/> <!-- 스프링 시큐리티 4 부터는 CSRF 방지 기능이 디폴트로 작동한다.  -->
 	</http>
 	
+	<!-- BCryptPasswordEncoder 빈 설정  -->
+	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<beans:bean id="CustomUserDetailsService" class="com.project.bibaboo.domain.user.security.CustomUserDetailsService"/>
+	
 	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="admin" password="admin" authorities="ROLE_ADMIN"/>
-				<user name="user" password="user" authorities="ROLE_USER"/>
-			</user-service>
+		<authentication-provider user-service-ref="CustomUserDetailsService">
+			<!-- 로그인 시 비밀번호를 암호화해서 DB에서 조회한 비밀번호와 비교 -->
+			<password-encoder ref="bcryptPasswordEncoder"/>
 		</authentication-provider>
 	</authentication-manager>
 	
