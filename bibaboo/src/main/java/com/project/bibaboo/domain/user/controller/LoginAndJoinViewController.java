@@ -11,6 +11,7 @@ public class LoginAndJoinViewController {
     return "login/login-page";
   }
   
+  //@PreAuthorize("isAnonymous()") PreAuthorixe와 isAnonymous(), permitAll()은 같이 사용할 수 없음
   @GetMapping("/user-join-page")
   public String userJoinPage() {
     return"login/join-page";
