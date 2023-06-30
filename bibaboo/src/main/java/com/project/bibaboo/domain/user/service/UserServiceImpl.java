@@ -3,6 +3,7 @@ package com.project.bibaboo.domain.user.service;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.project.bibaboo.domain.user.dao.UserDao;
 import com.project.bibaboo.domain.user.dao.UserRoleDao;
 import com.project.bibaboo.domain.user.dto.UserDTO;
@@ -36,6 +37,20 @@ public class UserServiceImpl implements UserService {
       roleList.add(new UserRoleEntity(loginUserEmail, userRole.getRoleName()));
     }
     return roleList;
+  }
+
+  @Override
+  @Transactional
+  public void addUser(UserDTO userDTO) {
+    userDao.addUser(userDTO);
+    userRoleDao.addUserRole(userDTO);
+  }
+
+  @Override
+  @Transactional
+  public void addOwner(UserDTO userDTO) {
+    userDao.addUser(userDTO);
+    userRoleDao.addUserAndOwnerRole(userDTO);
   }
 
 }

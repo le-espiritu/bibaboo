@@ -20,4 +20,9 @@ public class UserDaoImpl implements UserDao {
     return sqlSession.selectOne("user.getUserByEmail", loginUserEmail);
   }
 
+  @Override
+  public int addUser(UserDTO userDTO) {
+    return sqlSession.insert("user.addUser", userDTO);
+  }
+
 }

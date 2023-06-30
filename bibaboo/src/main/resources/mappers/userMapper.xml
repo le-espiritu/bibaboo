@@ -5,18 +5,39 @@
   
 <mapper namespace="user">
 
-	<select id="getUserByEmail">
+	<select id="getUserByEmail" resultType="com.project.bibaboo.domain.user.dto.UserDTO">
 		SELECT id, email, password, name, phone_number, create_date, enable
 		FROM user
 		WHERE email = #{loginUserEmail}
 	</select>
 	
-	<select id="getUserRoleByEmail">
+	<select id="getUserRoleByEmail" resultType="com.project.bibaboo.domain.user.dto.UserRoleDTO">
 		SELECT ur.id, ur.user_id, ur.role_name
 		FROM user_role ur
 		JOIN user u
 		ON ur.user_id = u.id
 		WHERE u.email = #{loginUserEmail}
 	</select>
+	
+	<insert id="addUser">
+		INSERT INTO USER(email, password, name, phone_number)
+		VALUES(#{email},#{password},#{name},#{phoneNumber})
+	</insert>
+	
+	<insert id="addUserRole">
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO user_role(user_id,role_name)
+		VALUES (#{id},'ROLE_USER')
+	</insert>
+	
+	<insert id="addUserAndOwnerRole">
+		<selectKey resultType="Integer" keyProperty="id" order="BEFORE">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO user_role(user_id,role_name)
+		VALUES (#{id},'ROLE_USER'), (#{id}, 'ROLE_OWNER')
+	</insert>
 
 </mapper>

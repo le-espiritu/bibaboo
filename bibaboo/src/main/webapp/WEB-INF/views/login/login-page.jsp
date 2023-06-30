@@ -19,15 +19,14 @@
 		    <input type="password" name="password" placeholder=" password" >
 		  </div>
 		  
-		  <button type="submit" class="btn" value="LOG IN">
+		  <button type="submit" class="btn">
 		    LOG IN
 		  </button>
 		</form>
 		
 		<div class="bottom-text">
-		  <p>아직 회원이 아니신가요? <a href="/webproject/joinPage.do">가입하기</a></p>
-		  <p>업체 등록 및 가입 <a href="/webproject/shop_joinPage.do">가입하기</a></p>
-		  <p>업체 로그인 <a href="/webproject/shop_loginpage.do">로그인</a></p>
+		  <p>아직 회원이 아니신가요? <a href="/bibaboo/user-join-page">가입하기</a></p>
+		  <p>업체 등록 및 가입 <a href="/bibaboo/owner-join-page">가입하기</a></p>
 		</div>
 	</div>
 

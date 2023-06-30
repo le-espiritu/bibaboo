@@ -22,6 +22,10 @@
 		<!-- pattern에 해당하는 경로에 대해 인터셉터의 역할을 하며, 스프링 시큐리티는 인터셉터를 이용하여 권한확인을 한다. -->
 		<intercept-url pattern="/" access="permitAll"/> <!-- index.jsp등 웰컴파일이 있으면 해당 메인 url에 대한 설정이 적용되지 않음 -->
 		<intercept-url pattern="/login-page" access="isAnonymous()"/>
+		<intercept-url pattern="/user-join-page" access="isAnonymous()"/>
+		<intercept-url pattern="/owner-join-page" access="isAnonymous()"/>
+		<intercept-url pattern="/user" access="isAnonymous()"/>
+		<intercept-url pattern="/user/owner" access="isAnonymous()"/>
 		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
 		<intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')"/>
 		

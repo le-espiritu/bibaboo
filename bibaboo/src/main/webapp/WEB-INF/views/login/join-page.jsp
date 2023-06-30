@@ -5,8 +5,8 @@
 
 	<div class="join-card">
 
-		<form action="/webproject/menu/join.do" method="POST" >
-			<h2>회원가입</h2> 
+		<form action="/bibaboo/user" method="POST" >
+			<h2>유저 회원가입</h2> 
 			
 			<div> 
 				<label>이름</label> 
@@ -21,7 +21,7 @@
 				
 			<div> 
 				<label>비밀번호</label> 
-				<input type="password" class="form-control" id="pass" name="pass" placeholder="4자리이상 입력해주세요" required> 
+				<input type="password" class="form-control" id="pass" name="password" placeholder="4자리이상 입력해주세요" required> 
 			</div> 
 			
 			<!-- <div class="col-md-6 mb-3">
@@ -29,14 +29,14 @@
 				<input type="password" class="form-control" id="pass2" placeholder="동일한 비밀번호 입력" required> 
 			</div>  -->
 				
-			<div> 
+			<!-- <div> 
 				<label>주소</label> 
 				<input type="text" class="form-control" id="addr"  name="addr" placeholder="서울특별시 강남구" required> 
-			</div> 
+			</div>  -->
 				
 			<div>
 				<label>휴대폰 번호</label>
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="휴대폰 번호를 입력해주세요." required>
+				<input type="text" class="form-control" id="phone" name="phoneNumber" placeholder="휴대폰 번호를 입력해주세요." required>
 			</div> 
 			 
 			<hr>
