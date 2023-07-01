@@ -14,6 +14,8 @@ public class CustomUserDetails implements UserDetails {
   private boolean isCredentialsNonExpired;
   private Collection<? extends GrantedAuthority> authorities;
 
+  private Integer userId;
+  
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return authorities;
@@ -77,4 +79,12 @@ public class CustomUserDetails implements UserDetails {
     this.isEnabled=enabled;
   }
 
+  public Integer getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
+  
 }

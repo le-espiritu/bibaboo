@@ -43,7 +43,7 @@
 						<td>${orderDTO.payPrice}</td>
 						<td>${orderDTO.createDate}</td>
 						<td>${orderDTO.state}</td>
-						<td><button onclick="location.href='/bibaboo/users/1/mypage/order-list/${orderDTO.id}'">상세 보기</button></td>
+						<td><button onclick="location.href='/bibaboo/user/mypage/order-list/${orderDTO.id}'">상세 보기</button></td>
 						<td>
 							<form action="/bibaboo/order" method="post">
 								<input type="hidden" name="_method" value ="delete"/>

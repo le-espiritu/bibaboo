@@ -23,8 +23,6 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
     
-    System.out.print("!@#$%^%$#@!@#$%^$#@"+userEmail);
-    
     UserEntity customUser = userDbService.getUser(userEmail);
     if(customUser == null) {
       throw new UsernameNotFoundException("사용자가 입력한 아이디에 해당하는 사용자를 찾을 수 없습니다.");
@@ -34,6 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     
     customUserDetails.setUsername(customUser.getLoginUserEmail());
     customUserDetails.setPassword(customUser.getPassword());
+    customUserDetails.setUserId(customUser.getUserId());
     
     List<UserRoleEntity> customRoles = userDbService.getUserRoles(userEmail);
     // 로그인 한 사용자의 권한 정보를 GrantedAuthority를 구현하고 있는 SimpleGrantedAuthority객체에 담아

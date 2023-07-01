@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
   @Override
   public UserEntity getUser(String loginUserEmail) {
     UserDTO userDTO = userDao.getUserByEmail(loginUserEmail);
-    return new UserEntity(userDTO.getEmail(), userDTO.getPassword());
+    return new UserEntity(userDTO.getEmail(), userDTO.getPassword(), userDTO.getId());
   }
 
   @Override
@@ -51,6 +51,11 @@ public class UserServiceImpl implements UserService {
   public void addOwner(UserDTO userDTO) {
     userDao.addUser(userDTO);
     userRoleDao.addUserAndOwnerRole(userDTO);
+  }
+
+  @Override
+  public UserDTO getUserByEmail(String loginEmail) {
+    return userDao.getUserByEmail(loginEmail);
   }
 
 }

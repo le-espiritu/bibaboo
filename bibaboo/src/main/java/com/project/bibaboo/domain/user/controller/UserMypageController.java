@@ -1,5 +1,6 @@
 package com.project.bibaboo.domain.user.controller;
 
+import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,27 +14,41 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderListAndPageDTO;
 import com.project.bibaboo.domain.order.service.OrderService;
+import com.project.bibaboo.domain.user.dto.UserDTO;
+import com.project.bibaboo.domain.user.service.UserService;
 import com.project.bibaboo.global.common.dto.Criteria;
 
 @Controller
-@RequestMapping("/users/{userId}/mypage")
-public class UserMypageViewController {
+@RequestMapping("/user/mypage")
+public class UserMypageController {
 
+  UserService userService;
   OrderService orderService;
 
   @Autowired
-  public UserMypageViewController(OrderService orderService) {
+  public UserMypageController(OrderService orderService, UserService userService) {
     this.orderService = orderService;
+    this.userService = userService;
   }
 
   @GetMapping
-  public String userMypageView(@PathVariable(name = "userId") int userId, ModelMap model) {
-    model.addAttribute("userId", userId);
+  public String userMypageView() {
     return "user/user-page-main";
+  }
+  
+  @GetMapping("/info")
+  public ModelAndView getMyInfo(Principal principal) {
+    String loginEmail = principal.getName();
+    UserDTO userInfo = userService.getUserByEmail(loginEmail);
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("userInfo", userInfo);
+    mv.setViewName("user/user-my-info");
+    
+    return mv;
   }
 
   @GetMapping("/order-list")
-  public ModelAndView getOrderListByUser(@PathVariable(name = "userId") int userId,
+  public ModelAndView getOrderListByUser(int userId,
       @ModelAttribute Criteria criteria) {
 
     criteria.setKeyword(userId + "");

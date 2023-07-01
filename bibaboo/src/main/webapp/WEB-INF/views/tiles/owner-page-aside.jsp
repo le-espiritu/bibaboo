@@ -5,7 +5,7 @@
 
 <aside>
 	<div class="aside-card">
-		<h1>마이 페이지</h1>
+		<h1>사장님 페이지</h1>
 		<br>
 		<br>
 		<sec:authorize access="hasRole('ROLE_OWNER')">

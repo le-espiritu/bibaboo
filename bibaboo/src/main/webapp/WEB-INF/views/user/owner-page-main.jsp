@@ -5,7 +5,7 @@
 
 <div class="card">
 	<h1><sec:authentication property="principal.username"/> 님</h1>
-	<h1>마이 페이지 </h1>
+	<h1>수선집 관리 페이지 </h1>
 	<%-- <h1>password : <sec:authentication property="principal.password"/> </h1> --%>
 </div>
 
