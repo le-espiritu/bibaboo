@@ -28,10 +28,12 @@
 	</update>
 	
 	<select id="getReview" resultType="com.project.bibaboo.domain.review.dto.ReviewDTO">
-		SELECT r.id, r.user_id, r.order_category_id, r.alter_id, c.name as categoryName, c.id as categoryId, r.content, r.score, r.create_date 
-		from review r
-		join category c
-		on r.category_id = c.id
+		SELECT r.id, r.user_id, u.email as userEmail, r.order_category_id, r.alter_id, c.name as categoryName, c.id as categoryId, r.content, r.score, r.create_date 
+		FROM review r
+		JOIN category c
+		ON r.category_id = c.id
+		JOIN user u
+		ON r.user_id = u.id
 		WHERE r.alter_id = #{alterId}
 		AND r.enable =1
 		ORDER BY r.create_date DESC
@@ -75,10 +77,12 @@
 	</update>
 	
 	<select id="getReviewForUpdate" resultType="com.project.bibaboo.domain.review.dto.ReviewDTO">
-		SELECT r.id, r.user_id, r.order_category_id, r.alter_id, r.category_id, c.name as categoryName, c.id as categoryId, r.content, r.score, r.create_date
+		SELECT r.id, r.user_id, u.email as userEmail, r.order_category_id, r.alter_id, r.category_id, c.name as categoryName, c.id as categoryId, r.content, r.score, r.create_date
 		FROM review r
 		JOIN category c
 		ON r.category_id = c.id
+		JOIN user u
+		ON r.user_id = u.id
 		WHERE r.id = #{id}
 	</select>
 	

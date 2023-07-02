@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +18,14 @@
 		
 		<div>
 			<h4>수선 품목 : ${reviewInfo.categoryName}</h4>
-			${reviewInfo.id}
+			<h4>리뷰 번호 : ${reviewInfo.id}</h4>
 		</div>
 		
 		<form class="review-update-form" action="/bibaboo/review" method="post">
 		
 			<input type="hidden" name="_method" value="patch">
 			
-			<input type="hidden" name="userId" value="${userId}"/> <!-- 이후 수정!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
+			<input type="hidden" name="userEmail" value="${reviewInfo.userEmail }"/> 
 			<input type="hidden" name="id" value="${reviewInfo.id}"/>
 			<input type="hidden" name="alterId" value="${reviewInfo.alterId}"/>
 			<input type="hidden" name="categoryId" value="${reviewInfo.categoryId }"/>

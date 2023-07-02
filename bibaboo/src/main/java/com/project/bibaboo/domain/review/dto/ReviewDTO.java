@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class ReviewDTO {
   private int id;
   private int userId;
+  private String userEmail;
   private Integer orderCategoryId;
   private int alterId;
   private int categoryId;
@@ -26,6 +27,14 @@ public class ReviewDTO {
   private String categoryName;
   private List<ReviewPhotoDTO> reviewPhotos;
   private int previousScore;
+
+  public String getUserEmail() {
+    return userEmail;
+  }
+
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
+  }
 
   public int getPreviousScore() {
     return previousScore;
@@ -133,11 +142,11 @@ public class ReviewDTO {
 
   @Override
   public String toString() {
-    return "ReviewDTO [id=" + id + ", userId=" + userId + ", orderCategoryId=" + orderCategoryId
-        + ", alterId=" + alterId + ", categoryId=" + categoryId + ", content=" + content
-        + ", score=" + score + ", enable=" + enable + ", createDate=" + createDate + ", files="
-        + files + ", categoryName=" + categoryName + ", reviewPhotos=" + reviewPhotos
-        + ", previousScore=" + previousScore + "]";
+    return "ReviewDTO [id=" + id + ", userId=" + userId + ", userEmail=" + userEmail
+        + ", orderCategoryId=" + orderCategoryId + ", alterId=" + alterId + ", categoryId="
+        + categoryId + ", content=" + content + ", score=" + score + ", enable=" + enable
+        + ", createDate=" + createDate + ", files=" + files + ", categoryName=" + categoryName
+        + ", reviewPhotos=" + reviewPhotos + ", previousScore=" + previousScore + "]";
   }
 
 }

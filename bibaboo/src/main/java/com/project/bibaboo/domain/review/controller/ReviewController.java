@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -89,19 +90,20 @@ public class ReviewController {
   }
   
   @GetMapping("/update-page")
+  @PreAuthorize("#reviewDTO.userEmail == principal.username")
   public ModelAndView getReviewUpdateView(ReviewDTO reviewDTO) {
     
     ReviewDTO reviewInfo = reviewService.getReviewForUpdate(reviewDTO.getId());
     
     ModelAndView mv = new ModelAndView();
     mv.addObject("reviewInfo", reviewInfo);
-    mv.addObject("userId", reviewDTO.getUserId());
     mv.setViewName("review-update-popup-view");
     
     return mv;
   }
   
   @PatchMapping
+  @PreAuthorize("#reviewDTO.userEmail == principal.username")
   public String upadateReview(@ModelAttribute ReviewDTO reviewDTO) {
 
     reviewService.updateReview(reviewDTO);
@@ -110,6 +112,7 @@ public class ReviewController {
   }
   
   @DeleteMapping
+  @PreAuthorize("#reviewDTO.userEmail == principal.username")
   public ResponseEntity<Object> deleteReview(@RequestBody ReviewDTO reviewDTO){
     
     reviewService.deleteReview(reviewDTO);

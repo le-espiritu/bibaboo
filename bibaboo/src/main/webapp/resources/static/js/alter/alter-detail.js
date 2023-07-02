@@ -12,8 +12,28 @@ document.addEventListener("DOMContentLoaded",function(){
 	
 	gerReviewUpdateView();
 	deleteReview();
+	
 });
 
+function makebuttons(element){
+	let principalUsername = document.querySelector(".principal-username").value;
+	//alert(principalUsername);
+	let userEmail = element.querySelector(".user-email").value;
+	//alert(userEmail);
+	if(principalUsername == userEmail){
+		let btnsDivHtml ="";
+		btnsDivHtml +='<button class="update-view-btn">';
+		btnsDivHtml +='수정';
+		btnsDivHtml +='</button>';
+		btnsDivHtml +='<button class="delete-review-btn">';
+		btnsDivHtml +='삭제';
+		btnsDivHtml +='</button>';
+		
+		let btnsDiv = element.querySelector(".btns-div");
+		btnsDiv.innerHTML=btnsDivHtml;
+	}
+	
+}
 
 function makeReviewContent(reviewPageDTO){
 	if(reviewPageDTO.reviewList.length ===0){
@@ -32,12 +52,13 @@ function makeReviewContent(reviewPageDTO){
 									.replace("{categoryName}",reviewPageDTO.reviewList[i].categoryName)
 									.replace("{content}",reviewPageDTO.reviewList[i].content)
 									.replace("{hiddenUserId}",reviewPageDTO.reviewList[i].userId)
-									.replace("{hiddenScore}",reviewPageDTO.reviewList[i].score)
-									.replace("{userId}",reviewPageDTO.reviewList[i].userId)
-									.replace("{createDate}",reviewPageDTO.reviewList[i].createDate)
+									.replace("{hiddenUserEmail}",reviewPageDTO.reviewList[i].userEmail)
 									.replace("{reviewId}",reviewPageDTO.reviewList[i].id)
 									.replace("{alterId}",reviewPageDTO.reviewList[i].alterId)
-									.replace("{categoryId}",reviewPageDTO.reviewList[i].categoryId);
+									.replace("{categoryId}",reviewPageDTO.reviewList[i].categoryId)
+									.replace("{hiddenScore}",reviewPageDTO.reviewList[i].score)
+									.replace("{userEmail}",reviewPageDTO.reviewList[i].userEmail)
+									.replace("{createDate}",reviewPageDTO.reviewList[i].createDate);
 		}
 		document.querySelector(".review-tbody").innerHTML=resultHtml;
 		
@@ -51,6 +72,8 @@ function makeReviewContent(reviewPageDTO){
 				}
 				reviewPhotoDiv.innerHTML = imgHtml;
 			}
+			
+			makebuttons(element);
 		});
 		
 		//페이지 버튼 동적 구현
@@ -106,15 +129,18 @@ function getUpdateViewForDynamicTag(){
 	//동적으로 생성된 태그에는 기존에 작성해놓았던 eventListener가 작동하지 않는다.
 	//따라서 동적으로 생성된 태그의 부모 태그중 동적으로 생성되지 않은 태그에 이벤트를 위임해야한다. (이벤트 델리게이션)
 	
-	document.addEventListener("click",function(e){ //document에 이벤트를 위임함
+	let reviewDiv = document.querySelector(".review");
+	//document.addEventListener("click",function(e){ //document에 이벤트를 위임함
+	//document에 이벤트를 위임하면 별점을 눌렀을때 채워지는 css가 동작하지 않기 때문에 아래 코드로 바꿔줌 
+	reviewDiv.addEventListener("click",function(e){ //reviewDiv에 이벤트를 위임함
 		
 		if(e.target.className=="update-view-btn"){
 			e.preventDefault();
 			
-			let userId = e.target.parentElement.querySelector(".user-id").value;
-			let reviewId = e.target.parentElement.querySelector(".review-id").value;
+			let userEmail = e.target.parentElement.parentElement.querySelector(".user-email").value;
+			let reviewId = e.target.parentElement.parentElement.querySelector(".review-id").value;
 			
-			let popUrl = "/bibaboo/review/update-page?id=" + reviewId +"&userId=" + userId;	
+			let popUrl = "/bibaboo/review/update-page?id=" + reviewId +"&userEmail=" + userEmail;	
 			let popOption = "width = 490px, height=400px, top=300px, left=300px, scrollbars=yes"	
 			
 			window.open(popUrl,"리뷰 수정",popOption);	
@@ -124,44 +150,57 @@ function getUpdateViewForDynamicTag(){
 
 function deleteReviewForDynamicTag(){
 	
-	document.addEventListener("click",function(e){
+	let reviewDiv = document.querySelector(".review");
+	//document.addEventListener("click",function(e){ //document에 이벤트를 위임함
+	//document에 이벤트를 위임하면 별점을 눌렀을때 채워지는 css가 동작하지 않기 때문에 아래 코드로 바꿔줌 
+	reviewDiv.addEventListener("click",function(e){ //reviewDiv에 이벤트를 위임함
 		if(e.target.className=="delete-review-btn"){
 			e.preventDefault();
 			
-			confirm("정말로 삭제하시겠습니까?");
+			let result = confirm("정말로 삭제하시겠습니까?");
 			
-			let reviewId = e.target.parentElement.querySelector(".review-id").value;
-			let userId = e.target.parentElement.querySelector(".user-id").value;
-			let alterId = e.target.parentElement.querySelector(".alter-id").value;
-			let categoryId = e.target.parentElement.querySelector(".category-id").value;
-			let previousScore = e.target.parentElement.querySelector(".score-input").value;
-			
-			let form ={
-				userId : userId,
-				id : reviewId,
-				alterId : alterId,
-				categoryId : categoryId,
-				previousScore : previousScore
-			}
-			
-			let xhr = new XMLHttpRequest();
-			xhr.addEventListener("load",function(){
-				if(xhr.status == 200){
-					alert("성공적으로 삭제되었습니다.");
-					location.href="/bibaboo/alterations/"+alterId;
+			if(result==true){
+				let reviewId = e.target.parentElement.parentElement.querySelector(".review-id").value;
+				let userId = e.target.parentElement.parentElement.querySelector(".user-id").value;
+				let userEmail = e.target.parentElement.parentElement.querySelector(".user-email").value;
+				let alterId = e.target.parentElement.parentElement.querySelector(".alter-id").value;
+				let categoryId = e.target.parentElement.parentElement.querySelector(".category-id").value;
+				let previousScore = e.target.parentElement.parentElement.querySelector(".score-input").value;
+				
+				let form ={
+					userId : userId,
+					id : reviewId,
+					userEmail : userEmail,
+					alterId : alterId,
+					categoryId : categoryId,
+					previousScore : previousScore
 				}
-			});
-			
-			xhr.open("delete", "/bibaboo/review", true);
-			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.send(JSON.stringify(form));
+				
+				let xhr = new XMLHttpRequest();
+				xhr.addEventListener("load",function(){
+					if(xhr.status == 200){
+						alert("성공적으로 삭제되었습니다.");
+						location.href="/bibaboo/alterations/"+alterId;
+					}
+					if(xhr.status == 403){
+						alert("권한이 없습니다.");
+					}
+				});
+				
+				xhr.open("delete", "/bibaboo/review", true);
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.send(JSON.stringify(form));
+				}
 		}
 	});
 };
 
 
 function changePage(){
-	document.addEventListener("click",function(e){
+	let reviewPageSection = document.querySelector(".review-page-section");
+	//document.addEventListener("click",function(e){ //document에 이벤트를 위임함
+	//document에 이벤트를 위임하면 별점을 눌렀을때 채워지는 css가 동작하지 않기 때문에 아래 코드로 바꿔줌 
+	reviewPageSection.addEventListener("click",function(e){ //reviewPageSection에 이벤트를 위임함
 		e.preventDefault();
 		if(e.target.parentElement.className=="page-btn"){
 			let pageNumValue = e.target.getAttribute("href");

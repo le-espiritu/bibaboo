@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+
+<input type="hidden" class="principal-username" value='<sec:authentication property="principal.username"/>'/>
 
 <section class="content">
 
@@ -40,7 +44,8 @@
 			
 			<form action="/bibaboo/review" method="post" enctype="multipart/form-data">
 			<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
-				<input type="hidden" name="userId" value="1"/> <!-- 이후 수정!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
+				
+				<input type="hidden" name="userId" value="<sec:authentication property="principal.userId"/>"/> 
 				<input type="hidden" name="alterId" value="${alterationsDTO.id}"/>
 				
 				<div>
@@ -146,21 +151,20 @@
 				<div>
 
 					<input type="hidden" class="user-id" value="{hiddenUserId}"/><!-- !!!!!!!추후 유저 id 수정!!!!!!!!!! -->
+					<input type="hidden" class="user-email" value="{hiddenUserEmail}"/>
 					<input type="hidden" class="review-id" value="{reviewId}"/>
 					<input type="hidden" class="alter-id" value="{alterId}"/>
 					<input type="hidden" class="category-id" value="{categoryId}"/>
 					<input type="hidden" class="score-input" value="{hiddenScore}"/>
 
-					<button class="update-view-btn">
-						수정
-					</button>
-					<button class="delete-review-btn">
-						삭제
-					</button>
+					<div class="btns-div">
+
+					</div>
+					
 				</div>
 			</div>
 		</td>
-		<td>{userId}</td>
+		<td>{userEmail}</td>
 		<td>{createDate}</td>
 	</tr>
 </script>
