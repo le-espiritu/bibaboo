@@ -10,6 +10,7 @@ import com.project.bibaboo.domain.alterations.dto.AlterPhotoDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsAndReviewsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsDTO;
 import com.project.bibaboo.domain.alterations.dto.AlterationsWithPagingDTO;
+import com.project.bibaboo.domain.alterations.exception.AlterationsDuplicatedException;
 import com.project.bibaboo.domain.alterations.dto.AlterTop5DTO;
 import com.project.bibaboo.domain.review.dao.ReviewDao;
 import com.project.bibaboo.domain.review.dto.ReviewDTO;
@@ -109,6 +110,15 @@ public class AlterationsServiceImpl implements AlterationsService {
     alterTop5DTO.setAlterTop5List(alterTop5List);
     
     return alterTop5DTO;
+  }
+
+  @Override
+  public void alterationsExistCheck(AlterationsDTO alterationsDTO) {
+    boolean result = alterationsDao.alterationsExistCheck(alterationsDTO);
+    if(result == true) {
+      throw new AlterationsDuplicatedException("이미 수선집이 등록되었습니다.");
+    }
+    
   }
 
 }

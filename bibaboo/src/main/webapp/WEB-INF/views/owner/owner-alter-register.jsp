@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<div class="title-card">
+	<p>수선집 등록 페이지</p>
+</div>
+
+<div class="register-card">
+	
+	<form action="/bibaboo/alterations" method="POST" enctype="multipart/form-data">
+	<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
+		<h3>등록할 수선집 정보를 입력해주세요.</h3> 
+		
+		<input type="hidden" name="userId" value='<sec:authentication property="principal.userId"/>'/>
+		
+		<div> 
+			<label>상호명</label> 
+			<input type="text" name="name" placeholder="수선집 상호명" required> 
+		</div> 
+			
+		<div> 
+			<label>주소</label> 
+			<input type="text" name="address" placeholder="서울특별시 강남구" required> 
+		</div> 
+			
+		<div>
+			<label>전화 번호</label>
+			<input type="text" name="telNumber" placeholder="전화 번호를 입력해주세요." required>
+		</div> 
+		
+		<div>
+			<label>오픈 타임</label>
+			<input type="time" name="openTime" required>
+		</div> 
+		
+		<div>
+			<label>클로즈 타임</label>
+			<input type="time" name="closeTime" required>
+		</div> 
+		
+		<div>
+			<label>대표 사진</label>
+			<input type="file" name="file">
+		</div> 
+		
+		<button class="btn" type="submit">등록 하기</button>
+	</form>
+	
+</div>

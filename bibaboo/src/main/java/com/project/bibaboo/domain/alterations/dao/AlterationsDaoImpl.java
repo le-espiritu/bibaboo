@@ -65,4 +65,9 @@ public class AlterationsDaoImpl implements AlterationsDao {
     return sqlSession.selectList("alterations.getTopFive", alterTop5DTO);
   }
 
+  @Override
+  public boolean alterationsExistCheck(AlterationsDTO alterationsDTO) {
+    return sqlSession.selectOne("alterations.alterationsExistCheck", alterationsDTO);
+  }
+
 }

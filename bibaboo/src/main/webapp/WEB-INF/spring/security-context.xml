@@ -26,6 +26,8 @@
 		<intercept-url pattern="/owner-join-page" access="isAnonymous()"/>
 		<intercept-url pattern="/user" access="permitAll()"/>
 		<intercept-url pattern="/user/owner" access="isAnonymous()"/>
+		<intercept-url pattern="/user/**" access="hasAnyRole('USER,ADMIN')"/>
+		<intercept-url pattern="/owner/**" access="hasAnyRole('OWNER,ADMIN')"/>
 		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
 		<intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN, OWNER')"/>
 		

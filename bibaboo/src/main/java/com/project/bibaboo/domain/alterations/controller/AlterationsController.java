@@ -4,6 +4,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,8 +39,17 @@ public class AlterationsController {
     this.photoUploadLogicService = photoUploadLogicService;
   }
 
+  @PostMapping("/check")
+  @PreAuthorize("hasAnyRole('OWNER,ADMIN')")
+  public ResponseEntity<Object> AlterationsExistCheck(@RequestBody AlterationsDTO alterationsDTO){
+    alterationsService.alterationsExistCheck(alterationsDTO);
+    
+    return ResponseEntity.ok().build();
+  }
+  
   @PostMapping
-  public String register(@ModelAttribute AlterationsDTO alterationsDto, HttpSession session)
+  @PreAuthorize("hasAnyRole('OWNER,ADMIN')")
+  public String registerAlterations(@ModelAttribute AlterationsDTO alterationsDto, HttpSession session)
       throws IllegalStateException, IOException {
 
     MultipartFile file = alterationsDto.getFile();

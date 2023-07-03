@@ -52,6 +52,14 @@
 		LIMIT #{startOffset},#{amount}
 	</select>
 
+	<select id="alterationsExistCheck" resultType="boolean">
+		SELECT EXISTS
+		(SELECT *
+		 FROM alterations
+		 WHERE user_id = #{userId}
+		 OR address = #{address})
+	</select>
+
 	<insert id="insert" parameterType="alterationsDto">
 		insert into alterations (user_id,name,address,tel_number,open_time,close_time) 
 		values(#{userId},#{name},#{address},#{telNumber},#{openTime},#{closeTime})

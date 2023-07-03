@@ -9,7 +9,7 @@
 		<br>
 		<br>
 		<sec:authorize access="hasRole('ROLE_OWNER')">
-			<p><a href="/bibaboo/user/owner/owner-page">수선집 관리 페이지</a></p>
+			<p><a href="/bibaboo/owner/owner-page">수선집 관리 페이지</a></p>
 			<br> 
 		</sec:authorize>
 		<p><a href="/bibaboo/user/mypage/info">내정보 관리</a></p>

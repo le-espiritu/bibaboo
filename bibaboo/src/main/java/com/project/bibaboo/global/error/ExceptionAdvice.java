@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import com.project.bibaboo.domain.alterations.exception.AlterationsDuplicatedException;
 import com.project.bibaboo.domain.cart.exception.CategoryAlreadyExistInCartException;
 import com.project.bibaboo.domain.review.exception.ReviewDuplicatedException;
 
@@ -37,5 +38,14 @@ public class ExceptionAdvice {
     return new ResponseEntity<Object>(e.getMessage(), headers, HttpStatus.FORBIDDEN);
   }
   
-
+  @ExceptionHandler(AlterationsDuplicatedException.class)
+  public ResponseEntity<Object> handleDuplicatedAlterations(AlterationsDuplicatedException e){
+    
+    logger.error("AlterationsDuplicatedException 익셉션 핸들러 호출");
+    
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json;charset=UTF-8");
+    
+    return ResponseEntity.badRequest().headers(headers).body(e.getMessage());
+  }
 }

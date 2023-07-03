@@ -17,5 +17,6 @@ public interface AlterationsDao {
   public int delete(Integer id);
   public int getTotal(Criteria criteria);
   public List<AlterationsDTO> getTopFive(AlterTop5DTO alterTop5DTO);
+  public boolean alterationsExistCheck(AlterationsDTO alterationsDTO);
 
 }

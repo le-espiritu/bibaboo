@@ -18,5 +18,6 @@ public interface AlterationsService {
   public void update(AlterationsDTO alterationsDto);
   public void delete(Integer id);
   public AlterTop5DTO getTopFive(AlterTop5DTO alterTop5DTO);
-
+  public void alterationsExistCheck(AlterationsDTO alterationsDTO);
+  
 }
