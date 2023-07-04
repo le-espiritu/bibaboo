@@ -26,5 +26,15 @@
 		ON ca.alter_id = a.id
 		WHERE alter_id = #{alterId}
 	</select>
+	
+	<select id="selectByUserId" resultType="com.project.bibaboo.domain.alterations.dto.CategoryDTO">
+		SELECT ca.id, ca.name, ca.alter_id, ca.price, ca.avg_score, a.name as alterName
+		FROM category ca
+		JOIN alterations a
+		ON ca.alter_id = a.id
+		JOIN user u
+		ON a.user_id = u.id
+		WHERE a.user_id = #{userId}
+	</select>
 
 </mapper>

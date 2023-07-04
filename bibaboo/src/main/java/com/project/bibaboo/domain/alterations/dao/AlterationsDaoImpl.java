@@ -70,4 +70,9 @@ public class AlterationsDaoImpl implements AlterationsDao {
     return sqlSession.selectOne("alterations.alterationsExistCheck", alterationsDTO);
   }
 
+  @Override
+  public AlterationsDTO selectByUserId(int userId) {
+    return sqlSession.selectOne("alterations.selectByUserId", userId);
+  }
+
 }

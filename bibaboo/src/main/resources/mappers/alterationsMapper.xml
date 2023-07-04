@@ -17,6 +17,16 @@
 		WHERE a.id = #{id}
 	</select>
 	
+	<select id="selectByUserId" resultType="alterationsDto">
+		SELECT a.id, a.name, a.address, a.tel_number, a.open_time, a.close_time, a.avg_score, p.name as photoName 
+		FROM alterations a
+		LEFT OUTER JOIN alter_photo p 
+		ON a.id= p.alter_id
+		JOIN user u
+		ON a.user_id = u.id
+		WHERE u.id = #{userId}
+	</select>
+	
 	
 	<sql id="criteria"> <!-- <sql> 태그는 다른 구문에서 재사용가능한 sql구문을 정의할 때 사용한다. -->
 		<trim prefix="where (" suffix=")" prefixOverrides="OR">

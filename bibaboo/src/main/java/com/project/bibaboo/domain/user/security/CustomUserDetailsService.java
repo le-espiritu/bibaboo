@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import com.project.bibaboo.domain.user.dto.UserDTO;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -23,16 +24,17 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
     
-    UserEntity customUser = userDbService.getUser(userEmail);
+    //UserEntity customUser = userDbService.getUser(userEmail);
+    UserDTO customUser = userDbService.getUserAndAlterId(userEmail);
     if(customUser == null) {
       throw new UsernameNotFoundException("사용자가 입력한 아이디에 해당하는 사용자를 찾을 수 없습니다.");
     }
     
     CustomUserDetails customUserDetails = new CustomUserDetails();
     
-    customUserDetails.setUsername(customUser.getLoginUserEmail());
+    customUserDetails.setUsername(customUser.getEmail());
     customUserDetails.setPassword(customUser.getPassword());
-    customUserDetails.setUserId(customUser.getUserId());
+    customUserDetails.setUser(customUser);
     
     List<UserRoleEntity> customRoles = userDbService.getUserRoles(userEmail);
     // 로그인 한 사용자의 권한 정보를 GrantedAuthority를 구현하고 있는 SimpleGrantedAuthority객체에 담아

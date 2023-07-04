@@ -6,9 +6,11 @@
 <mapper namespace="user">
 
 	<select id="getUserByEmail" resultType="com.project.bibaboo.domain.user.dto.UserDTO">
-		SELECT id, email, password, name, phone_number, create_date, enable
-		FROM user
-		WHERE email = #{loginUserEmail}
+		SELECT u.id, u.email, u.password, u.name, u.phone_number, u.create_date, u.enable, a.id as alterId
+		FROM user u
+		LEFT OUTER JOIN alterations a
+		ON u.id = a.user_id
+		WHERE u.email = #{loginUserEmail}
 	</select>
 	
 	<select id="getUserRoleByEmail" resultType="com.project.bibaboo.domain.user.dto.UserRoleDTO">

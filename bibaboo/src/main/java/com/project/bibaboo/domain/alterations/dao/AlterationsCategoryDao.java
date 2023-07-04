@@ -24,4 +24,8 @@ public class AlterationsCategoryDao {
   public List<CategoryDTO> getCategories(int alterId) {
     return sqlSession.selectList("alterationsCategory.select", alterId);
   }
+  
+  public List<CategoryDTO> getCategoriesByUserId(int userId) {
+    return sqlSession.selectList("alterationsCategory.selectByUserId", userId);
+  }
 }

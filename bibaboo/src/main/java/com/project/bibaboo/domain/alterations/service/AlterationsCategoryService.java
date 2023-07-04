@@ -25,4 +25,11 @@ public class AlterationsCategoryService {
     
     return categories;
   }
+  
+  public Categories getCategoriesByUserId(int userId) {
+    Categories categories = new Categories();
+    categories.setCategoryList(alterationsCategoryDao.getCategoriesByUserId(userId));
+    
+    return categories;
+  }
 }

@@ -1,9 +1,11 @@
 package com.project.bibaboo.domain.user.security;
 
 import java.util.List;
+import com.project.bibaboo.domain.user.dto.UserDTO;
 
 public interface UserDbService {
   public UserEntity getUser(String loginUserEmail);
+  public UserDTO getUserAndAlterId(String loginUserEmail);
   public List<UserRoleEntity> getUserRoles(String loginUserEmail);
 }
 

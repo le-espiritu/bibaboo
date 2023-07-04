@@ -3,6 +3,7 @@ package com.project.bibaboo.domain.user.security;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import com.project.bibaboo.domain.user.dto.UserDTO;
 
 public class CustomUserDetails implements UserDetails {
 
@@ -14,8 +15,17 @@ public class CustomUserDetails implements UserDetails {
   private boolean isCredentialsNonExpired;
   private Collection<? extends GrantedAuthority> authorities;
 
-  private Integer userId;
+  private UserDTO user;
   
+  
+  public UserDTO getUser() {
+    return user;
+  }
+
+  public void setUser(UserDTO user) {
+    this.user = user;
+  }
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return authorities;
@@ -79,12 +89,4 @@ public class CustomUserDetails implements UserDetails {
     this.isEnabled=enabled;
   }
 
-  public Integer getUserId() {
-    return userId;
-  }
-
-  public void setUserId(Integer userId) {
-    this.userId = userId;
-  }
-  
 }

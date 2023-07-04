@@ -8,13 +8,13 @@
 
 <div class="register-card">
 	
-	<form action="/bibaboo/alterations/${alterationsDTO.id}/category" method="POST">
+	<form action="/bibaboo/alterations/${sessionScope.alterId}/category" method="POST">
 		<h3>수선 품목과 가격을 입력해주세요.</h3> 
 		
 		<c:forEach var="index" begin="0" end="7">
 			<div> 
 				<label>수선 품목 ${index+1}</label> 
-				<input type="hidden" name="categoryList[${index}].alterId" value="${alterationsDTO.id}">
+				<input type="hidden" name="categoryList[${index}].alterId" value="${sessionScope.alterId}">
 				<select name="categoryList[${index}].name">
 					<option value="" <c:out value="${categories.categoryList[index].name == null? 'selected' : ''}"></c:out>>품목을 선택해주세요</option>
 					<option value="pants" <c:out value="${categories.categoryList[index].name eq 'pants'? 'selected' : ''}"></c:out>>바지</option>

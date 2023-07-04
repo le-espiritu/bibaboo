@@ -14,7 +14,7 @@
 		</sec:authorize>
 		<p><a href="/bibaboo/user/mypage/info">내정보 관리</a></p>
 		<br>
-		<p><a href="/bibaboo/user/mypage/order-list?userId=<sec:authentication property="principal.userId"/>">주문 내역</a></p>
+		<p><a href="/bibaboo/user/mypage/order-list?userId=<sec:authentication property="principal.user.id"/>">주문 내역</a></p>
 		<br>
 	</div>
 </aside>

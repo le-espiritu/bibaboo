@@ -16,24 +16,30 @@ public class UserServiceImpl implements UserService {
 
   UserDao userDao;
   UserRoleDao userRoleDao;
-  
+
   public UserServiceImpl(UserDao userDao, UserRoleDao userRoleDao) {
-    this.userDao=userDao;
+    this.userDao = userDao;
     this.userRoleDao = userRoleDao;
   }
-  
+
   @Override
   public UserEntity getUser(String loginUserEmail) {
     UserDTO userDTO = userDao.getUserByEmail(loginUserEmail);
-    return new UserEntity(userDTO.getEmail(), userDTO.getPassword(), userDTO.getId());
+    return new UserEntity(userDTO.getId(), userDTO.getEmail(), userDTO.getPassword(),
+        userDTO.getName(), userDTO.getPhoneNumber(), userDTO.getCreateDate(), userDTO.getEnable());
+  }
+
+  @Override
+  public UserDTO getUserAndAlterId(String loginUserEmail) {
+    return userDao.getUserByEmail(loginUserEmail);
   }
 
   @Override
   public List<UserRoleEntity> getUserRoles(String loginUserEmail) {
     List<UserRoleDTO> userRoles = userRoleDao.getUserRoleByEmail(loginUserEmail);
-    
+
     List<UserRoleEntity> roleList = new ArrayList<>();
-    for(UserRoleDTO userRole : userRoles) {
+    for (UserRoleDTO userRole : userRoles) {
       roleList.add(new UserRoleEntity(loginUserEmail, userRole.getRoleName()));
     }
     return roleList;

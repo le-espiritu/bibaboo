@@ -10,6 +10,7 @@ public interface AlterationsDao {
   
   public List<AlterationsDTO> selectAll();
   public AlterationsDTO selectById(int id);
+  public AlterationsDTO selectByUserId(int userId);
   public List<AlterationsDTO> getListWithPaging(Criteria criteria);
   public int insert(AlterationsDTO alterationsDto);
   public int photoNameInsert(AlterPhotoDTO alterPhotoDto);

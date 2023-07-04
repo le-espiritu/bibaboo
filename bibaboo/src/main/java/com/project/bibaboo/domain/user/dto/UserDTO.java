@@ -12,6 +12,14 @@ public class UserDTO {
   private Date createDate;
   private Integer enable;
   
+  private Integer alterId;
+  
+  public Integer getAlterId() {
+    return alterId;
+  }
+  public void setAlterId(Integer alterId) {
+    this.alterId = alterId;
+  }
   public Integer getId() {
     return id;
   }

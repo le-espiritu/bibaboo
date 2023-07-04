@@ -121,4 +121,9 @@ public class AlterationsServiceImpl implements AlterationsService {
     
   }
 
+  @Override
+  public AlterationsDTO selectByUserId(int userId) {
+    return alterationsDao.selectByUserId(userId);
+  }
+
 }
