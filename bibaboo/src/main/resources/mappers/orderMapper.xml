@@ -38,6 +38,18 @@
 		WHERE oc.order_id = #{orderId}
 	</select>
 	
+	<select id="getCategoriesAndUserInfoByAlterId" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
+		SELECT oc.id as orderCategoryId, oc.order_id, oc.category_id, ca.name as categoryName, oc.count, oc.total_price, oc.state, 
+			ao.user_email, ao.user_name, ao.user_phone_number, ao.create_date
+		FROM alter_order_category as oc
+		JOIN category as ca
+		ON oc.category_id = ca.id
+		JOIN alter_order ao
+		ON oc.order_id = ao.id
+		WHERE oc.alter_id = #{alterId}
+		ORDER BY ao.create_date DESC, oc.id DESC
+	</select>
+	
 	<!-- 아래 코드 안쓰고 있음  -->
 	<select id="getOrderInfo" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
 		SELECT id AS categoryId, price AS categoryPrice

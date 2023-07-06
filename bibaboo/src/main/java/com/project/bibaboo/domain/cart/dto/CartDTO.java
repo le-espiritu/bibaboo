@@ -7,6 +7,7 @@ public class CartDTO {
   private int userId;
   private int count;
   
+  private String alterName;
   private String categoryName;
   private int categoryPrice;
   
@@ -16,6 +17,14 @@ public class CartDTO {
     this.totalPrice=this.categoryPrice * this.count;
   }
   
+  public String getAlterName() {
+    return alterName;
+  }
+
+  public void setAlterName(String alterName) {
+    this.alterName = alterName;
+  }
+
   public int getId() {
     return id;
   }
@@ -75,9 +84,8 @@ public class CartDTO {
   @Override
   public String toString() {
     return "CartDTO [id=" + id + ", categoryId=" + categoryId + ", userId=" + userId + ", count="
-        + count + ", categoryName=" + categoryName + ", categoryPrice=" + categoryPrice
-        + ", totalPrice=" + totalPrice + "]";
+        + count + ", alterName=" + alterName + ", categoryName=" + categoryName + ", categoryPrice="
+        + categoryPrice + ", totalPrice=" + totalPrice + "]";
   }
 
-  
 }

@@ -1,5 +1,6 @@
 package com.project.bibaboo.domain.order.controller;
 
+import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,27 +16,32 @@ import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageDTO;
 import com.project.bibaboo.domain.order.service.OrderService;
+import com.project.bibaboo.domain.user.dto.UserDTO;
+import com.project.bibaboo.domain.user.service.UserService;
 
 @Controller
 @RequestMapping("/order")
 public class OrderController {
 
   OrderService orderService;
+  UserService userService;
 
   @Autowired
-  public OrderController(OrderService orderService) {
+  public OrderController(OrderService orderService, UserService userService) {
     this.orderService = orderService;
+    this.userService = userService;
   }
 
   @GetMapping("/{userId}")
   public ModelAndView orderPage(@PathVariable(name = "userId") String userId,
-      OrderPageDTO orderPageDTO) {
+      OrderPageDTO orderPageDTO, Principal principal) {
 
     List<OrderPageCategoryDTO> orderList = orderService.getGoodsInfoForOrder(orderPageDTO);
-
+    UserDTO userDTO = userService.getUserByEmail(principal.getName());
+    
     ModelAndView mv = new ModelAndView();
     mv.addObject("orderList", orderList);
-    // 추후 userId에 해당하는 회원정보 불러오는 코드 추가
+    mv.addObject("userInfo", userDTO);
 
     mv.setViewName("order/order-page");
 
@@ -44,12 +50,6 @@ public class OrderController {
 
   @PostMapping
   public String makeOrder(OrderDTO orderDTO) {
-
-    // 유저 id 또는 주문자 정보 세팅 => 추후 프론트에서 값을 넘겨주는 것으로 변경
-    orderDTO.setUserId(1);
-    orderDTO.setUserEmail("bibaboo@bibaboo.com");
-    orderDTO.setUserName("홍길동");
-    orderDTO.setUserPhoneNumber("010-1234-1234");
 
     orderService.order(orderDTO);
 

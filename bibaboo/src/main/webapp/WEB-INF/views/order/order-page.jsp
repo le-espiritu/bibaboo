@@ -17,6 +17,7 @@
 				<table>
 					<thead>
 						<tr>
+							<th></th>
 							<th>아이디</th>
 							<th>성명</th>
 							<th>연락처</th>
@@ -25,9 +26,15 @@
 					
 					<tbody>
 						<tr>
-							<td>아이디</td>
-							<td>성명</td>
-							<td>0101111111</td>
+							<td class="user-info-td">
+								<input type="hidden" class="user-id-input" value="${userInfo.id}">
+								<input type="hidden" class="user-email-input" value="${userInfo.email}">
+								<input type="hidden" class="user-name-input" value="${userInfo.name}">
+								<input type="hidden" class="user-phoneNumber-input" value="${userInfo.phoneNumber}">
+							</td>
+							<td>${userInfo.email}</td>
+							<td>${userInfo.name}</td>
+							<td>${userInfo.phoneNumber}</td>
 						</tr>
 					</tbody>
 				</table>

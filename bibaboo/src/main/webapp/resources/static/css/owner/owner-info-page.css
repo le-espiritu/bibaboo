@@ -31,3 +31,12 @@
 .user-info-section > div{
 	margin-top: 20px;
 }
+
+.user-info-section > div:first-of-type{
+	width : 60%;
+	margin: 0 auto;
+}
+
+.user-info-section img{
+	
+}

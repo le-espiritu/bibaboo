@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+.title-card > p{
+	font-size: 25px;
+	font-weight : bold;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.card, .title-card{
+	width: 98%;
+	padding: 30px 50px;
+	margin-left:2%;
+	
+	border: 2px solid #d1d1d1;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+	overflow:auto;
+}
+
+.card{
+	margin-top: 2%;
+}
+
+.search-section{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 1.5%;
+}
+
+.search-section > div >select,input,button{
+	height: 30px;
+}
+
+.order-list > table{
+	width:100%;
+	border-collapse: collapse;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+.order-list > table >thead{
+	background-color: #eee;
+}
+
+.order-list > table >thead>tr>th{
+	padding : 2% 0;
+}
+
+.order-list > table >tbody>tr>td{
+	padding : 2% 0;
+	text-align: center;
+}
+
+.page-info {
+	margin-top:20px;
+	text-align: center;
+}
+
+.page-info > ul{
+	list-style : none;
+	display: inline-block;
+}
+
+.page-info > ul >li {
+	float: left;
+	padding : 7px;
+	font-size: 20px;
+}
+
+.active{
+	background-color: #cdd5ec;
+}

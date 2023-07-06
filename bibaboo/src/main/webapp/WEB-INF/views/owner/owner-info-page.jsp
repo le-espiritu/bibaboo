@@ -9,8 +9,8 @@
 	<div class="user-info-section">
 		
 		<div>
+			<label>대표 사진</label>
 			<img alt="alter-photo" src="/bibaboo/img/upload/${alterationsDTO.photoName}">
-			<label>등록된 수선집 사진</label>
 		</div>
 		<div>
 			<label>수선집 no</label>
@@ -21,12 +21,20 @@
 			<p>${alterationsDTO.name}</p>
 		</div>
 		<div>
-			<label>이메일</label>
-			<p>${userInfo.email}</p>
+			<label>주소</label>
+			<p>${alterationsDTO.address}</p>
 		</div>
 		<div>
-			<label>가입일</label>
-			<p>${userInfo.createDate}</p>
+			<label>전화번호</label>
+			<p>${alterationsDTO.telNumber}</p>
+		</div>
+		<div>
+			<label>영업시간</label>
+			<p>${alterationsDTO.openTime} - ${alterationsDTO.closeTime}</p>
+		</div>
+		<div>
+			<label>리뷰 평점</label>
+			<p>${alterationsDTO.avgScore}</p>
 		</div>
 		
 	</div>

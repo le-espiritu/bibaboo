@@ -60,4 +60,9 @@ public class OrderDaoImpl implements OrderDao {
     return sqlSession.selectList("order.getOrderCategories", orderId);
   }
 
+  @Override
+  public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId(int alterId) {
+    return sqlSession.selectList("order.getCategoriesAndUserInfoByAlterId", alterId);
+  }
+
 }

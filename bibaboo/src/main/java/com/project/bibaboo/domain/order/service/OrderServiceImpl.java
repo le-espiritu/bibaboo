@@ -11,6 +11,7 @@ import com.project.bibaboo.domain.cart.dao.CartDao;
 import com.project.bibaboo.domain.cart.dto.CartDTO;
 import com.project.bibaboo.domain.order.dao.OrderDao;
 import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
+import com.project.bibaboo.domain.order.dto.OrderCategoryAndPageDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderListAndPageDTO;
@@ -96,6 +97,16 @@ public class OrderServiceImpl implements OrderService {
   @Override
   public List<OrderCategoryDTO> getOrderCategories(int orderId) {
     return orderDao.getOrderCategories(orderId);
+  }
+
+  @Override
+  public OrderCategoryAndPageDTO getCategoriesAndUserInfoByAlterId(int alterId) {
+    
+    OrderCategoryAndPageDTO orderCategoryPage = new OrderCategoryAndPageDTO();
+    
+    orderCategoryPage.setOrderCategoryList(orderDao.getCategoriesAndUserInfoByAlterId(alterId));
+    
+    return orderCategoryPage;
   }
 
 }

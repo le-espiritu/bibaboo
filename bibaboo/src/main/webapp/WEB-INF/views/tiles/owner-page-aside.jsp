@@ -20,7 +20,7 @@
 		<br>
 		<p><a href="/bibaboo/owner/owner-page/category-register-page?alterId=<sec:authentication property='principal.user.alterId'/>">수선 품목 관리</a></p>
 		<br>
-		<p><a href="/bibaboo/user/mypage/order-list?userId=<sec:authentication property="principal.user.id"/>">주문 내역</a></p>
+		<p><a href="/bibaboo/owner/owner-page/order-list?alterId=<sec:authentication property="principal.user.alterId"/>">주문 내역</a></p>
 		<br>
 	</div>
 </aside>

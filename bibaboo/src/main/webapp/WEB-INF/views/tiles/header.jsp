@@ -8,7 +8,11 @@
 	<nav>
 		<ul>
 			<li><a href="#">수선집 검색</a></li>
-			<li><a href="/bibaboo/cart/1">장바구니</a></li>
+			<li>
+				<sec:authorize access="isAuthenticated()">
+					<a href="/bibaboo/cart/<sec:authentication property='principal.user.id'/>">장바구니</a>
+				</sec:authorize>
+			</li>
 		</ul>
 
 		<ul>

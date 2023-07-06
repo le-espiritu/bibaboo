@@ -35,6 +35,37 @@ function doPay(){
 		form.setAttribute("method","post");
 		form.setAttribute("action","/bibaboo/order");
 		
+		let userInfoTd = document.querySelector(".user-info-td");
+		let userId = userInfoTd.querySelector(".user-id-input").value;
+		let userEmail = userInfoTd.querySelector(".user-email-input").value;
+		let userName = userInfoTd.querySelector(".user-name-input").value;
+		let userPhoneNumber = userInfoTd.querySelector(".user-phoneNumber-input").value;
+		
+		let userIdInput = document.createElement("input");
+		userIdInput.setAttribute("type","hidden");
+		userIdInput.setAttribute("name","userId");
+		userIdInput.setAttribute("value",userId);
+		
+		let userEmailInput = document.createElement("input");
+		userEmailInput.setAttribute("type","hidden");
+		userEmailInput.setAttribute("name","userEmail");
+		userEmailInput.setAttribute("value",userEmail);
+		
+		let userNameInput = document.createElement("input");
+		userNameInput.setAttribute("type","hidden");
+		userNameInput.setAttribute("name","userName");
+		userNameInput.setAttribute("value",userName);
+		
+		let userPhoneNumgerInput = document.createElement("input");
+		userPhoneNumgerInput.setAttribute("type","hidden");
+		userPhoneNumgerInput.setAttribute("name","userPhoneNumber");
+		userPhoneNumgerInput.setAttribute("value",userPhoneNumber);
+		
+		form.appendChild(userIdInput);
+		form.appendChild(userEmailInput);
+		form.appendChild(userNameInput);
+		form.appendChild(userPhoneNumgerInput);
+		
 		let orderInfoTds = document.querySelectorAll(".order-info-td");
 		orderInfoTds.forEach((element,index)=>{
 			let categoryId = element.querySelector(".category-id-input").value;

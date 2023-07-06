@@ -1,5 +1,7 @@
 package com.project.bibaboo.domain.order.dto;
 
+import java.sql.Date;
+
 public class OrderCategoryDTO {
 
   //alter_order_category 테이블 기본 키
@@ -13,9 +15,49 @@ public class OrderCategoryDTO {
   private int categoryPrice;
   private int totalPrice;
   
+  // from alterations 
   private String alterName;
+  // from category 
   private String categoryName;
   
+  // from alter_order
+  private String userEmail;
+  private String userName;
+  private String userPhoneNumber;
+  private Date createDate;
+  
+  public String getUserEmail() {
+    return userEmail;
+  }
+
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
+  }
+
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getUserPhoneNumber() {
+    return userPhoneNumber;
+  }
+
+  public void setUserPhoneNumber(String userPhoneNumber) {
+    this.userPhoneNumber = userPhoneNumber;
+  }
+
+  public Date getCreateDate() {
+    return createDate;
+  }
+
+  public void setCreateDate(Date createDate) {
+    this.createDate = createDate;
+  }
+
   public String getAlterName() {
     return alterName;
   }
@@ -101,7 +143,8 @@ public class OrderCategoryDTO {
     return "OrderCategoryDTO [orderCategoryId=" + orderCategoryId + ", orderId=" + orderId
         + ", alterId=" + alterId + ", categoryId=" + categoryId + ", count=" + count + ", state="
         + state + ", categoryPrice=" + categoryPrice + ", totalPrice=" + totalPrice + ", alterName="
-        + alterName + ", categoryName=" + categoryName + "]";
+        + alterName + ", categoryName=" + categoryName + ", userEmail=" + userEmail + ", userName="
+        + userName + ", userPhoneNumber=" + userPhoneNumber + ", createDate=" + createDate + "]";
   }
 
 }

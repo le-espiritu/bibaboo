@@ -14,11 +14,11 @@
 			<thead>
 				<tr>
 					<th></th> <!-- tbody의 hidden값을 위한 fake  -->
+					<th>업체명</th>
 					<th>수선 품목명</th>
 					<th>가격</th>
 					<th>수량</th>
 					<th>삭제</th>
-					<th>체크</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,6 +30,7 @@
 							<input type="hidden" class="cart-category-id" value="${cartDto.categoryId}">
 							<input type="hidden" class="cart-count-by-category" value="${cartDto.count}">
 						</td>
+						<td>${cartDto.alterName}</td>
 						<td>${cartDto.categoryName}</td>
 						<td class="total-price-td" >${cartDto.totalPrice}</td>
 						<td class="count-td" >
@@ -41,7 +42,6 @@
 						<td>
 							<button class="delete-btn">삭제</button>
 						</td>
-						<td>체크박스</td>
 					</tr>
 				</c:forEach>
 			</tbody>

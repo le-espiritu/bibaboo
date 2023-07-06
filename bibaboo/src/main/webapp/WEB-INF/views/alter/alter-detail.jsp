@@ -45,7 +45,7 @@
 			<form action="/bibaboo/review" method="post" enctype="multipart/form-data">
 			<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
 				
-				<input type="hidden" name="userId" value="<sec:authentication property="principal.userId"/>"/> 
+				<input type="hidden" name="userId" value="<sec:authentication property="principal.user.id"/>"/> 
 				<input type="hidden" name="alterId" value="${alterationsDTO.id}"/>
 				
 				<div>

@@ -22,11 +22,13 @@
 	</update>
 	
 	<select id="getCart" resultType="com.project.bibaboo.domain.cart.dto.CartDTO">
-		SELECT ct.id, ct.user_id, ct.category_id, ct.count, c.name as categoryName, c.price as categoryPrice
-		FROM cart ct
+		SELECT ct.id, ct.user_id, ct.category_id, ct.count, c.name as categoryName, c.price as categoryPrice, al.name as alterName
+		FROM cart as ct
 		JOIN category c
 		ON ct.category_id = c.id
-		WHERE user_id = #{userId}
+		JOIN alterations al
+		ON c.alter_id = al.id
+		WHERE ct.user_id = #{userId}
 	</select>
 	
 	<select id="checkCart" resultType="com.project.bibaboo.domain.cart.dto.CartDTO">
