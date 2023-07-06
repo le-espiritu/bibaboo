@@ -39,7 +39,7 @@
 	</select>
 	
 	<select id="getCategoriesAndUserInfoByAlterId" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
-		SELECT oc.id as orderCategoryId, oc.order_id, oc.category_id, ca.name as categoryName, oc.count, oc.total_price, oc.state, 
+		SELECT oc.id as orderCategoryId, oc.order_id, oc.alter_id, oc.category_id, ca.name as categoryName, oc.count, oc.total_price, oc.state, 
 			ao.user_email, ao.user_name, ao.user_phone_number, ao.create_date
 		FROM alter_order_category as oc
 		JOIN category as ca
@@ -91,6 +91,10 @@
 		WHERE order_id = #{orderId}
 	</update>
 	
-	
+	<update id="updateOrderCategoryState">
+		UPDATE alter_order_category
+		SET state = #{state}
+		WHERE id = #{orderCategoryId}
+	</update>
 	
 </mapper>

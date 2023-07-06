@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded",function(){
 	getUserInfoPopup();
+	updateState();
 });
 
 function getUserInfoPopup(){
@@ -30,4 +31,30 @@ function getUserInfoPopup(){
 		}
 	});
 		
+}
+
+function updateState(){
+	let orderListDiv = document.querySelector(".order-list");
+	orderListDiv.addEventListener("click",function(e){
+		if(e.target.className=="state-update-btn"){
+			let stateValue = e.target.parentElement.parentElement.querySelector("select").value;
+			let orderCategoryId = e.target.parentElement.parentElement.querySelector(".orderCategory-id-input").value;
+			
+			let form={
+				state : stateValue,
+				orderCategoryId : orderCategoryId
+			}
+			
+			let xhr = new XMLHttpRequest();
+			xhr.addEventListener("load",function(){
+				if(xhr.status == 200){
+					alert("주문 상태가 성공적으로 변경되었습니다.");
+				}
+			});
+			
+			xhr.open("put","/bibaboo/order/state", true);
+			xhr.setRequestHeader("Content-Type","application/json");
+			xhr.send(JSON.stringify(form));
+		}
+	})
 }

@@ -3,6 +3,7 @@ package com.project.bibaboo.domain.order.dao;
 import java.util.List;
 import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
+import com.project.bibaboo.domain.order.dto.OrderCategoryStateDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
 import com.project.bibaboo.global.common.dto.Criteria;
@@ -18,5 +19,5 @@ public interface OrderDao {
   public int orderCategoryCancle(OrderCancleDTO orderCancleDTO);
   public List<OrderCategoryDTO> getOrderCategories(int orderId);
   public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId (int alterId);
-
+  public int updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO);
 }

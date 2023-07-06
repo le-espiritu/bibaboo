@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
+import com.project.bibaboo.domain.order.dto.OrderCategoryStateDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
 import com.project.bibaboo.global.common.dto.Criteria;
@@ -63,6 +64,11 @@ public class OrderDaoImpl implements OrderDao {
   @Override
   public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId(int alterId) {
     return sqlSession.selectList("order.getCategoriesAndUserInfoByAlterId", alterId);
+  }
+
+  @Override
+  public int updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO) {
+    return sqlSession.update("order.updateOrderCategoryState", orderCategoryStateDTO);
   }
 
 }

@@ -40,7 +40,10 @@
 			<tbody>
 				<c:forEach items="${orderCategoryAndPageDTO.orderCategoryList}" var="order">
 					<tr>
-						<td>${order.orderCategoryId}</td>
+						<td>
+							${order.orderCategoryId}
+							<input type="hidden" class="orderCategory-id-input" value="${order.orderCategoryId}"/>
+						</td>
 						<td>${order.categoryName}</td>
 						<td>${order.totalPrice}</td>
 						<td>${order.createDate}</td>
@@ -52,17 +55,17 @@
 								<button class="user-info-btn">주문자 정보 보기</button>
 							</form>
 						</td>
-						<td><button onclick="location.href='/bibaboo/user/mypage/order-list/${orderDTO.id}'">상세 보기</button></td>
 						<td>
-							<form action="/bibaboo/order" method="post">
-								<input type="hidden" name="_method" value ="delete"/>
-								<input type="hidden" name="userId" value="${orderDTO.userId}"/>
-								<input type="hidden" name="orderId" value="${orderDTO.id}" />
-								<input type="hidden" name="keyword" value="${orderListAndPageDTO.pageDTO.criteria.keyword}"/>
-								<input type="hidden" name="amount" value="${orderListAndPageDTO.pageDTO.criteria.amount}"/>
-								<input type="hidden" name="pageNum" value="${orderListAndPageDTO.pageDTO.criteria.pageNum}"/>
-								<button onclick="return confirm('정말로 주문 취소 하시겠습니까?')">주문 취소</button>
-							</form>
+							<select name="state">
+								<option value="주문접수" <c:out value="${order.state eq '주문접수'? 'selected' : '' }"></c:out> >주문접수</option>
+								<option value="주문확인" <c:out value="${order.state eq '주문확인'? 'selected' : '' }"></c:out> >주문확인</option>
+								<option value="수선 중" <c:out value="${order.state eq '수선 중'? 'selected' : '' }"></c:out> >수선 중</option>
+								<option value="수선완료" <c:out value="${order.state eq '수선완료'? 'selected' : '' }"></c:out> >수선완료</option>
+								<option value="주문취소" <c:out value="${order.state eq '주문취소'? 'selected' : '' }"></c:out>>주문취소</option>
+							</select>
+						</td>
+						<td>
+							<button class="state-update-btn">상태 변경 하기</button>
 						</td>
 					</tr>
 				</c:forEach>

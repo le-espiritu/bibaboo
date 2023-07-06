@@ -3,15 +3,19 @@ package com.project.bibaboo.domain.order.controller;
 import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.order.dao.OrderDao;
 import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
+import com.project.bibaboo.domain.order.dto.OrderCategoryStateDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageDTO;
@@ -64,5 +68,11 @@ public class OrderController {
     return "redirect:/users/" + orderCancleDTO.getUserId() + "/mypage/order-list?keyword="
         + orderCancleDTO.getKeyword() + "&amount=" + orderCancleDTO.getAmount() + "&pageNum="
         + orderCancleDTO.getPageNum();
+  }
+  
+  @PutMapping("/state")
+  public ResponseEntity<Object> updateState(@RequestBody OrderCategoryStateDTO orderCategoryStateDTO){
+    orderService.updateOrderCategoryState(orderCategoryStateDTO);
+    return ResponseEntity.ok().build();
   }
 }

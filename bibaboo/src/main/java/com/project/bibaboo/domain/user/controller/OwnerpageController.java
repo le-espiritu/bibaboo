@@ -1,6 +1,5 @@
 package com.project.bibaboo.domain.user.controller;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,7 +12,6 @@ import com.project.bibaboo.domain.alterations.dto.Categories;
 import com.project.bibaboo.domain.alterations.service.AlterationsCategoryService;
 import com.project.bibaboo.domain.alterations.service.AlterationsService;
 import com.project.bibaboo.domain.order.dto.OrderCategoryAndPageDTO;
-import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrdererInfoDTO;
 import com.project.bibaboo.domain.order.service.OrderService;
 

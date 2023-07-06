@@ -13,6 +13,7 @@ import com.project.bibaboo.domain.order.dao.OrderDao;
 import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryAndPageDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
+import com.project.bibaboo.domain.order.dto.OrderCategoryStateDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderListAndPageDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
@@ -107,6 +108,12 @@ public class OrderServiceImpl implements OrderService {
     orderCategoryPage.setOrderCategoryList(orderDao.getCategoriesAndUserInfoByAlterId(alterId));
     
     return orderCategoryPage;
+  }
+
+  @Override
+  public void updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO) {
+    orderDao.updateOrderCategoryState(orderCategoryStateDTO);
+    
   }
 
 }

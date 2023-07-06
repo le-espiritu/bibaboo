@@ -4,6 +4,7 @@ import java.util.List;
 import com.project.bibaboo.domain.order.dto.OrderCancleDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryAndPageDTO;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
+import com.project.bibaboo.domain.order.dto.OrderCategoryStateDTO;
 import com.project.bibaboo.domain.order.dto.OrderDTO;
 import com.project.bibaboo.domain.order.dto.OrderListAndPageDTO;
 import com.project.bibaboo.domain.order.dto.OrderPageCategoryDTO;
@@ -18,4 +19,5 @@ public interface OrderService {
   public void orderCancle(OrderCancleDTO orderCancleDTO);
   public List<OrderCategoryDTO> getOrderCategories(int orderId);
   public OrderCategoryAndPageDTO getCategoriesAndUserInfoByAlterId(int alterId);
+  public void updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO);
 }
