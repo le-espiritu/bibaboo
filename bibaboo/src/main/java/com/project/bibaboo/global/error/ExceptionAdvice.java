@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.project.bibaboo.domain.alterations.exception.AlterationsDuplicatedException;
 import com.project.bibaboo.domain.cart.exception.CategoryAlreadyExistInCartException;
 import com.project.bibaboo.domain.review.exception.ReviewDuplicatedException;
+import com.project.bibaboo.domain.user.exception.AlterInfoIsNullException;
 
 @ControllerAdvice
 public class ExceptionAdvice {
@@ -47,5 +48,13 @@ public class ExceptionAdvice {
     headers.add("Content-Type", "application/json;charset=UTF-8");
     
     return ResponseEntity.badRequest().headers(headers).body(e.getMessage());
+  }
+  
+  @ExceptionHandler(AlterInfoIsNullException.class)
+  public String handleAlterInfoIsNullException (AlterInfoIsNullException e) {
+    
+    logger.error("AlterInfoIsNullException 익셉션 핸들러 호출");
+    
+    return"error/no-alter-info";
   }
 }

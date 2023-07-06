@@ -55,6 +55,22 @@
 		<beans:property name="maxUploadSize" value="10485760"></beans:property> <!-- 1024*1024*10 최대 10메가 크기의 파일이 저장되도록 설정 -->
 	</beans:bean>
 	
+	<!-- 인터셉터 등록 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/owner/owner-page/info"/>
+			<beans:bean class="com.project.bibaboo.global.interceptor.IsAlterInfoAddedInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/owner/owner-page/category-register-page"/>
+			<beans:bean class="com.project.bibaboo.global.interceptor.IsAlterInfoAddedInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/owner/owner-page/order-list"/>
+			<beans:bean class="com.project.bibaboo.global.interceptor.IsAlterInfoAddedInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<sec:global-method-security pre-post-annotations="enabled" secured-annotations="enabled"/>
 	
 </beans:beans>

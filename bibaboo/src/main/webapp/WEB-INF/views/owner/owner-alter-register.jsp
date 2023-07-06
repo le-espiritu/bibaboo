@@ -12,7 +12,7 @@
 	<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
 		<h3>등록할 수선집 정보를 입력해주세요.</h3> 
 		
-		<input type="hidden" name="userId" value='<sec:authentication property="principal.userId"/>'/>
+		<input type="hidden" name="userId" value='<sec:authentication property="principal.user.id"/>'/>
 		
 		<div> 
 			<label>상호명</label> 
