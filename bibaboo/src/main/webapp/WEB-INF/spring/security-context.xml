@@ -41,6 +41,8 @@
 		<logout logout-url="/logout"
 				logout-success-url="/"
 				delete-cookies="JSESSIONID"/>
+				
+		<access-denied-handler error-page="/authDenied"/>
 	
 		<csrf disabled="true"/> <!-- 스프링 시큐리티 4 부터는 CSRF 방지 기능이 디폴트로 작동한다.  -->
 	</http>
