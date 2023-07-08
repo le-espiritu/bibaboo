@@ -18,6 +18,7 @@ public interface OrderDao {
   public int orderCancle(OrderCancleDTO orderCancleDTO);
   public int orderCategoryCancle(OrderCancleDTO orderCancleDTO);
   public List<OrderCategoryDTO> getOrderCategories(int orderId);
-  public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId (int alterId);
+  public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId (Criteria criteria);
+  public int countOrderCategoriesByAlterId(Criteria criteria);
   public int updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO);
 }

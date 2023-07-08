@@ -62,10 +62,15 @@ public class OrderDaoImpl implements OrderDao {
   }
 
   @Override
-  public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId(int alterId) {
-    return sqlSession.selectList("order.getCategoriesAndUserInfoByAlterId", alterId);
+  public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId(Criteria criteria) {
+    return sqlSession.selectList("order.getCategoriesAndUserInfoByAlterId", criteria);
   }
 
+  @Override
+  public int countOrderCategoriesByAlterId(Criteria criteria) {
+    return sqlSession.selectOne("order.countOrderCategoriesByAlterId", criteria);
+  }
+  
   @Override
   public int updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO) {
     return sqlSession.update("order.updateOrderCategoryState", orderCategoryStateDTO);

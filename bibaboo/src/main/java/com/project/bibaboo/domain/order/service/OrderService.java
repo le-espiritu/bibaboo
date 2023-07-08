@@ -18,6 +18,6 @@ public interface OrderService {
   public OrderListAndPageDTO getOrderList(Criteria criteria);
   public void orderCancle(OrderCancleDTO orderCancleDTO);
   public List<OrderCategoryDTO> getOrderCategories(int orderId);
-  public OrderCategoryAndPageDTO getCategoriesAndUserInfoByAlterId(int alterId);
+  public OrderCategoryAndPageDTO getCategoriesAndUserInfoByAlterId(Criteria criteria);
   public void updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO);
 }

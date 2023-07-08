@@ -38,6 +38,26 @@
 		WHERE oc.order_id = #{orderId}
 	</select>
 	
+	<sql id="criteria">
+		<trim prefix="AND (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type  == 'orderCategoryId'.toString()">
+							oc.id = (CAST(#{keyword} AS UNSIGNED))
+						</when>
+						<when test="type == 'category'.toString()">
+							ca.name LIKE CONCAT('%',#{keyword},'%')
+						</when>
+						<when test="type == 'orderState'.toString()">
+							oc.state LIKE CONCAT('%',#{keyword},'%')
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
 	<select id="getCategoriesAndUserInfoByAlterId" resultType="com.project.bibaboo.domain.order.dto.OrderCategoryDTO">
 		SELECT oc.id as orderCategoryId, oc.order_id, oc.alter_id, oc.category_id, ca.name as categoryName, oc.count, oc.total_price, oc.state, 
 			ao.user_email, ao.user_name, ao.user_phone_number, ao.create_date
@@ -47,7 +67,23 @@
 		JOIN alter_order ao
 		ON oc.order_id = ao.id
 		WHERE oc.alter_id = #{alterId}
+		<if test="keyword != null">
+			<include refid="criteria">
+			</include>
+		</if>
 		ORDER BY ao.create_date DESC, oc.id DESC
+	</select>
+	
+	<select id="countOrderCategoriesByAlterId" resultType="int">
+		SELECT COUNT(*)
+		FROM alter_order_category as oc
+		JOIN category as ca
+		ON oc.category_id = ca.id
+		WHERE oc.alter_id = #{alterId}
+		<if test="keyword != null">
+			<include refid="criteria">
+			</include>
+		</if>
 	</select>
 	
 	<!-- 아래 코드 안쓰고 있음  -->

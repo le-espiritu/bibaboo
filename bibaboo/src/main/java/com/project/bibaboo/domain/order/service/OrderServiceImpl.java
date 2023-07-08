@@ -101,11 +101,14 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
-  public OrderCategoryAndPageDTO getCategoriesAndUserInfoByAlterId(int alterId) {
+  @Transactional
+  public OrderCategoryAndPageDTO getCategoriesAndUserInfoByAlterId(Criteria criteria) {
     
     OrderCategoryAndPageDTO orderCategoryPage = new OrderCategoryAndPageDTO();
     
-    orderCategoryPage.setOrderCategoryList(orderDao.getCategoriesAndUserInfoByAlterId(alterId));
+    orderCategoryPage.setOrderCategoryList(orderDao.getCategoriesAndUserInfoByAlterId(criteria));
+    PageDTO pageDTO = new PageDTO(criteria, orderDao.countOrderCategoriesByAlterId(criteria));
+    orderCategoryPage.setPageDTO(pageDTO);
     
     return orderCategoryPage;
   }

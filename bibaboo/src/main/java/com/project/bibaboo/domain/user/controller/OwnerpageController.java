@@ -14,6 +14,7 @@ import com.project.bibaboo.domain.alterations.service.AlterationsService;
 import com.project.bibaboo.domain.order.dto.OrderCategoryAndPageDTO;
 import com.project.bibaboo.domain.order.dto.OrdererInfoDTO;
 import com.project.bibaboo.domain.order.service.OrderService;
+import com.project.bibaboo.global.common.dto.Criteria;
 
 @Controller
 @RequestMapping("/owner/owner-page")
@@ -70,9 +71,9 @@ public class OwnerpageController {
   }
 
   @GetMapping("/order-list")
-  public ModelAndView getOrderListPage(int alterId) {
+  public ModelAndView getOrderListPage(Criteria criteria) {
     
-    OrderCategoryAndPageDTO orderCategoryAndPageDTO = orderService.getCategoriesAndUserInfoByAlterId(alterId);
+    OrderCategoryAndPageDTO orderCategoryAndPageDTO = orderService.getCategoriesAndUserInfoByAlterId(criteria);
 
     ModelAndView mv = new ModelAndView();
     mv.addObject("orderCategoryAndPageDTO", orderCategoryAndPageDTO);

@@ -3,8 +3,12 @@
  */
 
 document.addEventListener("DOMContentLoaded",function(){
+	let moveForm = document.querySelector(".moveForm");
+	
 	getUserInfoPopup();
 	updateState();
+	search(moveForm);
+	movePage(moveForm);
 });
 
 function getUserInfoPopup(){
@@ -57,4 +61,51 @@ function updateState(){
 			xhr.send(JSON.stringify(form));
 		}
 	})
+}
+
+function search(moveForm){
+	let searchButton = document.querySelector(".search-section button");
+	searchButton.addEventListener("click",function(){
+		
+		let typeValue = document.querySelector(".search-section select").value;
+		let keywordValue = document.querySelector(".keyword").value;
+		
+		if(!typeValue){
+			alert("검색 종류를 선택해 주세요.");
+		}
+		if(!keywordValue){
+			alert("검색어를 입력해 주세요.");
+		}
+		
+		let typeInput = document.createElement("INPUT");
+		typeInput.setAttribute("type","hidden");
+		typeInput.setAttribute("name","type");
+		typeInput.setAttribute("value",typeValue);
+		
+		let keywordInput = document.createElement("INPUT");
+		keywordInput.setAttribute("type","hidden");
+		keywordInput.setAttribute("name","keyword");
+		keywordInput.setAttribute("value",keywordValue);
+		
+		moveForm.appendChild(typeInput);
+		moveForm.appendChild(keywordInput);
+		
+		document.getElementsByName("pageNum")[0].value=1;
+		moveForm.submit();
+	});
+}
+
+function movePage(moveForm){
+	let pageNumInput = document.getElementsByName("pageNum")[0];
+	
+	let pageInfoDiv = document.querySelector(".page-info");
+	pageInfoDiv.addEventListener("click",function(e){
+		e.preventDefault();
+		
+		if(e.target.tagName == 'A'){
+			pageNumInput.value=e.target.getAttribute("href");
+			
+			moveForm.submit();
+		}
+	});
 }
