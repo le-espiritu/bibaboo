@@ -5,6 +5,44 @@
   
 <mapper namespace="user">
 
+	<sql id="criteria">
+		<trim prefix="WHERE(" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'id'.toString()">
+							id = (CAST(#{keyword} AS UNSIGNED))
+						</when>
+						<when test="type == 'email'.toString()">
+							email LIKE CONCAT('%',#{keyword},'%')
+						</when>
+						<when test="type == 'name'.toString()">
+							name LIKE CONCAT('%',#{keyword},'%')
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="selectAllUsers" resultType="com.project.bibaboo.domain.user.dto.UserDTO">
+		SELECT id, email, name, phone_number, create_date, enable
+		FROM user
+		<if test="keyword != null">
+			<include refid="criteria">
+			</include>
+		</if>
+	</select>
+	
+	<select id="countUsers" resultType="int">
+		select count(*)
+		FROM user
+		<if test="keyword != null">
+			<include refid="criteria">
+			</include>
+		</if>
+	</select>
+
 	<select id="getUserByEmail" resultType="com.project.bibaboo.domain.user.dto.UserDTO">
 		SELECT u.id, u.email, u.password, u.name, u.phone_number, u.create_date, u.enable, a.id as alterId
 		FROM user u

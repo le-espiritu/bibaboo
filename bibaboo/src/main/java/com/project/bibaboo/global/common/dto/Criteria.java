@@ -36,7 +36,7 @@ public class Criteria {
 
   public void setType(String type) {
     this.type = type;
-    this.typeArr=type.split("");
+    this.typeArr=type.split(" ");
   }
 
   public String[] getTypeArr() {

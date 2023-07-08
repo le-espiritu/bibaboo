@@ -7,9 +7,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.bibaboo.domain.user.dao.UserDao;
 import com.project.bibaboo.domain.user.dao.UserRoleDao;
 import com.project.bibaboo.domain.user.dto.UserDTO;
+import com.project.bibaboo.domain.user.dto.UserListAndPageDTO;
 import com.project.bibaboo.domain.user.dto.UserRoleDTO;
 import com.project.bibaboo.domain.user.security.UserEntity;
 import com.project.bibaboo.domain.user.security.UserRoleEntity;
+import com.project.bibaboo.global.common.dto.Criteria;
+import com.project.bibaboo.global.common.dto.PageDTO;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -62,6 +65,17 @@ public class UserServiceImpl implements UserService {
   @Override
   public UserDTO getUserByEmail(String loginEmail) {
     return userDao.getUserByEmail(loginEmail);
+  }
+
+  @Override
+  public UserListAndPageDTO getAllUsers(Criteria criteria) {
+    UserListAndPageDTO userListAndPageDTO = new UserListAndPageDTO();
+    
+    userListAndPageDTO.setUserList(userDao.getAllUsers(criteria));
+    PageDTO pageDTO = new PageDTO(criteria, userDao.countUsers(criteria));
+    userListAndPageDTO.setPageDTO(pageDTO);
+    
+    return userListAndPageDTO;
   }
 
 }
