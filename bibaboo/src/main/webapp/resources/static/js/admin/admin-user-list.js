@@ -5,6 +5,7 @@
 document.addEventListener("DOMContentLoaded",function(){
 	let moveForm = document.querySelector(".moveForm");
 	search(moveForm);
+	movePage(moveForm);
 });
 
 function search(moveForm){
@@ -43,4 +44,20 @@ function search(moveForm){
 		전송하였을 때 현재의 url경로의 매핑 메서드를 호출하게 됩니다.*/ 
 		
 	});
+}
+
+function movePage(moveForm){
+	let pageNumInput = document.getElementsByName("pageNum")[0];
+	
+	let pageInfoDiv = document.querySelector(".page-info");
+	pageInfoDiv.addEventListener("click",function(e){
+		e.preventDefault();
+		if(e.target.tagName=='A'){
+			let pageNumber = e.target.getAttribute("href");
+			pageNumInput.value = pageNumber;
+			
+			moveForm.submit();
+		}
+	});
+
 }
