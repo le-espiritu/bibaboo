@@ -1,15 +1,16 @@
 package com.project.bibaboo.domain.order.dto;
 
 public class OrderCancleDTO {
-  private int userId;
+  private Integer userId;
   private int orderId;
   private String keyword;
   private int amount;
   private int pageNum;
-  public int getUserId() {
+  
+  public Integer getUserId() {
     return userId;
   }
-  public void setUserId(int userId) {
+  public void setUserId(Integer userId) {
     this.userId = userId;
   }
   public int getOrderId() {

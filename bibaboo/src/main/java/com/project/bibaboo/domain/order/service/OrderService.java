@@ -20,4 +20,5 @@ public interface OrderService {
   public List<OrderCategoryDTO> getOrderCategories(int orderId);
   public OrderCategoryAndPageDTO getCategoriesAndUserInfoByAlterId(Criteria criteria);
   public void updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO);
+  public String orderCategoryStateCheckForReview(int orderCategoryId);
 }

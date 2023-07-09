@@ -119,4 +119,9 @@ public class OrderServiceImpl implements OrderService {
     
   }
 
+  @Override
+  public String orderCategoryStateCheckForReview(int orderCategoryId) {
+    return orderDao.orderCategoryStateCheckForReview(orderCategoryId);
+  }
+
 }

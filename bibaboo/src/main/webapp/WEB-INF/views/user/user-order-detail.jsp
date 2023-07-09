@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <div class="title-card">
 	<p>주문 상세</p>
 </div>
@@ -45,8 +46,8 @@
 							</form>
 						</td>
 						<td>
-							<form class="write-review-form" action="/bibaboo/users/${userId}/mypage/review-writer-page" method="get">
-								<input type="hidden" class="user-id" name="userId" value="${userId}"/>
+							<form class="write-review-form" action="/bibaboo/user/mypage/review-writer-page" method="post">
+								<input type="hidden" class="user-id" name="userId" value="<sec:authentication property='principal.user.id'/>"/>
 								<input type="hidden" class="order-category-id" name="orderCategoryId" value="${orderCategory.orderCategoryId}"/>
 								<input type="hidden" name="alterId" value="${orderCategory.alterId}"/>
 								<input type="hidden" name="categoryId" value="${orderCategory.categoryId}"/>

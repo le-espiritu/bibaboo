@@ -16,7 +16,7 @@
 	<select id="getOrderList" resultType="com.project.bibaboo.domain.order.dto.OrderDTO">
 		SELECT id, user_id, pay_price, create_date, state
 		FROM alter_order
-		WHERE user_id = cast(#{keyword} as unsigned)
+		WHERE user_id = #{userId}
 		order by create_date desc
 		limit #{startOffset}, #{amount}
 	</select>
@@ -24,7 +24,7 @@
 	<select id="getOrderTotal" resultType="int">
 		SELECT COUNT(*)
 		FROM alter_order
-		WHERE user_id = cast(#{keyword} as unsigned)
+		WHERE user_id = #{userId}
 	</select>
 	
 	<!-- 3중 조인 사용 -->
@@ -132,5 +132,11 @@
 		SET state = #{state}
 		WHERE id = #{orderCategoryId}
 	</update>
+	
+	<select id="orderCategoryStateCheckForReview" resultType="String">
+		SELECT state
+		FROM alter_order_category
+		WHERE id = #{orderCategoryId}
+	</select>
 	
 </mapper>

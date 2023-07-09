@@ -13,6 +13,7 @@ public class Criteria {
   private String[] typeArr; // 검색 타입 배열 변환
   
   private Integer alterId; // 댓글 조회할때 필요함
+  private Integer userId;
 
   public Criteria() {
     // 기본값 설정
@@ -21,7 +22,14 @@ public class Criteria {
     this.startOffset = 0; // (pageNum-1)*amount
   }
 
-  
+  public Integer getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
+
   public Integer getAlterId() {
     return alterId;
   }
@@ -85,7 +93,7 @@ public class Criteria {
   public String toString() {
     return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", startOffset=" + startOffset
         + ", keyword=" + keyword + ", type=" + type + ", typeArr=" + Arrays.toString(typeArr)
-        + ", alterId=" + alterId + "]";
+        + ", alterId=" + alterId + ", userId=" + userId + "]";
   }
-  
+
 }

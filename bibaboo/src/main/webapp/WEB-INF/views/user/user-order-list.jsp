@@ -63,7 +63,8 @@
 	
 	<div class="page-info">
 	
-		<form id="moveForm" method="get" >
+		<form class="moveForm" method="get" >
+			<input type="hidden" name="userId" value="${orderListAndPageDTO.orderDTOList[0].userId}">
 			<input type="hidden" name="pageNum" value="${orderListAndPageDTO.pageDTO.criteria.pageNum}">
 			<input type="hidden" name="amount" value="${orderListAndPageDTO.pageDTO.criteria.amount}">
 			<%-- <input type="hidden" name="keyword" value="${alterationsWithPagingDTO.pageDTO.criteria.keyword}"> --%>
@@ -91,4 +92,5 @@
 	
 </div>
 
+<script src="/bibaboo/js/user/user-order-list.js"></script>
 	

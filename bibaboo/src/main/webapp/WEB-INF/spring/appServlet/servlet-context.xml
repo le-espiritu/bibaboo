@@ -69,6 +69,11 @@
 			<mapping path="/owner/owner-page/order-list"/>
 			<beans:bean class="com.project.bibaboo.global.interceptor.IsAlterInfoAddedInterceptor"/>
 		</interceptor>
+		
+		<interceptor>
+			<mapping path="/user/mypage/review-writer-page"/>
+			<beans:bean class="com.project.bibaboo.global.interceptor.ReviewWriterPageInterceptor"/>
+		</interceptor>
 	</interceptors>
 	
 	<sec:global-method-security pre-post-annotations="enabled" secured-annotations="enabled"/>

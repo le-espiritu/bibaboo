@@ -7,14 +7,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import com.project.bibaboo.domain.alterations.exception.AlterationsDuplicatedException;
 import com.project.bibaboo.domain.cart.exception.CategoryAlreadyExistInCartException;
+import com.project.bibaboo.domain.order.exception.OrderStateIsNotCompletedException;
 import com.project.bibaboo.domain.review.exception.ReviewDuplicatedException;
 import com.project.bibaboo.domain.user.exception.AlterInfoIsNullException;
 
 @ControllerAdvice
 public class ExceptionAdvice {
   private static final Logger logger = LoggerFactory.getLogger(ExceptionAdvice.class);
+  
+  //500번 예외 전체에 대한 처리
+  @ExceptionHandler(Exception.class)
+  public String exception(Exception e) {
+    logger.error("Exception... : {}",e.getMessage());
+    
+    return"error/500-custom";
+  }
   
   @ExceptionHandler(CategoryAlreadyExistInCartException.class)
   public ResponseEntity<Object> handleDuplicatedCategory(CategoryAlreadyExistInCartException e){
@@ -56,5 +66,13 @@ public class ExceptionAdvice {
     logger.error("AlterInfoIsNullException 익셉션 핸들러 호출");
     
     return"error/no-alter-info";
+  }
+  
+  @ExceptionHandler(OrderStateIsNotCompletedException.class)
+  @ResponseStatus(HttpStatus.FORBIDDEN)
+  public String handleOrderStateException(OrderStateIsNotCompletedException e) {
+    logger.error("OrderStateIsNotCompletedException : {}",e.getMessage());
+    
+    return"error/can-not-write-review";
   }
 }

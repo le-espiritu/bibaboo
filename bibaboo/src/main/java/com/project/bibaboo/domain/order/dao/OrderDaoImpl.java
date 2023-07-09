@@ -76,4 +76,9 @@ public class OrderDaoImpl implements OrderDao {
     return sqlSession.update("order.updateOrderCategoryState", orderCategoryStateDTO);
   }
 
+  @Override
+  public String orderCategoryStateCheckForReview(int orderCategoryId) {
+    return sqlSession.selectOne("order.orderCategoryStateCheckForReview",orderCategoryId);
+  }
+
 }

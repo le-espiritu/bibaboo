@@ -21,4 +21,5 @@ public interface OrderDao {
   public List<OrderCategoryDTO> getCategoriesAndUserInfoByAlterId (Criteria criteria);
   public int countOrderCategoriesByAlterId(Criteria criteria);
   public int updateOrderCategoryState(OrderCategoryStateDTO orderCategoryStateDTO);
+  public String orderCategoryStateCheckForReview(int orderCategoryId);
 }

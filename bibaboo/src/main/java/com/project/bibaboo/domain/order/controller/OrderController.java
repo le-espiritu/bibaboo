@@ -62,12 +62,14 @@ public class OrderController {
 
   @DeleteMapping
   public String orderCancle(OrderCancleDTO orderCancleDTO) {
+    System.out.println(orderCancleDTO);
+    
     orderService.orderCancle(orderCancleDTO);
     
     //권한에 따라 return 달리 하기
-    return "redirect:/users/" + orderCancleDTO.getUserId() + "/mypage/order-list?keyword="
-        + orderCancleDTO.getKeyword() + "&amount=" + orderCancleDTO.getAmount() + "&pageNum="
-        + orderCancleDTO.getPageNum();
+    return "redirect:/user/mypage/order-list?userId="+orderCancleDTO.getUserId();
+        /*+ orderCancleDTO.getKeyword() + "&amount=" + orderCancleDTO.getAmount() + "&pageNum="
+        + orderCancleDTO.getPageNum();*/
   }
   
   @PutMapping("/state")
