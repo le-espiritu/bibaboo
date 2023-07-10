@@ -3,10 +3,20 @@ package com.project.bibaboo.domain.order.dto;
 public class OrderCancleDTO {
   private Integer userId;
   private int orderId;
+  
+  private Integer orderCategoryId;
+  
+  //redirect할때 사용될 paging 정보
   private String keyword;
   private int amount;
   private int pageNum;
   
+  public Integer getOrderCategoryId() {
+    return orderCategoryId;
+  }
+  public void setOrderCategoryId(Integer orderCategoryId) {
+    this.orderCategoryId = orderCategoryId;
+  }
   public Integer getUserId() {
     return userId;
   }
@@ -40,8 +50,9 @@ public class OrderCancleDTO {
   
   @Override
   public String toString() {
-    return "OrderCancleDTO [userId=" + userId + ", orderId=" + orderId + ", keyword=" + keyword
-        + ", amount=" + amount + ", pageNum=" + pageNum + "]";
+    return "OrderCancleDTO [userId=" + userId + ", orderId=" + orderId + ", orderCategoryId="
+        + orderCategoryId + ", keyword=" + keyword + ", amount=" + amount + ", pageNum=" + pageNum
+        + "]";
   }
   
 }

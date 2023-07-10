@@ -35,14 +35,11 @@
 						<td>${orderCategory.totalPrice}</td>
 						<td>${orderCategory.state}</td>
 						<td>
-							<form action="/bibaboo/order" method="post">
+							<form action="/bibaboo/order/ordercategory" method="post">
 								<input type="hidden" name="_method" value ="delete"/>
-								<input type="hidden" name="userId" value="${orderDTO.userId}"/>
-								<input type="hidden" name="orderId" value="${orderDTO.id}" />
-								<input type="hidden" name="keyword" value="${orderListAndPageDTO.pageDTO.criteria.keyword}"/>
-								<input type="hidden" name="amount" value="${orderListAndPageDTO.pageDTO.criteria.amount}"/>
-								<input type="hidden" name="pageNum" value="${orderListAndPageDTO.pageDTO.criteria.pageNum}"/>
-								<button onclick="return confirm('정말로 주문 취소 하시겠습니까?')">주문 취소</button>
+								<input type="hidden" name="orderId" value="${orderCategory.orderId}" />
+								<input type="hidden" name="orderCategoryId" value="${orderCategory.orderCategoryId}"/>
+ 								<button onclick="return confirm('정말로 주문 취소 하시겠습니까?')">주문 취소</button>
 							</form>
 						</td>
 						<td>

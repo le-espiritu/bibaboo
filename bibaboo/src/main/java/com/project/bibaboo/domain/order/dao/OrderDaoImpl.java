@@ -55,6 +55,11 @@ public class OrderDaoImpl implements OrderDao {
   public int orderCategoryCancle(OrderCancleDTO orderCancleDTO) {
     return sqlSession.update("order.orderCategoryCancle",orderCancleDTO);
   }
+  
+  @Override
+  public int cancleByOrderCategoryId(OrderCancleDTO orderCancleDTO) {
+    return sqlSession.update("order.cancleByOrderCategoryId", orderCancleDTO);
+  }
 
   @Override
   public List<OrderCategoryDTO> getOrderCategories(int orderId) {

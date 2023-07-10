@@ -127,6 +127,12 @@
 		WHERE order_id = #{orderId}
 	</update>
 	
+	<update id="cancleByOrderCategoryId">
+		UPDATE alter_order_category
+		SET state = '주문취소'
+		WHERE id = #{orderCategoryId}
+	</update>
+	
 	<update id="updateOrderCategoryState">
 		UPDATE alter_order_category
 		SET state = #{state}

@@ -62,7 +62,6 @@ public class OrderController {
 
   @DeleteMapping
   public String orderCancle(OrderCancleDTO orderCancleDTO) {
-    System.out.println(orderCancleDTO);
     
     orderService.orderCancle(orderCancleDTO);
     
@@ -70,6 +69,13 @@ public class OrderController {
     return "redirect:/user/mypage/order-list?userId="+orderCancleDTO.getUserId();
         /*+ orderCancleDTO.getKeyword() + "&amount=" + orderCancleDTO.getAmount() + "&pageNum="
         + orderCancleDTO.getPageNum();*/
+  }
+  
+  @DeleteMapping("/ordercategory")
+  public String orderCategoryCancle(OrderCancleDTO orderCancleDTO) {
+    orderService.cancleByOrderCategoryId(orderCancleDTO);
+    
+    return "redirect:/user/mypage/order-list/"+orderCancleDTO.getOrderId();
   }
   
   @PutMapping("/state")

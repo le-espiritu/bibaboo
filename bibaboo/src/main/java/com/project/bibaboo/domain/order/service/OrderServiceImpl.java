@@ -94,6 +94,11 @@ public class OrderServiceImpl implements OrderService {
     orderDao.orderCancle(orderCancleDTO);
     orderDao.orderCategoryCancle(orderCancleDTO);
   }
+  
+  @Override
+  public void cancleByOrderCategoryId(OrderCancleDTO orderCancleDTO) {
+    orderDao.cancleByOrderCategoryId(orderCancleDTO);
+  }
 
   @Override
   public List<OrderCategoryDTO> getOrderCategories(int orderId) {
