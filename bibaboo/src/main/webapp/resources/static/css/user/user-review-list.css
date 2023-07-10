@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+.title-card > p{
+	font-size: 25px;
+	font-weight : bold;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.card, .title-card{
+	width: 98%;
+	padding: 30px 50px;
+	margin-left:2%;
+	
+	border: 2px solid #d1d1d1;
+	
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	 -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	
+	overflow:auto;
+}
+
+.card{
+	margin-top: 2%;
+}
+
+.search-section{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 1.5%;
+}
+
+.search-section > div >select,input,button{
+	height: 30px;
+}
+
+
+.review > table{
+	width:100%;
+	border-collapse : collapse ;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+.review > table >thead{
+	background-color: #eee;
+}
+
+
+.review > table >thead>tr>th{
+	padding : 1% 0px;
+}
+
+
+.review > table > tbody> tr{
+	border-top: 2px solid gray;
+}
+
+.review > table > tbody> tr >td{
+	padding : 2% 0;
+	text-align: center;
+}
+
+.review > table > tbody> tr >td:nth-child(1){
+	width:15%;
+}
+.review > table > tbody> tr >td:nth-child(2){
+	width:10%;
+}
+.review > table > tbody> tr >td:nth-child(3){
+	width:10%;
+}
+.review > table > tbody> tr >td:nth-child(4){
+	width:45%;
+	text-align: left;
+}
+.review > table > tbody> tr >td:nth-child(5){
+	width:20%;
+}
+
+.review-photo-div > img{
+	width: 40%;
+	margin-right: 3%;
+}
+
+
+.page-info {
+	margin-top:20px;
+	text-align: center;
+}
+
+.page-info > ul{
+	list-style : none;
+	display: inline-block;
+}
+
+.page-info > ul >li {
+	float: left;
+	padding : 7px;
+	font-size: 20px;
+}
+
+.active{
+	background-color: #cdd5ec;
+}

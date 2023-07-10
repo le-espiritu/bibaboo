@@ -73,7 +73,7 @@ public class AlterationsServiceImpl implements AlterationsService {
     alterAndReviews.setAlterationsDTO(alterationsDTO);
     alterAndReviews.setReviewList(reviewList);
     
-    PageDTO pageDTO = new PageDTO(criteria,reviewDao.getReviewTotal(criteria.getAlterId()));
+    PageDTO pageDTO = new PageDTO(criteria,reviewDao.getReviewTotal(criteria));
     alterAndReviews.setPageDTO(pageDTO);
 
     return alterAndReviews;

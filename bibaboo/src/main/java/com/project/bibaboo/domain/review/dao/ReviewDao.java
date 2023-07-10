@@ -10,7 +10,7 @@ public interface ReviewDao {
   public int updateAvgScore(ReviewDTO reviewDTO);
   public int updateCategoryAvgScore(ReviewDTO reviewDTO);
   public List<ReviewDTO> getReviewList(Criteria criteria);
-  public int getReviewTotal(int alterId);
+  public int getReviewTotal(Criteria criteria);
   public int insertPhotoNameList(ReviewDTO reviewDTO);
   public List<ReviewPhotoDTO> getReviewPhoto(int reviewId);
   public boolean reviewExistsCheck(ReviewDTO reviewDTO);

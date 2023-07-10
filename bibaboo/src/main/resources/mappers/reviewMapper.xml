@@ -28,13 +28,20 @@
 	</update>
 	
 	<select id="getReview" resultType="com.project.bibaboo.domain.review.dto.ReviewDTO">
-		SELECT r.id, r.user_id, u.email as userEmail, r.order_category_id, r.alter_id, c.name as categoryName, c.id as categoryId, r.content, r.score, r.create_date 
+		SELECT r.id, r.user_id, u.email as userEmail, r.order_category_id, r.alter_id, c.name as categoryName, c.id as categoryId, r.content, r.score, r.create_date , a.name as alterName
 		FROM review r
 		JOIN category c
 		ON r.category_id = c.id
 		JOIN user u
 		ON r.user_id = u.id
-		WHERE r.alter_id = #{alterId}
+		JOIN alterations a
+		ON r.alter_id = a.id
+		<if test="alterId != null">
+			WHERE r.alter_id = #{alterId}
+		</if>
+		<if test="alterId == null">
+			WHERE r.user_id = #{userId}
+		</if>
 		AND r.enable =1
 		ORDER BY r.create_date DESC
 		LIMIT #{startOffset},#{amount}
@@ -43,7 +50,12 @@
 	<select id="getReviewTotal" resultType="int">
 		SELECT COUNT(*)
 		FROM review
-		WHERE alter_id = #{alterId}
+		<if test="alterId != null">
+			WHERE alter_id = #{alterId}
+		</if>
+		<if test="alterId == null">
+			WHERE user_id = #{userId}
+		</if>
 		AND enable =1
 	</select>
 	

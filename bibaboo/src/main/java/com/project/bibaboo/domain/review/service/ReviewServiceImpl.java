@@ -88,7 +88,7 @@ public class ReviewServiceImpl implements ReviewService {
     ReviewPageDTO reviewPageDTO = new ReviewPageDTO();
     reviewPageDTO.setReviewList(reviewList);
     
-    PageDTO pageDTO = new PageDTO(criteria,reviewDao.getReviewTotal(criteria.getAlterId()));
+    PageDTO pageDTO = new PageDTO(criteria,reviewDao.getReviewTotal(criteria));
     reviewPageDTO.setPageDTO(pageDTO);
     
     return reviewPageDTO;

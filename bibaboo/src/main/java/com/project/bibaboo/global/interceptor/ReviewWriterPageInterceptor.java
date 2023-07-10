@@ -22,7 +22,11 @@ public class ReviewWriterPageInterceptor extends HandlerInterceptorAdapter {
     logger.info("prehandle = {}를 호출했습니다.", handler);
     String orCaId = request.getParameter("orderCategoryId");
     int orderCategoryId = Integer.parseInt(orCaId);
+    logger.info("orderCategoryId parameter : {}",orderCategoryId);
+    
     String orderState = orderService.orderCategoryStateCheckForReview(orderCategoryId);
+    
+    logger.info("orderState : {}", orderState);
     
     if(!orderState.equals("수선완료")) {
       throw new OrderStateIsNotCompletedException("수선완료 상태에서 리뷰를 작성할 수 있습니다. 주문 상태가 수선완료가 아닙니다.");

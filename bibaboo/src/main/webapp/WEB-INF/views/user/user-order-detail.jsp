@@ -18,6 +18,7 @@
 			<thead>
 				<tr>
 					<th>수선집 상호</th>
+					<th>no</th>
 					<th>수선 품목</th>
 					<th>개수</th>
 					<th>결제 금액</th>
@@ -30,6 +31,7 @@
 				<c:forEach items="${orderCategoryList}" var="orderCategory">
 					<tr>
 						<td>${orderCategory.alterName}</td>
+						<td>${orderCategory.orderCategoryId }</td>
 						<td>${orderCategory.categoryName}</td>
 						<td>${orderCategory.count}</td>
 						<td>${orderCategory.totalPrice}</td>

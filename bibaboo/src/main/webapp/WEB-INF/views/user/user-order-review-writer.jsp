@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+ 
 <div class="title-card">
 	<p>수선 후기 작성</p>
 </div>
@@ -19,7 +20,7 @@
 		
 		<form action="/bibaboo/review" method="post" enctype="multipart/form-data">
 		<!-- 파일 업로드를 위해 반드시 enctype="multipart/form-data" 적어줘야함 -->
-			<input type="hidden" name="userId" value="1"/> <!-- 이후 수정!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
+			<input type="hidden" name="userId" value="<sec:authentication property='principal.user.id'/>"/> <!-- 이후 수정!!!!!!!!!!!!!!!!!!!!!!!!!1 -->
 			<input type="hidden" name="alterId" value="${orderCategoryDTO.alterId}"/>
 			<input type="hidden" name="categoryId" value="${orderCategoryDTO.categoryId}"/>
 			<input type="hidden" name="orderCategoryId" value="${orderCategoryDTO.orderCategoryId}"/>

@@ -67,8 +67,8 @@ public class ReviewDaoImpl implements ReviewDao{
   }
 
   @Override
-  public int getReviewTotal(int alterId) {
-    return sqlSession.selectOne("review.getReviewTotal", alterId);
+  public int getReviewTotal(Criteria criteria) {
+    return sqlSession.selectOne("review.getReviewTotal", criteria);
   }
 
 }

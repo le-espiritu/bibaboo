@@ -16,5 +16,7 @@
 		<br>
 		<p><a href="/bibaboo/user/mypage/order-list?userId=<sec:authentication property="principal.user.id"/>">주문 내역</a></p>
 		<br>
+		<p><a href="/bibaboo/user/mypage/review?userId=<sec:authentication property="principal.user.id"/>">내 리뷰 관리</a></p>
+		<br>
 	</div>
 </aside>

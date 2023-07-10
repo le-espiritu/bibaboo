@@ -4,17 +4,17 @@ import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.project.bibaboo.domain.order.dto.OrderCategoryDTO;
 import com.project.bibaboo.domain.order.dto.OrderListAndPageDTO;
 import com.project.bibaboo.domain.order.service.OrderService;
+import com.project.bibaboo.domain.review.dto.ReviewPageDTO;
+import com.project.bibaboo.domain.review.service.ReviewService;
 import com.project.bibaboo.domain.user.dto.UserDTO;
 import com.project.bibaboo.domain.user.service.UserService;
 import com.project.bibaboo.global.common.dto.Criteria;
@@ -25,11 +25,13 @@ public class UserMypageController {
 
   UserService userService;
   OrderService orderService;
+  ReviewService reviewService;
 
   @Autowired
-  public UserMypageController(OrderService orderService, UserService userService) {
+  public UserMypageController(OrderService orderService, UserService userService, ReviewService reviewService) {
     this.orderService = orderService;
     this.userService = userService;
+    this.reviewService = reviewService;
   }
 
   @GetMapping
@@ -78,6 +80,18 @@ public class UserMypageController {
     ModelAndView mv = new ModelAndView();
     mv.addObject("orderCategoryDTO", orderCategoryDTO);
     mv.setViewName("user/user-order-review-writer");
+    
+    return mv;
+  }
+  
+  @GetMapping("/review")
+  public ModelAndView getMyReviews(Criteria criteria) {
+    
+    ReviewPageDTO reviewPageDTO = reviewService.getReviewsAndPage(criteria);
+    
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("reviewPageDTO", reviewPageDTO);
+    mv.setViewName("user/user-review-list");
     
     return mv;
   }

@@ -24,7 +24,7 @@ function reviewCheck(){
 			let xhr = new XMLHttpRequest();
 			xhr.addEventListener("load",function(){
 				if(xhr.status == 200){
-					let writeReviewForm = document.querySelector(".write-review-form");
+					let writeReviewForm = element.parentElement;
 					writeReviewForm.submit();
 				}
 				

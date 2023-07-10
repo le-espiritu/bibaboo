@@ -19,12 +19,12 @@ public class ExceptionAdvice {
   private static final Logger logger = LoggerFactory.getLogger(ExceptionAdvice.class);
   
   //500번 예외 전체에 대한 처리
-  @ExceptionHandler(Exception.class)
-  public String exception(Exception e) {
-    logger.error("Exception... : {}",e.getMessage());
-    
-    return"error/500-custom";
-  }
+//  @ExceptionHandler(Exception.class)
+//  public String exception(Exception e) {
+//    logger.error("Exception... : {}",e.getMessage());
+//    
+//    return"error/500-custom";
+//  }
   
   @ExceptionHandler(CategoryAlreadyExistInCartException.class)
   public ResponseEntity<Object> handleDuplicatedCategory(CategoryAlreadyExistInCartException e){

@@ -47,7 +47,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
     customUserDetails.setAuthorities(authorities);
     
-    customUserDetails.setEnabled(true);
+    if((customUser.getEnable())==1) {
+      customUserDetails.setEnabled(true);
+    }else {
+      customUserDetails.setEnabled(false);
+    }
+    
     customUserDetails.setAccountNonExpired(true);
     customUserDetails.setAccountNonLocked(true);
     customUserDetails.setCredentialsNonExpired(true);

@@ -25,8 +25,17 @@ public class ReviewDTO {
 
   private List<MultipartFile> files;
   private String categoryName;
+  private String alterName;
   private List<ReviewPhotoDTO> reviewPhotos;
   private int previousScore;
+
+  public String getAlterName() {
+    return alterName;
+  }
+
+  public void setAlterName(String alterName) {
+    this.alterName = alterName;
+  }
 
   public String getUserEmail() {
     return userEmail;
@@ -146,7 +155,8 @@ public class ReviewDTO {
         + ", orderCategoryId=" + orderCategoryId + ", alterId=" + alterId + ", categoryId="
         + categoryId + ", content=" + content + ", score=" + score + ", enable=" + enable
         + ", createDate=" + createDate + ", files=" + files + ", categoryName=" + categoryName
-        + ", reviewPhotos=" + reviewPhotos + ", previousScore=" + previousScore + "]";
+        + ", alterName=" + alterName + ", reviewPhotos=" + reviewPhotos + ", previousScore="
+        + previousScore + "]";
   }
 
 }
