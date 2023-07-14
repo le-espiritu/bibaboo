@@ -1,6 +1,6 @@
 # bibaboo
 
-![bibabooForGif](https://github.com/le-espiritu/BBS_Project/assets/88477839/bc7b7791-7a4e-4a0e-b655-917f79ce66e2)
+![ezgif com-crop](https://github.com/le-espiritu/BBS_Project/assets/88477839/93600112-9dc3-4d50-89b3-c7256abe886e)
 
 
 
