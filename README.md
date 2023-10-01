@@ -12,6 +12,17 @@
 
 
 
+### 시연 영상
+
++ **일반 유저 사용 시연 영상**
+  + https://youtu.be/jL6sUok_MCw
++ **사장님 유저 사용 시연 영상**
+  + https://youtu.be/r1Z_3knh9Ok
++ **관리자 사용 시연 영상**
+  + https://youtu.be/Huag-gGvEkY
+
+
+
 ### 기술 스택
 
 |  언어   |                            백엔드                            |      프론트엔드       |     서버      |  DB   |
